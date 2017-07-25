@@ -1,0 +1,17 @@
+\startenvironment env_UserToDev
+\enableregime [utf]
+\mainlanguage [en]
+\setuppapersize[A5][A5]
+\setupexternalfigures[directory={../img, /data/images/}]
+\usemodule[simplefonts]
+\setmainfont[Adventor][expansion=quality,protrusion=quality]
+\setupcolors[state=start]
+\definecolor[faimsblue][ c=1, m=.91, y=.03, k=.02]
+
+\setuplayout[location=middle,backspace=.1\pagewidth,  height=.9\pageheight, width=.8\pagewidth, topspace=.025\pageheight, header=.05\pageheight, footer=.05\pageheight, bottomspace=.025\pageheight]
+\setuppagenumbering [alternative=doublesided]
+
+\setuphead[title][aligntitle=float, page=no]
+\setupheads[aligntitle=float, page=no]
+\setupwhitespace[big]
+\stopenvironment

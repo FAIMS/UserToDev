@@ -1,0 +1,1278 @@
+\startcomponent[CodingModules]
+\starttext
+
+\subsection[coding-modules]{Coding Modules}
+
+For this tutorial, we'll work together and create a simple FAIMS module. For illustrative purposes, we're going to recreate a module already available from the FAIMS demo server--the "Oral History" module.
+
+We're going to start by showing you how to make a basic version of the module. Then, after you've made a fully functioning but simple version, we'll teach you had to add complexity and functionality by modifying the necessary files.
+
+Introduction to Module.xml
+
+Earlier sections introduced the basic necessary files of a module:
+
+\startitemize[n][stopper=.]
+\item
+  \startblockquote
+  a Data Definition Schema (data_schema.xml).
+  \stopblockquote
+\item
+  \startblockquote
+  a User Interface Schema (ui_schema.xml)
+  \stopblockquote
+\item
+  \startblockquote
+  a User Interface Logic file (ui_logic.bsh)
+  \stopblockquote
+\item
+  \startblockquote
+  a Translation (Arch16n) file (faims.properties)
+  \stopblockquote
+\item
+  \startblockquote
+  A server-side validation file (validation.xml)
+  \stopblockquote
+\item
+  \startblockquote
+  CSS Files for styling the modules (ui_??)
+  \stopblockquote
+\stopitemize
+
+You've already learned that you don't have to design and code all of these files from scratch. Instead, you'll create one file that serves as a set of instructions for the FAIMS Tools to create the necessary files for you. That one file is called module.xml.
+
+As long as you can correctly design module.xml with a text editor and use it with the FAIMS Tools, you'll be able to make any simple module you'd like. Then, if you want to add more complex functionality to your module, you can go into the freshly-created necessary files and make whatever tweaks are necessary with your text editor.
+
+\subsubsubsection[the-module-creation-process]{The Module Creation Process}
+
+Before getting into the nitty-gritty specifics of how to structure module.xml, it's useful to review what the overall process of creating a module will look like. Below is an overview of the steps you'll follow.
+
+Back on your Ubuntu install in the virtual machine, open up a Terminal window using the Ubuntu Dash program. You can read how here: \useURL[url20][https://help.ubuntu.com/community/UsingTheTerminal\#In_Unity][][{\em https://help.ubuntu.com/community/UsingTheTerminal\#In_Unity}]\from[url20].
+
+The Terminal is Ubuntu's command line tool that we'll use to navigate the file system and run commands and programs, so this is probably a good time to make sure you're acquainted with it before proceeding.
+
+{\externalfigure[media/image31.png][width=6.50000in,height=5.55556in]}
+
+Start your chosen text editor and open the "module.xml" file. If you're using the text editor we recommended forthe virtual machine, you can simply get it from the directory where you installed the FAIMS-Tools (usually FAIMS-Tools/generators/christian/module.xml). If you're using a text editor on your main machine, you'll need to export module.xml outside the virtual machine and work from there.
+
+Duplicate the module.xml file and rename it "moduleTemplate.xml." The version you're going to feed into the tools is always going to be named "module.xml," so it's important that you don't save over your only template file--you're going to want to have one lying around the next time you want to make a module. Now you can edit module.xml to do whatever you want.
+
+Once you've finished editing and troubleshooting (which we'll get into in the next section), the instructions are complete and you're ready to generate your module. From the same directory as module.xml, run the command do so (below) from the command line terminal. If you don't want to type the rest of a thing, hit tab and the terminal will try to guess. The following can be typed as cd \lettertilde{}/F<tab>g<tab>c<tab>m<tab>):
+
+{\em cd \lettertilde{}/FAIMS-Tools/generators/christian}
+
+{\em ./generate.sh}
+
+The "./generate.sh" command will look through "module.xml" and create the necessary files that the FAIMS server needs to create a module.
+
+Navigate to the newly created "module" folder and you'll see that the script created 6 new files. That wasn't so hard, was it?
+
+{\externalfigure[media/image106.png][width=7.26042in,height=3.17708in]}
+
+In the web browser, on your Ubuntu installation, open up the FAIMS server and select the "Modules" tab. On the "Modules" tab, click on the "Create Module" button.
+
+{\externalfigure[media/image94.png][width=6.50000in,height=2.01255in]}
+
+In a web browser, load up the web interface for the FAIMS server and log in.
+
+The "Create Module" page offers a number of fields that allow you to describe the module name (required), version, year, description, author, and more. Give your module the name "Simple Sample Module". On the right hand side of the screen are several boxes with file upload buttons (marked "browse"). For each of these boxes, click "browse" and attach the module necessary files you just created. Once again, the files for each box are:
+
+\startitemize[n][stopper=.]
+\item
+  \startblockquote
+  Data Schema: data_schema.xml
+  \stopblockquote
+\item
+  \startblockquote
+  UI Schema: ui_schema.xml
+  \stopblockquote
+\item
+  \startblockquote
+  Validation Schema: validation.xml
+  \stopblockquote
+\item
+  \startblockquote
+  UI Logic: ui_logic.bsh
+  \stopblockquote
+\item
+  \startblockquote
+  Arch16n (optional, since it's only useful if you designed your module to support interchangeable terms, but it can be ugly if you leave it out): arch16n.properties or english.0.properties
+  \stopblockquote
+\item
+  \startblockquote
+  CSS (optional, but recommended): ui_styling.css
+  \stopblockquote
+\stopitemize
+
+{\externalfigure[media/image83.png][width=6.51718in,height=3.37096in]}
+
+Click the "Submit" button at the bottom of the page to have the FAIMS Server compile your module.
+
+{\externalfigure[media/image37.png][width=6.50000in,height=3.34722in]}
+
+Once the server creates the module, you'll be directed back to the main "Module" tab.
+
+{\externalfigure[media/image33.png][width=6.50000in,height=1.29380in]}
+
+If you click on the module name, you'll see a screen where you can manage the module, including editing the module metadata, schemas, add user accounts, and downloading or exporting your module. You may also browse any records uploaded from mobile devices using the "Module Details" area and "Search Entity Records" button. Near the bottom of the page, you can delete the module. For more information on deploying or deleting modules from the server, see FAIMS Handout 103 here: \useURL[url21][https://www.fedarch.org/resources/handouts.pdf][][{\em https://www.fedarch.org/resources/handouts.pdf}]\from[url21]
+
+Now, open up the FAIMS mobile app on your Android device. Click on the three vertical dots in the upper right to open the "Settings" menu. {\bf *Note: Some Samsung devices may show the menu differently, such as the Samsung S III. A Nexus 7 tablet shows it in the lower left corner.} In the Setting menu, you'll see the option to select a specific FAIMS server to connect to. By default, this is set to the FAIMS Demo server in Sydney, Australia. Click on the dropdown and you'll see that you can set the server address manually (through the "New Server" option) or, if you're connected to the same network as the server, you can use the "Auto Discover Server" to expedite the server setup. We'll assume that your Android device is currently on the same wifi network as your server, so choose "Auto Discover Server" and then hit the "Connect" button. If auto-detection does not see your server, you may also select "New Server" from the dropdown list and enter the IP address manually. The IP address is visible in the address bar of your internet browser when you are connected to the FAIMS server and will look similar to "192.168.1.133". Often, the default port of 80 will work.
+
+{\externalfigure[media/image85.png][width=3.33939in,height=4.45526in]}{\externalfigure[media/image35.png][width=3.77353in,height=6.71354in]}
+
+After a few seconds to a minute, the FAIMS app will find your server. Once connected, you will see a list of modules available to use, either locally on your device (designated by a blue phone icon) and those available for download from the server (designated by a black server icon). Once you have downloaded a module, it will show both icons so long as you are still connected to a server that also has the module.
+
+{\externalfigure[media/image8.png][width=2.57266in,height=2.99692in]}
+
+Tap on the item "Simple Sample Module" from the list, which is the one we just uploaded to the server, and the FAIMS app will copy it to your device. A sidebar with the module metadata will appear. You can browse that quickly, and then tap the "Load Module" button.
+
+{\externalfigure[media/image39.png][width=2.31927in,height=2.16910in]}
+
+Once the module has loaded, you'll be presented with the first tab group of the module, in this case, a user login screen. User logins allow FAIMS to track which users are responsible for which changes. As any archaeologist who has had to decipher and track down which initials belonged to the field worker who sloppily wrote them on a level sheet or artifact bag can tell you, automatically attaching user names to record can make life much easier when going through field collections and forms back at the office or lab. You can add more users via the FAIMS server by selecting the module and clicking the "Edit Users" button.
+
+{\externalfigure[media/image92.png][width=2.13991in,height=2.25308in]}
+
+{\externalfigure[media/image107.png][width=5.10086in,height=2.52912in]}
+
+\subsubsubsection[and-there-you-have-it.-thats-essentially-what-making-a-module-with-a-module.xml-file-will-look-like.]{And there you have it. That's essentially what making a module with a module.xml file will look like.}
+
+\subsubsubsection[of-course-as-youve-probably-realized-the-part-we-glossed-over--designing-and-troubleshooting-module.xml--was-also-the-tricky-part.-fortunately-its-not-that-tricky-after-all.]{Of course, as you've probably realized, the part we glossed over--designing and troubleshooting module.xml--was also the tricky part. Fortunately, it's not that tricky after all. }
+
+\subsubsubsection[lets-learn-how-to-code-a-module.]{Let's learn how to code a module.}
+
+\subsubsubsection[understanding-the-structure-of-xml-documents]{Understanding The Structure of XML Documents}
+
+This section will gradually introduce you to what XML code looks like, how it works, and how you can make it do what you want it to. If you're not used to code, relax and take this section slowly.
+
+From the file module.xml, consider the following section of code.
+
+<User f="nodata">
+
+<User>
+
+<Select_User t="dropdown" f="user" />
+
+<Login t="button" l="Control" />
+
+</User>
+
+</User>
+
+Notice how everything that's written is put inside angle brackets like these <>? The brackets are like a kind of punctuation that lets the computer separate and organize instructions. The bracketed text is called a {\em tag}, and information contained by tags are called {\em elements}*{\em .}
+
+*Remember when we talked about archaeological and relationship elements? Now may be a good time to review.
+
+Usually, elements are defined by two tags: the {\em opening tag}, and the {\em closing tag.} Opening tags signify that a new element is beginning. Creating an opening tag instructs that computer that everything that follows until the closing tag (which will be the same as the opening tag, but begin with a / ) is part of that element. For example, the tag <User> states that everything until the closing tag, </User>, is part of the element {\em User} being outlined{\em . }
+
+You may notice that there's two "</User>" tags above. You can probably guess from the way the code snippet is indented that the very last </User> closing tag corresponds to the very first tag, <User f="nodata">. But when writing your own code, it's important to understand: how does the computer decide which closing tag belongs to which opening tag?
+
+Remember that opening and closing tags are used to show that elements are contained within one another. That's the key word to keep in mind: {\em contained}. Something can't be "contained" unless it has a beginning and an end. For that reason, if a closing tag could match with multiple opening tags in use, the computer always assume it closes the most recent one.
+
+You may have noticed that the above code snippet contains two tags which don't fall into either the "opening tag" or "closing tag" categories:
+
+<Select_User t="dropdown" f="user"/>
+
+<Login t="button" l="Control"/>
+
+These are known as {\em empty-element tags}. Sometimes, an element is complete with only a single instruction. In these cases, it isn't really necessary to have both an opening and a closing tag, as there's nothing to put in between them. The above tags are really just shorthand for the following:
+
+<Select_User t="dropdown" f="user">
+
+</Select_User>
+
+<Login t="button" l="Control"/>
+
+</Login>
+
+Empty-element tags are given their name as they denote elements which do not contain any other elements.
+
+\subsubsubsection[understanding-the-faims-xml-format]{Understanding The {\em FAIMS} XML Format}
+
+Like an XML file, FAIMS modules are hierarchically structured. All {\bf GUI elements} such as buttons, text fields and dropdown menus appear inside of {\bf tabs}. Consider for a moment the module in the image shown below, left. (This is not the simple module we uploaded a moment ago.) The module in the image illustrates the use of {\bf GUI elements} which belong to the "Recording Form" tab. If the user were to tap on a different tab, for instance the "Interview Details" tab, they would see a different set of GUI elements belonging to that different tab.
+
+The other image (below, right) shows all the {\bf tabs} which belong to a presently displayed {\bf tab group} called "Form". Entering a different tab group would cause a different set of tabs to be displayed.
+
+{\externalfigure[media/image143.png][width=1.64493in,height=2.91974in]}{\externalfigure[media/image136.png][width=1.65480in,height=2.93016in]}
+
+Indeed, tabs are further arranged in collections called {\bf tab groups}. The below image shows two different tab groups---"Control" and "Form"---each containing their own sets of tabs.
+
+{\externalfigure[media/image118.png][width=3.35261in,height=2.91762in]}
+
+The structure of XML in the FAIMS-Tools reflects the fact that tab groups contain tabs, which contain GUI elements. In the code snippet below, notice that the <Tab_1> and <Tab_2> elements appear {\em within} the <Tab_Group> element. In fact, the XML-Tools determines that <Tab_Group> is a tab group, not by its name, but where it appears in the hierarchy of XML elements; elements which appear directly within the set of <module> tags are interpreted as tab groups\footnote{There are some caveats to this rule, but it is true in the vast majority of instances.}. Similarly, elements which appear directly within a tab group are deemed to be tabs. (In the below code snippet, these are <Tab_1> and <Tab_2>.) Furthermore, XML elements within tabs are interpreted as GUI elements.
+
+<?xml version="1.0"?>
+
+<module>
+
+<Tab_Group>
+
+<Tab_1>
+
+<Select_User t="dropdown" f="user"/>
+
+<Login t="button" l="Control"/>
+
+</Tab_1>
+
+<Tab_2>
+
+<Button t="button" />
+
+</Tab_2>
+
+</Tab_Group>
+
+</module>
+
+Now that we understand the structure of the XML which the FAIMS-Tools uses, let's explore the simple module we uploaded a moment ago to gain a more concrete understanding of how the module.xml file was translated into a FAIMS module.
+
+{\externalfigure[media/image135.png][width=2.64658in,height=2.78859in]}
+
+To create this first login screen, we used the following XML code:
+
+<User f="nodata">
+
+<User>
+
+<Select_User t="dropdown" f="user"/>
+
+<Login t="button" l="Control"/>
+
+</User>
+
+</User>
+
+The outermost set of <User> tags creates a {\bf tab group} because they appear directly within a set of <module> tags. The {\em tag name} you write is displayed in the breadcrumb navigation bar at the top of the screen. The name given is arbitrary, however, it must start with an uppercase letter.
+
+Notice that the topmost <User> tag contains the {\em attribute} "f" with an {\em attribute value} of "nodata". Including the word "nodata" in the "f" attribute's value prevents the FAIMS-Tools from generating code associated with the data schema. The practical effect of this is that inputs provided in the "User" tab group, including the "Select User" dropdown menu, are not saved to the database---the "User" tab group is not considered a saveable record and only allows people to log in.
+
+The pair of <User> tags, which are nested within the previously described set, are used to define the "User" {\bf tab}. The tag name you write is displayed in the list of tabs. As described above for tab groups, tag names of tabs must be capitalised.
+
+The <Select_User> and <Login> elements represent GUI elements. Notice the "t" attribute, which is used to denote the type of GUI element. Also note that setting t="dropdown"\footnote{{\bf Note from FAIMS programmer Christian Nassif-Haynes:} If you use t=dropdown, then it is possible for the user to avoid logging in (in error or intentionally) by selecting the null option and clicking the login button. If you want to prevent logging with the null user option (de facto avoiding the login), then you need to manually modify the ui_logic.bsh file after it's been generated or use t=list, following the guidelines below.
+
+  Lists, unlike dropdowns, do not allow null elements so using a t="list" for login, as in the code below, prevents the problem of logging in with null user..
+
+  <User f="nodata">\crlf
+  <User f="noscroll">\crlf
+  <Select_User t="list" f="user" l="Control"/>\crlf
+  </User>\crlf
+  </User>} creates a dropdown menu, while setting t="button" causes the <Login> element to represent a tappable button. Setting l="Control" on the button causes FAIMS to link to the "Control" tab group when it is tapped. In fact, the "l" attribute works not only for buttons, but many other GUI elements as well. Note carefully that the "Control" tab group linked to by the "l" attribute's value is defined further down in the module.xml file. Also note that references are case-sensitive, so writing "control" with a lower-case "c" would fail. Finally, writing f="user" causes the FAIMS-Tools to populate the menu with a list of usernames which are defined on the FAIMS server.
+
+{\externalfigure[media/image40.png][width=2.96510in,height=2.88707in]}
+
+If we choose a user ("FAIMS Admin" is our only option for now) and then tap the "Login" button, we'll be taken to a new screen or "tab group" in FAIMS, the "Control" tab group. The code to create this tab group is as follows:
+
+<Control f="nodata">
+
+<Main>
+
+<Record_Interview t="button" l="Interview"/>
+
+<GPS_Diagnostics t="gpsdiag"/>
+
+</Main>
+
+<search>
+
+Records
+
+</search>
+
+</Control>
+
+{\externalfigure[media/image110.png][width=7.48031in,height=2.95833in]}
+
+The XML in module.xml describes the different FAIMS elements and how they should appear in the module.
+
+Here we have the main "Control" tab group, which groups together two other tabs, "Main" and "Search." The <Main> element creates the first tab, and contains a button element, "Record Interview," which links to the tab "Interview," and "GPS Diagnostics" which is of the GUI element type "gpsdiag." The generator script knows to take elements having the t="gpsdiag" and replace them with their respective GUI types. In this case, "gpsdiag" is a GUI type that creates text labels and displays information about the Android device's GPS location. Right now, the "gpsdiag" element is telling us that the GPS is not initialised. Let's turn on our Android device's internal GPS antenna by tapping \useURL[url22][https://www.youtube.com/watch?v=o_eSwq1ewsU][][{\em the three vertical dots}]\from[url22] in the upper right of the screen to open the settings menu.
+
+{\externalfigure[media/image112.png][width=3.31250in,height=2.67574in]}{\externalfigure[media/image101.png][width=3.33333in,height=2.67922in]}
+
+With the GPS antenna turned on, the "gpsdiag" element now displays quite a bit more information, including the status of the GPS antenna, location in both Latitude/Longitude and Easting/Northing, and an accuracy measurement.
+
+As well as a "Main" tab, there's a "Records" tab created by the <search> element. Notice that the tab that appears in the GUI is labelled "Records" instead of the <search> element's tag name (i.e. "search"). This is because when you write text in a tab's corresponding XML element, the FAIMS-Tools takes that text as the label, overriding the default behaviour which is to take the label from the XML element's tag name.
+
+Now, if we tap on the "Records" tab, the screen will update and show several elements that FAIMS knows to include in any "search" element. Right now the search element won't do much but, once we have a few records to work with, we can search each record according to different criteria such as by term or by entity type. Notice that even though we only wrote <search> and didn't specify any GUI elements within it, the FAIMS-Tools has populated the tab group with several functioning GUI elements anyway. This is because the <search> tag has a special meaning to the FAIMS-Tools. Because it's special, the <search> tag cannot be used as anything except for a tab for searching previously saved records. However, simply changing <search> to <Search> (i.e. capitalising the tag name) causes the FAIMS-Tools to interpret it as an ordinary element and not a search tab.
+
+{\externalfigure[media/image141.png][width=3.17708in,height=2.96741in]}{\externalfigure[media/image137.png][width=3.16667in,height=2.96741in]}
+
+The Search element before and after adding a few records.
+
+Backing up one screen---at the "Main" tab---if you tap on the "Record Interview" button, you'll be taken to this screen:
+
+{\externalfigure[media/image111.png][width=2.31875in,height=3.70371in]}{\externalfigure[media/image32.png][width=2.29792in,height=3.70801in]}{\externalfigure[media/image88.png][width=2.31406in,height=3.71326in]}
+
+The code to create this long screen looks like this (the explanation of individual building blocks of this code follows after the code):
+
+<Interview>
+
+<Interview>
+
+<Title f="id notnull">
+
+<desc>This title should be a sensible title, unique to each item, briefly summarising the contents of the item, for example "Ilocano songs recorded in Burgos, Ilocos Sur, Philippines, 17 April 1993"</desc>
+
+</Title>
+
+<Description f="notnull">
+
+<desc>Description may include but is not limited to: an abstract, table of contents, reference to a graphical representation of content, or a free-text summary account of the content. {[}DCMT{]} Description may also offer an annotation, or a qualitative or evaluative comment about the resource, such as a statement about suitability for a particular application or context.</desc>
+
+</Description>
+
+<Private t="radio" f="notnull">
+
+<desc>Choose either "false", meaning that the metadata for the item should be publicly available, or "true", meaning that the metadata for the item should be hidden (perhaps because you plan to check it and edit it later).</desc>
+
+<opts>
+
+<opt>True</opt>
+
+<opt>False</opt>
+
+</opts>
+
+</Private>
+
+<Origination_Date f="notnull">
+
+<desc>Date the item was captured or created, using the format yyyy-mm-dd. If you are unsure of the day, month or decade enter the first day of the relevant period: e.g. "1970s" 1970-01-01, "2001" 2001-01-01, "February 1993" 1993-02-01. If entering a date of this type, clarify in the originationDateNarrative field. If you really did record on 1 January 2001, say so in the originationDate field.</desc>
+
+</Origination_Date>
+
+<Origination_Date_Narrative>
+
+<desc>Use this field to provide any necessary comments on the scope of the value you entered in the origination date field, e.g. "unknown date in February 1993"</desc>
+
+</Origination_Date_Narrative>
+
+<Add_Agent_Role t="button" lc="Agent_Role"/>
+
+<List_of_Agent_Roles t="dropdown" ec="Agent_Role"/>
+
+<Linguistic_Data_Type>
+
+<desc>If data are relevant to linguistics, choose one of the three basic linguistics data types. Primary text: Linguistic material which is itself the object of study; Lexicon: a systematic listing of lexical items; Language description: describes a language or some aspect(s) of a language via a systematic documentation of linguistic structures. If your data are not relevant to linguistics, leave this field blank.</desc>
+
+<opts>
+
+<opt>Lexicon</opt>.
+
+<opt>Language Description</opt>
+
+<opt>Primary Text</opt>
+
+</opts>
+
+</Linguistic_Data_Type>
+
+<Discourse_Type>
+
+<desc>Used to describe the content of a resource as representing discourse of a particular structural type. Dialogue: interactive discourse with two or more participants; drama: planned, creative, rendition of discourse involving two or more participants; formulaic: ritually or conventionally structured discourse; ludic: language whose primary function is to be part of play, or a style of speech that involves a creative manipulation of the structures of the language; oratory: public speaking, or of speaking eloquently according to rules or conventions; narrative: monologic discourse which represents temporally organized events; procedural: explanation or description of a method, process, or situation having ordered steps; report: a factual account of some event or circumstance; singing: words or sounds {[}articulated{]} in succession with musical inflections or modulations of the voice; unintelligible: utterances that are not intended to be interpretable as ordinary language.</desc>
+
+<opts>
+
+<opt>Dialogue</opt>
+
+<opt>Drama</opt>
+
+<opt>Narrative</opt>
+
+<opt>Procedural</opt>
+
+<opt>Ludic</opt>
+
+<opt>Singing</opt>
+
+<opt>Oratory</opt>
+
+<opt>Report</opt>
+
+<opt>Unintelligible speech</opt>
+
+<opt>Formulaic</opt>
+
+</opts>
+
+</Discourse_Type>
+
+<Linguistic_Subject>
+
+<desc>Use to describe the content of a resource if it is about a particular subfield of linguistic science.</desc>
+
+<opts>
+
+<opt>Phonology</opt>
+
+<opt>Text And Corpus Linguistics</opt>
+
+<opt>Historical Linguistics</opt>
+
+<opt>Language Documentation</opt>
+
+<opt>Lexicography</opt>
+
+<opt>Typology</opt>
+
+</opts>
+
+</Linguistic_Subject>
+
+<Country f="notnull">
+
+<desc>This should be the standard name of the country in which the file was recorded (see http://www.ethnologue.com/country_index.asp). Prefix the country name with the two-letter ISO3166-1 code (http://www.iso.org/iso/country_codes.htm).</desc>
+
+<opts>
+
+<opt>PH - Philippines</opt>
+
+<opt>AU - Australia</opt>
+
+</opts>
+
+</Country>
+
+<Region_Villiage>
+
+<desc>Indicate the geographical scope of the item. Enter data in the order locality, state or province, country.</desc>
+
+<opts>
+
+<opt>{[}locality{]}, {[}state or province{]}, {[}country{]}</opt>
+
+<opt>Burgos, Ilocos Sur, Philippines</opt>
+
+</opts>
+
+</Region_Villiage>
+
+<Language_Local_Name>
+
+<desc>The purpose of this field is to reflect language names in local use, with local spellings, if different from official name.</desc>
+
+<opts>
+
+<opt>Language - local spelling {[}free text{]}</opt>
+
+<opt>Ilocano</opt>
+
+</opts>
+
+</Language_Local_Name>
+
+<Language_Content_ISO639-3>
+
+<desc>Content language is the language included in your data (spoken and/or written). Insert the 3-letter ISO 639-3 code for your language, and the standard name of the language as spelt in the ethnologue entry {[}search on www.ethnologue.com/site_search.asp{]}. Separate the code and the language with a hyphen, e.g. "ilo - Ilocano"</desc>
+
+<opts>
+
+<opt>mis - Uncoded languages</opt>
+
+<opt>und - Undetermined languages</opt>
+
+<opt>mul - Multiple languages</opt>
+
+<opt>zxx - No linguistic content</opt>
+
+<opt>{[}3-letter ISO639-3 code{]} - {[}Ethnologue name of language{]}</opt>
+
+<opt>ilo - Ilocano</opt>
+
+<opt>eng - English</opt>
+
+</opts>
+
+</Language_Content_ISO639-3>
+
+<Language_Subject_ISO639-3>
+
+<desc>Subject language is the language that is the subject of your research. Insert the 3-letter ISO 639-3 code for your language, and the standard name of the language as spelt in the ethnologue entry {[}search on www.ethnologue.com/site_search.asp{]}. Separate the code and the language with a hyphen, e.g. "ilo - Ilocano"</desc>
+
+<opts>
+
+<opt>zxx - No linguistic content</opt>
+
+<opt>{[}3-letter ISO639-3 code{]} - {[}Language subject of your research{]}</opt>
+
+<opt>mis - Uncoded languages</opt>
+
+<opt>und - Undetermined languages</opt>
+
+<opt>mul - Multiple languages</opt>
+
+<opt>ilo - Ilocano</opt>
+
+</opts>
+
+</Language_Subject_ISO639-3>
+
+<Attached_Audio t="audio"/>
+
+<Attached_Video t="video"/>
+
+</Interview>
+
+</Interview>
+
+You should already be familiar with the first tab group tag, <Interview>, and the one that creates the screen's single tab, the second <Interview> tag. There are a number of other tags in this code block, however, and they each create a User Interface (UI) element, along with enclosed tags that denote a UI element's options, e.g. dropdown menu options.
+
+The first such element is the <Title> element.
+
+<Title f="id notnull">
+
+<desc>This title should be a sensible title, unique to each item, briefly summarising the contents of the item, for example "Ilocano songs recorded in Burgos, Ilocos Sur, Philippines, 17 April 1993"</desc>
+
+</Title>
+
+For the <Title> element, there is no UI type specified, so it by default becomes a text input field. (See \goto{{\em Type Guessing for GUI Elements in FAIMS-Tools}}[type-guessing-for-gui-elements-in-faims-tools] for an explanation of how this was determined.) The flag, "f=notnull," designates that this is a required field and the record cannot be saved with it empty. The <desc> tag allows you to set a description that your users can access by tapping and holding for a few seconds on the info button:
+
+{\externalfigure[media/image142.png][width=3.75082in,height=2.74692in]}
+
+This next code block designates that the <Private> element is a radio button UI object, it is required, has a description, and includes two options ("True" and "False"), set off with the <opts> and <opt> tags.
+
+<Private t="radio" f="notnull">
+
+<desc>Choose either "false", meaning that the metadata for the item should be publicly available, or "true", meaning that the metadata for the item should be hidden (perhaps because you plan to check it and edit it later).</desc>
+
+<opts>
+
+<opt>True</opt>
+
+<opt>False</opt>
+
+</opts>
+
+</Private>
+
+This next block designates a button element ('t="button"'), <Add_Agent_Role>, that links to the tab group "Agent_Role." This button allows you to register a new agent role.
+
+<Add_Agent_Role t="button" lc="Agent_Role"/>
+
+The next block designates a dropdown menu, <List_of_Agent_Roles>, which is populated with a list of Agent_Role records. Specifically, they will be the Agent_Role records which were saved using the button element above. The FAIMS-Tools knows these are the right records to display because the button and dropdown menu appear in the same tab group.
+
+<List_of_Agent_Roles t="dropdown" ec="Agent_Role"/>
+
+The final two element types used on this module screen are the 't="audio"'' and 't="video"' types. They allow you to record, oddly enough, audio and video files and attach them to your records.
+
+<Attached_Audio t="audio"/>
+
+<Attached_Video t="video"/>
+
+{\externalfigure[media/image129.png][width=3.51042in,height=4.46662in]}
+
+With the audio UI element, you'll get a popup window that allows you to start and stop your audio recording.
+
+The final elements are on the Agent Role tab group, and include a few element types we've already seen: two text input fields: <First_Name> and <Last_Name> both with flags that designate them as "ids" and a dropdown menu, <Role> which contains a few options and is also flagged as an "id."
+
+{\externalfigure[media/image125.png][width=4.02760in,height=3.64077in]}
+
+<Agent_Role>
+
+<desc>Enter participant name in the format Lastname, Firstname. Choose the participant role from the closed vocabulary provided. Use the description field to provide additional information on role or agents. Enter participant name in the format Lastname, Firstname. Choose the participant role from the closed vocabulary provided. Add more participants by clicking the "+" button to the right. If you need to provide extra information on the agent or the role, use the item's "Description" field to provide additional information on role or agents.</desc>
+
+<Agent_Role>
+
+<First_Name f="id"/>
+
+<Last_Name f="id"/>
+
+<Role f="id">
+
+<opts>
+
+<opt>Data Inputter</opt>
+
+<opt>Performer</opt>
+
+<opt>Speaker</opt>
+
+<opt>Developer</opt>
+
+<opt>Transcriber</opt>
+
+<opt>Photographer</opt>
+
+<opt>Interpreter</opt>
+
+<opt>Singer</opt>
+
+<opt>Signer</opt>
+
+<opt>Compiler</opt>
+
+<opt>Recorder</opt>
+
+<opt>Depositor</opt>
+
+<opt>Interviewer</opt>
+
+<opt>Editor</opt>
+
+<opt>Author</opt>
+
+<opt>Translator</opt>
+
+<opt>Researcher</opt>
+
+<opt>Annotator</opt>
+
+<opt>Participant</opt>
+
+</opts>
+
+</Role>
+
+</Agent_Role>
+
+</Agent_Role>
+
+\subsubsection[section-5]{}
+
+\subsubsection[iterating-to-match-the-oral-history-module]{Iterating to Match the Oral History Module}
+
+We've got a good start to our module, but now we're going to begin modifying elements to transform our simple module into one that matches the functionality of the Oral History Demo module available from the FAIMS Demo Server.
+
+First, open up the FAIMS mobile and download the "Oral History Demo" from the FAIMS demo server (select "Demo Server" from the dropdown menu in the FAIMS setting menu).
+
+{\externalfigure[media/image119.png][width=2.66472in,height=4.73651in]}
+
+The Oral History module has a bit more metadata information included than our module. You can update this information via the "Module" tab on your FAIMS server installation.
+
+{\externalfigure[media/image100.png][width=2.68625in,height=4.62192in]}{\externalfigure[media/image130.png][width=2.68655in,height=4.56558in]}
+
+The first screen of the Oral History Demo looks similar to our module:
+
+{\externalfigure[media/image98.png][width=2.70677in,height=4.81028in]}
+
+In our module.xml file update the following code:
+
+<User f="nodata">
+
+<User>
+
+<Select_User t="dropdown" f="user"/>
+
+<Login t="button" l="Control"/>
+
+</User>
+
+</User>
+
+to match this (new code in {\bf bold}):
+
+<User f="nodata">
+
+{\bf <User_List>}
+
+{\bf <Users t="list" f="user" l="Control">}
+
+{\bf Users:}
+
+{\bf </Users>}
+
+{\bf </User_List>}
+
+</User>
+
+This replicates the "User List" tab illustrated in the above screenshot. Save your modified module.xml, then run "{\em ./generate.sh}" in your Ubuntu terminal again, and reupload the module files through your server and download the updated module to your FAIMS app. Importantly, to download the updated version of the module, you must touch and hold the "Simple Sample Module" in the list of modules until the below dialogue is displayed:
+
+{\externalfigure[media/image80.png][width=4.56944in,height=2.56944in]}
+
+Tap "Update", then "Update Settings", wait for the update to occur, and finally load the module as usual.
+
+{\bf Note: While we'll build a user interface that mimics the Oral History module, we'll actually have to create a new module later on the server after the design is complete so that all the functions work. Just updating the module does not allow you to modify the data schema and so our current module won't have all the data fields on the server that are present in the Oral History module. This separation of data from the way data are presented and from the logic used to format or query the data is an example of the \useURL[url23][https://en.wikipedia.org/wiki/Model\%E2\%80\%93view\%E2\%80\%93controller][][{\em Model-View-Controller (MVC) software pattern}]\from[url23].} This exercise will focus on making a "mock" front-end. While what we make with module.xml will look like the end product, none of the attributes will be correctly defined in the data schema. As such, we'll need to revisit this later to make sure all attributes are correctly defined and to plumb in the last bits of logic which allow for a fully customised and operational \overstrikes{battlestation}module.
+
+{\externalfigure[media/image91.png][width=2.70989in,height=4.81294in]}
+
+For this next screen (shown in the screenshot above), we need to condense a few elements from our original module. Change the following code:
+
+<Control f="nodata">
+
+<Main>
+
+<Record_Interview t="button" l="Interview"/>
+
+<GPS_Diagnostics t="gpsdiag"/>
+
+</Main>
+
+<search>
+
+Records
+
+</search>
+
+</Control>
+
+to match the following:
+
+<Control f="nodata">
+
+{\bf <Control>}
+
+{\bf <New_Oral_History_Form t="button" l="Form"/>}
+
+{\bf <New_Diary t="button" l="Diary"/>}
+
+{\bf <GPS_Diagnostics t="gpsdiag"/>}
+
+{\bf <Sample_Types t="dropdown" />}
+
+{\bf <List_of_Samples t="list" />}
+
+{\bf </Control>}
+
+</Control>
+
+This code replaces the "Main" and "Record" tab groups with a single one labelled "Control". (In a moment, we will define the "Form" and "Diary" tab groups linked to by the above buttons. We will also have to populate the "Sample Types" dropdown and "List of Samples" list by writing some additional code.)
+
+Next, on your Ubuntu installation, save your module.xml file and rerun the generate.sh script. This will translate your changes into the separate FAIMS module files. On the FAIMS server, click on the module name and click the "Edit Module" button.
+
+{\externalfigure[media/image38.png][width=5.25117in,height=2.75134in]}
+
+Here you can upload new versions of all the FAIMS module files, with the notable exception of the data_schema.xml file. Go ahead and upload your updated files. You should see something similar to the image below after selecting a user in the uploaded module.
+
+{\externalfigure[media/image34.png][width=3.39583in,height=3.33547in]}
+
+For the next step, we'll add new UI tab groups for each of our buttons: "Form" and "Diary" that we linked to in the last code block:
+
+<Form>
+
+<Recording_Form>
+
+</Recording_Form>
+
+<Interview_Details>
+
+</Interview_Details>
+
+<Main_Subjects>
+
+</Main_Subjects>
+
+</Form>
+
+<Diary>
+
+<Diary>
+
+</Diary>
+
+</Diary>
+
+Make sure that the <Form> and <Diary> elements are written directly within the <module> so that the FAIMS-Tools correctly interprets them as tab groups. Now, under each of these new tab groups, we'll create opening and closing tags for each of the individual tabs. The "Form" has three tabs: "Recording Form","Interview Details", and "Main Subjects". Note that if these tab titles contain multiple words, you must use underscores between each word. When FAIMS creates the title for each tab, underscores will be replaced with spaces.
+
+{\externalfigure[media/image124.png][width=2.04167in,height=3.60949in]}
+
+Now we have the individual tabs for each section, but those tabs don't have any content just yet. For simple text fields, like "Birth Place" and "Parents' Birth Place" you can simply add a self-closing tag with the field's title:
+
+<BIRTH_PLACE />
+
+Also, non-alphabetical characters, like apostrophes are not allowed as tag names in XML, so the FAIMS-Tools would fail to generate a module which contains the following:
+
+<PARENTS'_BIRTH_PLACE:/>
+
+If such characters must be included, the solution is to firstly give the element a sensible name without an apostrophe or colon:
+
+<PARENTS_BIRTH_PLACE/>
+
+Then, to make FAIMS-Tools display the apostrophe and colon in the GUI, write them as the element's text:\crlf
+\crlf
+<PARENTS_BIRTH_PLACE>
+
+PARENTS' BIRTH PLACE:
+
+</PARENTS_BIRTH_PLACE>
+
+Now, note that every tab group which you intend to save requires at least one {\em identifier}. In the original Oral History module, the identifiers were the "PERSON" and "LANGUAGE_GROUP". We can use the "f" attribute to denote that in our new module:
+
+<PERSON f="id"/>\crlf
+<LANGUAGE_GROUP f="id"/>
+
+For the GPS fields and their corresponding "Take From GPS" button, enter:
+
+<gps />
+
+<gps> is a special, shortcut tag that FAIMS will replace with several fields for the latitude, longitude, Easting, and Northing, as well as a button for inserting this data from GPS.
+
+To add fields for attached files, you can use the "Audio" and "Video" tags:
+
+<Attached_Audio_Files t="audio" />
+
+<Attached_Videos t="video" />
+
+Simply set the type "t" to video or audio as required.
+
+{\externalfigure[media/image93.png][width=1.65934in,height=2.95099in]}{\externalfigure[media/image81.png][width=1.66466in,height=2.95099in]}{\externalfigure[media/image123.png][width=1.65555in,height=2.94058in]}
+
+To add the radio buttons, use the code:
+
+<Recorded t="radio">
+
+Recorded?
+
+<opts>
+
+<opt>Recorded</opt>
+
+<opt>Notes Only</opt>
+
+<opt>No</opt>
+
+</opts>
+
+</Recorded>
+
+Note that to have the radio buttons' contents appear would require that the entire module is re-created and uploaded to the FAIMS server. Updating the existing module on the server, would cause the menu to appear but lack its options.
+
+{\externalfigure[media/image109.png][width=1.72969in,height=3.05516in]}{\externalfigure[media/image120.png][width=1.70974in,height=3.03433in]}
+
+The "Timestamp" and "Created By" values are not actually fields that we'll allow users to enter. Instead, we'll make FAIMS set and update these fields when the record is created. For now, we'll put in the code:
+
+<Timestamp/>
+
+<Created_by/>
+
+and then we'll need to do some work in our ui_logic.bsh file once it's generated to complete the fields.
+
+{\externalfigure[media/image104.png][width=1.71094in,height=3.03433in]}{\externalfigure[media/image5.png][width=1.69627in,height=3.01349in]}
+
+\subsubsection[additional-features]{Additional Features}
+
+\subsubsubsection[add-a-picture-gallery]{Add a Picture Gallery}
+
+<Script t="picture">
+
+<desc>Type of used script.</desc>
+
+<opts>
+
+<opt p="picture1.jpg">Archaic-Epichoric</opt>
+
+<opt p="picture2.jpg">Old-Attic</opt>
+
+<opt p="picture3.jpg">Ionic</opt>
+
+<opt p="picture4.jpg">Roman</opt>
+
+<opt p="picture5.jpg">Indistinguishable</opt>
+
+<opt p="picture6.jpg">Other</opt>
+
+</opts>
+
+</Script>
+
+{\em Hierarchical Dropdown}
+
+<Script t="dropdown">
+
+<desc>Type of used script.</desc>
+
+<opts>
+
+<opt>Archaic-Epichoric
+
+<opt>A specific type of archaic-epichoric script
+
+<opt>An even more specific type of archaic-epichoric script</opt>
+
+</opt>
+
+<opt>Another type of archaic-epichoric script</opt>
+
+</opt>
+
+<opt>Old-Attic</opt>
+
+<opt>Ionic</opt>
+
+<opt>Roman</opt>
+
+<opt>Indistinguishable</opt>
+
+<opt>Other</opt>
+
+</opts>
+
+</Script>
+
+\subsubsubsection[using-the-translation-file]{Using the Translation File}
+
+\subsubsubsection[autonumbering]{Autonumbering}
+
+Basic autonumbering can be achieved using a combination of the f="autonum" flag and the <autonum/> tag. By flagging an input with "autonum", one indicates to the FAIMS-Tools that the ID of the next created entity---the entity containing the flagged field---should be taken from the corresponding field generated using the <autonum/> tag. For instance the Creatively_Named_ID in the below module will take its values from a field in Control which is generated by the use of the <autonum/> tag.
+
+<module>
+
+<Control>
+
+<Control>
+
+<Create_Entity t="button" l="Tab_Group" />
+
+<autonum/>
+
+</Control>
+
+</Control>
+
+<Tab_Group>
+
+<Tab>
+
+<Creatively_Named_ID f="id autonum" />
+
+</Tab>
+
+</Tab_Group>
+
+</module>
+
+The field will appear to the user as "Next Creatively Named ID" and will initially be populated with the number 1. When the user creates a Tab_Group entity, it will take that number as its "Creatively Named ID". The "Next Creatively Named ID" will then be incremented to 2, ready to be copied when a subsequent Tab_Group entity is created.
+
+Multiple fields can be flagged as being autonumbered like so:
+
+<module>
+
+<Control>
+
+<Control>
+
+<Create_Entity t="button" l="Tab_Group" />
+
+<autonum/>
+
+</Control>
+
+</Control>
+
+<Tab_Group>
+
+<Tab>
+
+<Creatively_Named_ID f="id autonum" />
+
+<Creatively_Named_ID_2 f="id autonum" />
+
+</Tab>
+
+</Tab_Group>
+
+<Other_Tab_Group>
+
+<Tab>
+
+<Creatively_Named_ID_3 f="id autonum" />
+
+</Tab>
+
+</Other_Tab_Group>
+
+</module>
+
+\subsubsubsection[fetch-point-from-gps]{Fetch Point from GPS}
+
+GPS functionality
+
+\subsubsubsection[displaying-data-as-a-table-in-the-app]{Displaying Data as a Table in the App}
+
+Table views.
+
+\subsubsubsection[human-readable-identifier-numbers]{Human Readable Identifier Numbers}
+
+\subsubsubsection[restricting-data-entry-to-decimals-for-a-field]{Restricting Data Entry to Decimals for a Field}
+
+-Single flag to denote as a number field
+
+\subsubsubsection[type-guessing-for-gui-elements-in-faims-tools]{Type Guessing for GUI Elements in FAIMS-Tools}
+
+The FAIMS-Tools generate.sh program will attempt to make a reasonable assumption about what the t attribute should be set to if it is omitted from a GUI element's set of XML tags.
+
+If the XML tags do not contain a set of <opts> tags nor the f="user" flag, t="input" is assumed. Example:
+
+<Entity_Identifier f="id"/> <!-- This'll be an input -->
+
+If the XML tag is flagged with f="user", t="dropdown" is assumed. Example:
+
+<List_of_Users f="user"/> <!-- This'll be a dropdown -->
+
+If the XML tags contain an <opts> element and no descendants with p attributes, t="list" is assumed. Example:
+
+<Element> <!-- This'll be a list -->
+
+<opts>
+
+<opt>Option 1</opt>
+
+<opt>Option 2</opt>
+
+</opts>
+
+</Element>
+
+If the XML tags contain an <opts> element and one or more descendants with p attributes, t="picture" is assumed. Example:
+
+<Element> <!-- This'll be a picture gallery -->
+
+<opts>
+
+<opt p="Lovely_Image.jpg>Option 1</opt>
+
+<opt >Option 2</opt>
+
+</opts>
+
+</Element>
+
+Finally, if the XML tags have the "ec" attribute, t="list" is assumed.
+
+There are arguments both for and against the use of the type guessing feature because, while improving succinctness, it also makes the module.xml file less intelligible to uninitiated programmers. Because of this, the FAIMS-Tools will display warnings when a module is generated from an XML file whose GUI elements are missing their t attributes. These can be hidden by adding suppressWarnings="true" to the opening <module> tag like so:
+
+<module suppressWarnings="true">
+
+<!-- Tab groups go here... -->
+
+</module>
+
+\subsubsubsection[annotation-and-certainty]{Annotation and Certainty}
+
+\subsubsubsection[css-and-validation-files.]{CSS and Validation files.}
+
+\subsubsubsection[exporting-data]{Exporting Data}
+
+\subsubsection[advanced-faims-programming]{Advanced FAIMS Programming}
+
+\subsubsubsection[module.xml-cheat-sheet]{module.xml Cheat Sheet}
+
+For more information about the different XML attributes, flags, and relationship tags, we have a README file that you can access online here: \useURL[url24][https://github.com/FAIMS/FAIMS-Tools/blob/master/generators/christian/readme][][{\em https://github.com/FAIMS/FAIMS-Tools/blob/master/generators/christian/readme}]\from[url24] or in the generators/christian/ directory where you downloaded the FAIMS-Tools.
+
+We'll repeat some of the information here for your reference. Be sure to open the README for the most up to date information: to learn how to include more advanced controls and scripting in your modules, look at the \useURL[url25][https://faimsproject.atlassian.net/wiki/display/FAIMS/FAIMS+Data\%2C+UI+and+Logic+Cook-Book][][{\em FAIMS Development Cookbook}]\from[url25], which includes code snippets for all of the things FAIMS can do.
+
+ATTRIBUTES\crlf
+\crlf
+b Binding (See 'Bindings')\crlf
+c Alias for faims_style_class\crlf
+e="Type" Populates the menu with entities of the type `Type`. If the\crlf
+`Type` is the empty string, entities of all types are shown.\crlf
+ec, lc (See 'Child Entities')\crlf
+f Flags (See 'Flags')\crlf
+l Link to tab or tab group in the format Tabgroup/Tab/. Links\crlf
+to tabs are discouraged as the generated code will contain\crlf
+a race condition. Autogenerated code containing tab links\crlf
+should be thoroughly tested.\crlf
+p In <opt> tags, equivalent to pictureURL attribute.\crlf
+suppressWarnings Prevents warnings from being shown when equal to "true" and\crlf
+present in the <module> tag. Does not suppress errors.\crlf
+t Type of GUI element (See 'Types'). If this attribute is\crlf
+omitted from a view, t="input" is assumed.\crlf
+________________________________________________________________________________\crlf
+\crlf
+BINDINGS\crlf
+\crlf
+- date\crlf
+- decimal\crlf
+- string\crlf
+- time\crlf
+Other bindings are possible (e.g. by writing b = "my-binding") but generate a\crlf
+warning.\crlf
+________________________________________________________________________________\crlf
+\crlf
+FLAGS\crlf
+\crlf
+hidden Equivalent to faims_hidden="true".\crlf
+id Equivalent to isIdentifier="true".\crlf
+noannotation Equivalent to faims_annotation="false".\crlf
+nocertainty Equivalent to faims_certainty="false".\crlf
+nolabel Prevents labels from being displayed or generated from element\crlf
+names.\crlf
+nosync Removes the faims_sync="true" attribute from audio, camera,\crlf
+file and video GUI elements.\crlf
+nothumb{[}nail{]} Removes the thumbnail="true" attribute from audio, camera,\crlf
+file and video elements in the data schema.\crlf
+noscroll Equivalent to faims_scrollable="false".\crlf
+noui Only allows code related to the data schema to be generated.\crlf
+nodata Generates code as usual, but ommits data schema entries.\crlf
+readonly Equivalent to faims_read_only="true".\crlf
+user Used to indicate that a menu should contain a list of users.\crlf
+notnull Adds client- and server-side validation specifying that the\crlf
+field should not be left blank.\crlf
+________________________________________________________________________________\crlf
+\crlf
+TYPES\crlf
+\crlf
+Types of GUI element:\crlf
+- audio <select type="file" faims_sync=true/>\crlf
+<trigger/>\crlf
+- button <trigger/>\crlf
+- camera <select type="camera" faims_sync=true/>\crlf
+<trigger/>\crlf
+- checkbox <select/>\crlf
+- dropdown <select1/>\crlf
+- file <select type="file" faims_sync=true/>\crlf
+<trigger/>\crlf
+File list with a button to add a file\crlf
+\crlf
+- gpsdiag <input faims_read_only="true"/>...\crlf
+- group <group/>\crlf
+- input <input/>\crlf
+- list <select1 appearance="compact"/>\crlf
+- map <input faims_map="true"/>\crlf
+- picture <select1 type="image"/>\crlf
+- radio <select1 appearance="full"/>\crlf
+- video <select type="file" faims_sync=true/>\crlf
+<trigger/>\crlf
+- viewfiles <trigger/>\crlf
+A button to view all files related to an archent.\crlf
+- web{[}view{]} <input faims_web="true"/>\crlf
+________________________________________________________________________________\crlf
+\crlf
+RESERVED ELEMENT NAMES AND RECOMMENDED NAMING CONVENTIONS\crlf
+\crlf
+"Reserved" elements only contain lowercase letters:\crlf
+- <col> One column in a <cols> tag\crlf
+- <cols> Columns\crlf
+- <desc> Description to put in the data schema\crlf
+- <module>\crlf
+- <opt> Option in <opts> tag\crlf
+- <opts> Options for, say, a dropdown menu\crlf
+- <rels> Intended to be a direct child of <module> and hold\crlf
+<RelationshipElement> tags\crlf
+- <gps> A set of fields including Latitude, Longitude, Northing,\crlf
+Easting and a "Take From GPS" button.\crlf
+- <search> A tab for searching all records. Its text is used as a label.\crlf
+- <str> Contains <formatString>-related data.\crlf
+- <pos> When the child of a <str>, gives the position (order) of an\crlf
+identifier in a formatted string\crlf
+- <fmt> When the child of a <str>, contains <formatString> data.\crlf
+- <app> When the child of a <str>, contains <appendCharacterString>\crlf
+data.\crlf
+- <author> A read-only field displaying the username of the current user\crlf
+or a message if the entity it appears in has not been saved.\crlf
+- <timestamp> A read-only field displaying the creation time of the entity\crlf
+it appears in.\crlf
+User-defined elements should start with an uppercase letter and use\crlf
+underscores as separators:\crlf
+- <My_User_Defined_Element t="dropdown" />\crlf
+Neither of these naming conventions are strictly enforced however.\crlf
+________________________________________________________________________________\crlf
+\crlf
+INTENDED PURPOSE OF THE <rels> TAG\crlf
+\crlf
+When placed as a direct child of the <module> element, contents of the <rels>\crlf
+tag are copied as-is to the generated data schema. No warnings are shown if\crlf
+something is awry with its contents.\crlf
+\crlf
+Because the <rels> tags' contents are directly copied, in principle you could\crlf
+put anything in there which you want to appear in the data schema. Doing so\crlf
+would make you a bad person.\crlf
+________________________________________________________________________________\crlf
+\crlf
+SEMANTICS OF <cols> TAGS\crlf
+\crlf
+Direct children of <cols> tags are interpreted as columns. For example,\crlf
+<cols>\crlf
+<Field_1 t="input"/>\crlf
+<Field_2 t="input"/>\crlf
+<Field_3 t="input"/>\crlf
+</cols>\crlf
+has three columns, each containing an input. The left-most column is Field_1,\crlf
+whereas the right-most is Field_3.\crlf
+\crlf
+When a <col> tag is a direct child, its contents are interpreted as being part\crlf
+of a distinct column. Therefore,\crlf
+<cols>\crlf
+<Field_1 t="input"/>\crlf
+<col>\crlf
+<Field_2 t="input"/>\crlf
+<Field_3 t="input"/>\crlf
+</col>\crlf
+</cols>\crlf
+results in two columns. The left column contains Field_1, while the right\crlf
+contains Field_2 and Field_3.\crlf
+________________________________________________________________________________\crlf
+\crlf
+CHILD ENTITIES\crlf
+\crlf
+Entities can be saved as children by the use of the "lc" attribute. For\crlf
+instance, writing\crlf
+<Add_Child t="button" lc="Child_Ent" />\crlf
+generates a button which links to the Child_Ent tab group. When displayed by\crlf
+clicking the Add_Child button, the Child_Ent tab group will have auto-saving\crlf
+enabled and be saved as a child of the tab group that the button appeared in.\crlf
+For example, consider the following module.xml:\crlf
+<module>\crlf
+<Tab_Group>\crlf
+<Tab>\crlf
+<Add_Child t="button" lc="Tab_Group" />\crlf
+</Tab>\crlf
+</Tab_Group>\crlf
+</module>\crlf
+Clicking the Add_Child button will cause the user to be taken to a new\crlf
+instance of Tab_Group which will be saved as a child of the original instance.\crlf
+But because the original instance was not loaded by clicking the button, it\crlf
+will not be saved as a child.\crlf
+\crlf
+A list of child entities can be displayed to the user by using the "ec"\crlf
+attribute:\crlf
+<List_Of_Related_Entities t="list" ec="Type_Of_Childen" />\crlf
+The list will be populated with entities which are children of the tab group\crlf
+the list appears in. The entities will be constrained to have the type\crlf
+"Type_Of_Children". However, writing `ec=""` produces an unconstrained list,\crlf
+where children of all types are displayed.\crlf
+\crlf
+The user should note carefully that, while including an "lc" attribute causes\crlf
+a corresponding <RelationshipElement> to be generated in the data schema,\crlf
+including an "ec" attribute does not.\crlf
+________________________________________________________________________________\crlf
+\crlf
+LABELS\crlf
+\crlf
+An element's text is taken as its label. For instance, the following input\crlf
+<My_Input t="input">\crlf
+Droopy Soup\crlf
+<desc>Similar to drippy soup, but not quite...</desc>\crlf
+</My_Input>\crlf
+has the label "Droopy Soup". Note that following and preceding whitespace is\crlf
+stripped.\crlf
+\crlf
+If a label is not provided, it is "inferred" from the element's name. More\crlf
+specifically, underscores in the element's name are replaced with spaces,\crlf
+which becomes the element's label. Therefore, the element\crlf
+<Droopy_Soup t="input">\crlf
+<desc>Similar to drippy soup, but not quite...</desc>\crlf
+</Droopy_Soup>\crlf
+has the same label as in the above example. Thus, the user will see exactly\crlf
+the same thing in both cases. However, their representations in the data and\crlf
+UI schemas, and the arch16n file will be different.\crlf
+\crlf
+You are recommended to use this "inference" feature, as it encourages\crlf
+consistency between the label, which the user sees, and the view's reference\crlf
+and faims_attribute_name, which the programmer sees. Note that it merely\crlf
+"encourages" consistency as the programmer can change the corresponding,\crlf
+generated, arch16n (english.0.properties) entry.\crlf
+________________________________________________________________________________\crlf
+\crlf
+GENERATION OF THE ARCH16N FILE\crlf
+\crlf
+Labels and menu options (e.g. from checkboxes and dropdowns) have arch16n\crlf
+entries generated for them. The left-hand side of an arch16n entry (i.e.\crlf
+everything to the left of the equals sign) is produced by changing all\crlf
+non-alphanumeric characters in the label or menu option to underscores. The\crlf
+right-hand side is the unmodified text.\crlf
+\crlf
+The created arch16n entries are used in the generated UI and data schemas.\crlf
+\crlf
+It should be carefully noted that replacing characters as described above can\crlf
+cause naming conflicts. For example, if the module.xml file contains the\crlf
+labels "I'm cool!" and "I'm cool?", the generated arch16n file will contain\crlf
+the following lines:\crlf
+I_m_cool_=I'm cool!\crlf
+I_m_cool_=I'm cool?\crlf
+Moreover, the programmer is not warned if such a conflict exists, as, in\crlf
+practise, it assumed that such conflicts are very rare and checking for them\crlf
+in XSLT 1.0 violates Article 5 of 'The Universal Declaration of Human Rights'.
+
+\section[section-6]{\crlf
+}
+\stoptext
+\stopcomponent
