@@ -4,15 +4,17 @@
 
 \subsection[opening-the-faims-server-web-interface]{Opening the FAIMS Server Web Interface}
 
-Now that your FAIMS server is set up, you should be able to access it from any device on the same network as the server (and later, any device with a web browser connected to the internet). On a computer, navigate to the IP address that appears in the Firefox browser on your FAIMS Ubuntu installation.
+Now that your FAIMS server is set up, you should be able to access it from any device on the same network as the server. On a computer, navigate to the IP address that appears in the browser on your FAIMS Ubuntu installation.
 
 {\externalfigure[media/image95.png][width=6.50000in,height=3.60630in]}
 
-Next, log into the FAIMS server using either the default admin account or an account that you set up (we recommend setting up individual accounts for each user). {\bf Note:} The default FAIMS account is "faimsadmin@intersect.org.au", password "Pass.123".
+Next, log into the FAIMS server using either the default admin account or an account that you set up (we recommend setting up individual accounts for each user). {\bf Reminder:} The default FAIMS account is "faimsadmin@intersect.org.au", password "Pass.123".
 
 {\externalfigure[media/image96.png][width=6.50000in,height=3.91667in]}
 
 \subsection[uploading-build-files-to-the-faims-server]{Uploading Build Files to the FAIMS Server}
+
+As we've already explained, this part is very simple. All you need to do is:
 
 \startitemize[n][stopper=.]
 \item
@@ -29,39 +31,37 @@ Next, log into the FAIMS server using either the default admin account or an acc
   \stopblockquote
 \item
   \startblockquote
-  Give your Module a name, and enter as much metadata as possible
+  Give your Module a name, and enter as much metadata as possible.
   \stopblockquote
 \item
   \startblockquote
-  Upload a Data Definition Schema (data_schema.xml).
+  Upload the Data Definition Schema (data_schema.xml).
   \stopblockquote
 \item
   \startblockquote
-  Upload a User Interface Schema (ui_schema.xml)
+  Upload the User Interface Schema (ui_schema.xml)
   \stopblockquote
 \item
   \startblockquote
-  Upload User Interface Logic (ui_logic.bsh)
+  Upload the User Interface Logic (ui_logic.bsh)
   \stopblockquote
 \item
   \startblockquote
-  Upload a Translation (Arch16n) file (faims.properties)
+  Upload the Translation (Arch16n) file (faims.properties)
   \stopblockquote
 \stopitemize
 
-Let it combine and process them into a module, which will live on the server.
+Let it combine and process them into a module. Now you've created a module which will live on the server. 
 
-On your Android device(s), open the FAIMS app and connect to the server.
+On your Android device(s), open the FAIMS app and connect to your server. When you see your module, download and open it. 
 
-Download your module to your device and open the module.
+Voila!
 
 \subsection[test-your-knowledge-2]{Test Your Knowledge}
 
-Q1: Modules can be loaded by connecting your device to the computer via usb, then dragging the file over to the device with the file explorer. True or False?
+Where can you find the IP address of your FAIMS server?
 
-Q2: FAIMS devices can sync together in the field, no server required. True or False?
-
-Exercise: Download the sample module here: \useURL[url26][https://github.com/FAIMS/SimpleExcavation][][{\em https://github.com/FAIMS/SimpleExcavation}]\from[url26]. Next, transfer this module onto an attached Android device. List the steps and explain to a colleague how it works.
+Do you download your module wirelessly from the server, or directly to your device from a computer?
 
 \section[section-7]{}
 

@@ -2,7 +2,7 @@
 \starttext
 \subsection[setting-up-your-development-environment]{Setting Up Your Development Environment}
 
-Before coding new modules, you'll need to download several (free) programs and files. You'll also need to configure some of these programs to make coding new modules easier and more efficient. At the end of this section, you will be able to:
+Before you can code any new modules, you'll need to download some files and free programs. Some of those programs you'll need to configure to make coding new modules easier and more efficient. At the end of this section, you will be able to:
 
 \startitemize
 \item
@@ -17,17 +17,17 @@ Before coding new modules, you'll need to download several (free) programs and f
 
 \subsubsubsection[hardware-assumptions]{Hardware Assumptions}
 
-Every computer is different, and unless you're using exactly the machine we used when writing these instructions (an HP laptop with a Core i7 processor and 8GB of RAM, running Windows 7) you probably won't be able to follow each step exactly as it's written. Many of the differences will be very minor; an option might have a slightly different name or be located somewhere else on your computer, for example. In these cases, take a deep breath. Click around or use your computer's "search" feature to see if you can find the option or setting somewhere else. If necessary, web search the terms we use in our instructions along with the system you're using in order to find equivalents.
+Every computer is different, and unless you're using exactly the machine we used when writing these instructions (an HP laptop with a Core i7 processor and 8GB of RAM, running Windows 7) you probably won't be able to follow each step exactly as it's written. Many of the differences will be very minor; an option might have a slightly different name or be located somewhere else on your computer, for example. When you find an option isn't present as we describe it, take a deep breath. Click around or use your computer's "search" feature to see if you can find the option or setting somewhere else. If necessary, web search the terms we use in our instructions along with the system you're using in order to find equivalents. A good rule of thumb for general computer configuration is: whatever you can't figure out right now, someone else has had the same problem and a third person has fixed it for them.
 
-As a last resort, we do offer technical support services. See the appendix for further information.
+As a last resort, we offer technical support services. See the appendix for further information.
 
 \subsubsubsection[before-you-start]{Before You Start}
 
-Before starting, you'll need to make sure you have enough room on your hard drive. We recommend about 25GB minimum for the server installation, as well as enough RAM to hold both your current operating system, the emulated machine, and any open programs in working memory. Delete files, especially large media files, or uninstall programs until you have enough free space.
+Before starting, you'll need to make sure you have enough room on your hard drive. We recommend about 25GB minimum for the server installation, as well as enough RAM to hold both your current operating system, the emulated machine, and any open programs in working memory. If you don't have that much space, delete files (especially large media files, like unnecessary videos) or uninstall programs until you're ready to begin. No good will come of trying to follow these next steps without enough room to work.
 
 \subsubsection[installing-the-faims-server-and-virtual-machine-vm]{Installing the FAIMS Server and Virtual Machine (VM)}
 
-For various reasons, the FAIMS server is designed to run on a machine running an operating system called Ubuntu Linux 14.04. You probably don't use Ubuntu, and you probably wouldn't like to use it all of the time. That's why our first task here is to set up a "virtual machine" on the computer you do use. Virtual machines let you emulate entirely different kinds of computer system without making any significant changes to your own--in this case, an Ubuntu Linux 14.04 machine.
+For various reasons, the FAIMS server is designed to run on a machine running an operating system called Ubuntu Linux 14.04 (as opposed to, say, Windows or OSX). You probably don't use Ubuntu, and you probably wouldn't like to use it all of the time. That's why our first task here is to set up a "virtual machine" on the computer you do use. Virtual machines let you emulate entirely different kinds of computer system without making any significant changes to your own--in this case, an Ubuntu Linux 14.04 machine. It's like you're installing an application that simulates an entirely different computer whenever you need it.
 
 \subsubsubsection[enable-vm-extensions-in-your-computer-bios-for-better-virtualbox-performance-vt-hypervisor]{Enable VM extensions in your computer BIOS for better VirtualBox Performance (VT Hypervisor)}
 
@@ -39,11 +39,11 @@ To enable VT Hypervisor, enter your computer's BIOS or UEFI menu while booting y
 
 {\externalfigure[media/image90.jpg][width=5.73958in,height=3.32078in]}
 
-We found the VT setting under the "Virtualization Technology" option in the System Configuration menu. Again, unless you're using a on an HP dv6qt Laptop, yours will probably be somewhere else.
+We found the VT setting under the "Virtualization Technology" option in the System Configuration menu. Again, unless you're using an HP dv6qt Laptop, yours will probably be somewhere else. This process can feel a little intimidating if you're not used to messing with your computer on this basic a level, but relax: this step is perfect safe.
 
 \subsubsubsection[installing-virtualbox]{Installing VirtualBox}
 
-Now you can download and install the VirtualBox client, which we'll use to create a virtual machine to run the Ubuntu Linux-based FAIMS server.
+Now you can download and install the VirtualBox client. This is what we're going to use to create a virtual machine that can run our Ubuntu Linux-based FAIMS server.
 
 \useURL[url3][https://www.virtualbox.org/wiki/Downloads][][{\em https://www.virtualbox.org/wiki/Downloads}]\from[url3]
 
@@ -59,9 +59,9 @@ Once VirtualBox is installed, you can start the program. The default screen shou
 
 {\externalfigure[media/image128.png][width=5.58026in,height=4.17625in]}
 
-If you need to take a break, this is a good stopping point.
+If you need to take a break, this is a good stopping point!
 
-Next, download FAIMS Server image (2.5GB) from: \useURL[url4][https://cloudstor.aarnet.edu.au/plus/index.php/s/OToMafgHrpsvwTG][][{\em https://cloudstor.aarnet.edu.au/plus/index.php/s/OToMafgHrpsvwTG}]\from[url4]
+If you're ready to move on, download the FAIMS Server image (2.5GB) from: \useURL[url4][https://cloudstor.aarnet.edu.au/plus/index.php/s/OToMafgHrpsvwTG][][{\em https://cloudstor.aarnet.edu.au/plus/index.php/s/OToMafgHrpsvwTG}]\from[url4]
 
 The server image is packaged as an ".ova" file, which is a type of file that can be opened by VirtualBox. This file is the complete package: it represents an Ubuntu Linux 14.04 computer system that has the FAIMS server set to automatically configure and run. This image is the same one that our \useURL[url5][http://www.google.com/url?q=http\%3A\%2F\%2Fshop.fedarch.org\%2F&sa=D&sntz=1&usg=AFQjCNH6yZzwzTUdheN3jnKrgFMghsWrvQ][][{\em FAIMS-In-A-Box kits}]\from[url5] use, which will make supporting your FAIMS installation much easier if you run into any problems.
 
@@ -111,7 +111,7 @@ Click the "Start" button on the VirtualBox program. VirtualBox will pop up a new
 
 {\externalfigure[media/image12.png][width=4.89884in,height=4.18442in]}
 
-If you like, you can skip ahead a little and, back on your real machine, you can open the FAIMS server by navigating to 192.168.1.121, or whatever address is listed by your FAIMS status page, in your web browser (check your messages for the specific IP address on your machine). {\bf Note:} The default FAIMS account is "faimsadmin@intersect.org.au", password "Pass.123".{\externalfigure[media/image126.png][width=6.50000in,height=3.65278in]}
+If you like, you can skip ahead a little and, back on your real machine, you can open the FAIMS server by navigating to 192.168.1.121, or whatever address is listed by your FAIMS status page in your web browser (check your messages for the specific IP address on your machine). {\bf Note:} The default FAIMS account is "faimsadmin@intersect.org.au", password "Pass.123".{\externalfigure[media/image126.png][width=6.50000in,height=3.65278in]}
 
 If you log out of the Ubuntu installation at any time, just use the password "Pass.123" to log back into the system.
 
@@ -189,11 +189,11 @@ Git will copy all the files and notes in the GitHub repository (also known as a 
 
 \subsubsection[installing-a-text-editor-for-editing-necessary-files]{Installing a Text Editor for Editing Necessary Files}
 
-The purpose of the FAIMS tools are to remove the need to individually craft all of your module's necessary files. Instead, you'll need to create one file the tools can use as a blueprint for making everything else. In order to make that one file (and to make any fancy edits to the necessary files to add detail or functionality), you're going to need a good simple text editor for coding with.
+The purpose of the FAIMS tools are to remove the need to individually craft all of your module's necessary files. Instead, you'll need to create one file the tools can use as a blueprint for making everything else. In order to make that one file (and to make any fancy edits to the necessary files to add detail or functionality), you're going to need a simple text editor that's good for coding with.
 
 If you're doing your coding within the virtual machine, we recommend using an editor called gEdit which came with your Ubuntu installation. It's simple, functional, and won't clog up your instructions with unnecessary formatting like a standard Word Processor would.*
 
-If you decide to write the files outside your virtual machine, we don't recommend using even the simple text editors that come with Windows or OSX. While they may not complicate your code like a word processor would, they also don't have little features like autocomplete (a feature that means you don't need to type out words you use often) and syntax highlighting (a feature that helps you keep track of how your code is structured with helpful visual cues). With a little searching around, you can find plenty of excellent free or commercial text editors.
+If you decide to write the files outside your virtual machine, we don't recommend using the text editors (such as Notepad) that come with Windows or OSX. While they may not complicate your code like a word processor would, they also don't have little features like autocomplete (a feature that means you don't need to fully type out words you use often) and syntax highlighting (a feature that helps you keep track of how your code is structured with helpful visual cues). With a little searching around, you can find plenty of excellent free or commercial text editors.
 
 We particularly recommend:
 
@@ -212,7 +212,7 @@ We particularly recommend:
   \stopblockquote
 \stopitemize
 
-For each of these, simply download their binary installers and follow their installation wizards. On Linux, you can install gEdit, Vim, Emacs, or another text editor using apt-get. If you're on Linux, we'll assume you know how to do that already.
+For each of these, simply download their binary installers and follow their installation wizards. If you're using a Linux device that isn't the virtual machine, you can install gEdit, Vim, Emacs, or another text editor using apt-get.
 
 {\em {\bf *Note from your friends at FAIMS:}} {\em One of the main reasons to use the text editors above is so that you can avoid "Smart Quotes," an automatic feature of many word processor programs that will insert differently styled or extra quotes that will cause the FAIMS server to reject your module. If you run into any issues with your module, ensure that "Smart Quotes" are disabled in your text editor.}
 
@@ -223,7 +223,7 @@ For each of these, simply download their binary installers and follow their inst
 
 \subsubsection[installing-the-android-sdk]{Installing the Android SDK}
 
-Next, we'll need to install the Android Software Development Kit (ADK). It's available at \useURL[url14][https://developer.android.com/sdk/installing/index.html][][{\em https://developer.android.com/sdk/installing/index.html}]\from[url14] Ignore the Android Studio link; we just need the SDK Tools.
+Now we'll need to install the Android Software Development Kit (ADK). It's available at \useURL[url14][https://developer.android.com/sdk/installing/index.html][][{\em https://developer.android.com/sdk/installing/index.html}]\from[url14] Ignore the Android Studio link; we just need the SDK Tools.
 
 Because you're going to use the tools for debugging an Android device plugged into your actual computer, you're going to want to download and install SDK Tools to your regular computer system, NOT your Ubuntu virtual machine.
 
@@ -278,11 +278,11 @@ To enable the "Developer Options":
   \stopblockquote
 \item
   \startblockquote
-  Next, tap on the 'Build Number' section seven times.
+  Next, tap on the 'Build Number' section seven times. (Yes, really.)
   \stopblockquote
 \item
   \startblockquote
-  After the seventh tap you will be told that you are now a developer.
+  After the seventh tap you will be told that you are now a developer. (Again, this is really how it works.)
   \stopblockquote
 \item
   \startblockquote
@@ -296,9 +296,15 @@ That's it! Your FAIMS development environment should now be set up properly.
 
 \subsection[test-your-knowledge-1]{Test Your Knowledge}
 
-Q1: If the "Error: Network Device Not Found" error appears when you start VirtualBox, how do you fix it? (hint: check the instructions above)
+What are two things you can do if you don't find an option or setting where we tell you it will be?
 
-Q2: Which of the following are true?
+If the "Error: Network Device Not Found" error appears when you start VirtualBox, how do you fix it?
+
+True or False: Microsoft Word is a good program to code your modules in.
+
+Should you install your Android developer kit within the virtual machine? Why or why not?
+
+Which of the following are true?
 
 \startitemize
 \item
@@ -318,6 +324,8 @@ Q2: Which of the following are true?
   FAIMS can use both Android and Apple devices
   \stopblockquote
 \stopitemize
+
+
 
 Exercise: Open up a command window (Windows key + type "cmd" + hit enter/select with mouse. In this command window, enter the text "adb --version" then enter. Some information about the Android Development Bridge (ADB) program should appear. Did you encounter any errors? If not, congratulations, ADB/Android SDK is successfully installed.
 \stoptext
