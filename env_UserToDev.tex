@@ -3,15 +3,119 @@
 \mainlanguage [en]
 \setuppapersize[A5][A5]
 \setupexternalfigures[directory={../img, /data/images/}]
-\usemodule[simplefonts]
-\setmainfont[Adventor][expansion=quality,protrusion=quality]
+%\usemodule[simplefonts]
+%\setmainfont[Adventor][expansion=quality,protrusion=quality]
 \setupcolors[state=start]
 \definecolor[faimsblue][ c=1, m=.91, y=.03, k=.02]
+\definecolor[faimsorange][ c=.5, m=.91, y=.91, k=.02]
 
-\setuplayout[location=middle,backspace=.1\pagewidth,  height=.9\pageheight, width=.8\pagewidth, topspace=.025\pageheight, header=.05\pageheight, footer=.05\pageheight, bottomspace=.025\pageheight]
-\setuppagenumbering [alternative=doublesided]
+%TODO lookup faims orange
 
-\setuphead[title][aligntitle=float, page=no]
+\definefontfeature
+  [default]
+  [default]
+  [protrusion=quality,expansion=quality]
+
+\setupbodyfont[xits, 11pt]  
+
+\setuplayout[location=middle,
+backspace=.1\pagewidth,  
+height=.9\pageheight, 
+width=.8\pagewidth, 
+topspace=.025\pageheight, 
+header=.05\pageheight, 
+footer=.05\pageheight, 
+bottomspace=.025\pageheight, 
+marking=on]
+\setuppagenumbering [alternative=doublesided, location={bottom, right}]
+
+\setuphead[title][aligntitle=float, page=no, style={\tfd}]
 \setupheads[aligntitle=float, page=no]
 \setupwhitespace[big]
+
+\definefloat[quiz][quizzes]
+\setupfloat[quiz][label={Test Your Knowledge}]
+\setupcaption[testk][location=bottom,headstyle=boldslanted]
+
+\define[2]\quiz{%
+
+
+\setupcaption[quiz][location=top]
+\blank[line]
+\placefloat[quiz][here][block:bridge]{#1}
+\startframedtext[align={hanging, hz},
+				 width=.9\makeupwidth,
+				background=color,
+				backgroundcolor=gray,
+				corner=round,
+				framecolor=faimsblue,
+				rulethickness=2pt				
+				 ]
+				 \startitemize[n]
+				 {
+#2				 
+}
+\stopitemize
+\stopframedtext}
+
+\definefloat[alert]
+\define[1]\alert{%
+\placealert[none, here]{~}{
+\startframedtext[align={hanging, hz},
+				 width=.8\makeupwidth,
+				background=color,
+				backgroundcolor=gray,				
+				framecolor=faimsorange,
+				rulethickness=1pt				
+				 ]
+				 
+{\bf #1}		 
+
+\stopframedtext
+}}
+
+\definefloat[code]
+
+\define[2]\code{%
+\placecode[here]{#1}{
+\startframedtext[align={hanging, hz},
+				 width=\makeupwidth,
+				background=color,
+				backgroundcolor=gray,				
+				framecolor=gray,
+				rulethickness=1pt				
+				 ]
+				 
+\type[style={\tfx\tt}]{ #2}		 
+
+\stopframedtext
+}}
+
+\define[2]\prompt{%
+\placecode[here]{#1}{
+\startframedtext[align={hanging, hz},
+				 width=\makeupwidth,
+				background=color,
+				backgroundcolor=gray,				
+				framecolor=gray,
+				rulethickness=1pt				
+				 ]
+\startitemize[5]				 
+\item\type[style={\tfx\tt}, numbering=line]{ #2}		 
+\stopitemize
+
+\stopframedtext
+}}
+
+
+\definesymbol[5][\$]
+\setuptyping[lines=yes]
+%TODO figure out how to eliminate caption
+
+
+				
+
+\enabledirectives[logs.errors]
+\setupalign[hanging, hz]
+%\enabletrackers[typesetters.suspects]
 \stopenvironment
