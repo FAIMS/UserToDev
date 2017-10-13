@@ -8,6 +8,7 @@
 \setupcolors[state=start]
 \definecolor[faimsblue][ c=1, m=.91, y=.03, k=.02]
 \definecolor[faimsorange][ c=.5, m=.91, y=.91, k=.02]
+\setupinteraction[state=start, color=blue, contrastcolor=blue, style={\tf}]
 
 %TODO lookup faims orange
 
@@ -16,7 +17,7 @@
   [default]
   [protrusion=quality,expansion=quality]
 
-\setupbodyfont[xits, 11pt]  
+\setupbodyfont[11pt]  
 
 \setuplayout[location=middle,
 backspace=.1\pagewidth,  
@@ -76,6 +77,9 @@ marking=on]
 
 \definefloat[code]
 
+%\setupcaption[code][location=below, width=.8\textwidth]
+%TODO Figure out how to make smaller and indented.
+
 \define[2]\code{%
 \placecode[here]{#1}{
 \startframedtext[align={hanging, hz},
@@ -101,18 +105,45 @@ marking=on]
 				rulethickness=1pt				
 				 ]
 \startitemize[5]				 
-\item\type[style={\tfx\tt}, numbering=line]{ #2}		 
+#2
 \stopitemize
 
 \stopframedtext
 }}
 
 
+\define[3]\promptref{%
+\placecode[here][#1]{#2}{
+\startframedtext[align={hanging, hz},
+				 width=\makeupwidth,
+				background=color,
+				backgroundcolor=gray,				
+				framecolor=gray,
+				rulethickness=1pt				
+				 ]
+\startitemize[5]				 
+#3
+\stopitemize
+
+\stopframedtext
+}}
+
+\define[1]\bashprompt{%
+\item\type[style={\tfx\tt}, numbering=line]{ #1}		 
+}
+
 \definesymbol[5][\$]
+%TODO figure out how to get this \tt
+
 \setuptyping[lines=yes]
 %TODO figure out how to eliminate caption
 
+\setupcombinedlist[chapter][style={\setupwhitespace[small]}]
+\setupcombinedlist[section][style={\setupwhitespace[small]}]
 
+%todo singlespaced TOC
+
+\setupitemize[packed, joinedup]
 				
 
 \enabledirectives[logs.errors]

@@ -1,9 +1,8 @@
 \startcomponent[MakingYourOwn]
 \starttext
 
-\startchapter[title={Making Your Own Modules}, marking={Making your own}]
 
-In the next few chapters, you're going to make your module by following these steps:
+In the next chapter, you're going to make your module by following these steps:
 
 \startitemize[packed]
 \item Learn what the components of a module are and what they do.
@@ -17,7 +16,7 @@ In the next few chapters, you're going to make your module by following these st
 
 \section{The Parts of a Module}
 
-Modules are made from parts, called \quotation{necessary files.}
+Modules are made from parts, called \quotation{necessary files\footnote{Brian's note: In our academic papers about modules we will sometimes use the term \quotation{Definition packets.} The module is the product of the processing of the \quotation{necessary files} which as a set comprise the \quotation{definition packet.}.}
 
 Speaking practically, most \quotation{necessary files} are text files. Unless noted, they tend to end with the file extension .xml and can be opened and even edited with simple text editors, such as Notepad (as you'll learn in the next section). Each necessary file serves a definite and distinct function in the final operation of the module.
 
@@ -40,7 +39,7 @@ The Validation Schema, \quotation{validation.xml}, defines what kinds of data yo
 For example, let's say your team is submitting data on handaxes they've excavated from a particular context. To complete your research goals you need to make sure that every time someone records a handaxe, they report how much it weighs in grams.
 
 When you're designing your module, you create a Validation Schema that ensures users must:
-\startitemize[a]
+\startitemize[a, packed, joinedup]
 \item put something in \quotation{Weight of Handaxe} instead of leaving it blank
 \item enter a number, not a phrase
 \item list the weight in grams, not pounds, tons, or catties.
@@ -76,17 +75,18 @@ This part you handle more directly. Simply sort your images into folders, then p
 \page
 \section[tour-from-the-data-schema]{Tour from the Data Schema}
 
-\subsection[how-to-format-data-schema-for-the-faims-system]{How to format data schema for the FAIMS system}
-
 We've already explained that the Data Schema describes what data your module is going to store--in other words, what your team is going to record and what you'll be able to export and analyze later.
 
 A Data Schema contains \quotation{elements,} or individual components that define some part of how the module works. The two kinds of elements you can find in a FAIMS Data Schema are called \quotation{Archaeological Elements} and \quotation{Relationship Elements,} and they each do very different things to allow computers and users to collect and organize data.
 
-Archaeological Elements are exactly what they sound like: they define an individual piece of archaeological data which can be collected. Each Archaeological Element has \quotation{property types} which define exactly what it represents and what kind of data are collected with regards to it. They can contain multiple property elements, such as a name, value, associated file, picture, video, or audio file, as well as a description.
 
-\in{Codeblock}[code1] below is an example of an Archaeological Element. You don't really need to understand this yet, but it won't hurt to familiarize yourself with its structure.
+\subsection{Archaeological Elements}
 
-\placecode[force][code1]{A demonstration archaeological element or \quotation{Archent}}{
+Archaeological Elements\footnote{We will also use the term \quotation{Archaeological Entities or ArchEnts to refer to these. The term \quotation{Element} refers to {\em this specific file's definition} while entitiy refers to the thing living and working inside the module. Don't worry about it, but know that we use both terms.}} are exactly what they sound like: they define an individual piece of archaeological data which can be collected. Each Archaeological Element has \quotation{property types} which define exactly what it represents and what kind of data are collected with regards to it. They can contain multiple property elements, such as a name, value, associated file, picture, video, or audio file, as well as a description.
+
+\in{Codeblock}[codeSimpleArchEnt] below is an example of an Archaeological Element. You don't really need to understand this yet, but it won't hurt to familiarize yourself with its structure.
+
+\placecode[here][codeSimpleArchEnt]{A demonstration archaeological element or \quotation{Archent}}{
 \startframedtext[align={hanging, hz},
 				 width=\makeupwidth,
 				background=color,
@@ -117,67 +117,53 @@ Archaeological Elements are exactly what they sound like: they define an individ
 	</property>
 	<property type="dropdown" name="location">
 		<lookup>
-			<term>Location A</term>
+			<term>Location A
+				<description>This is the first location.
+				</description>
+			</term>
 			<term>Location B</term>
-			<term>Location C</term>
-			<term>Location D</term>
+			<term>Location C</term>			
 		</lookup>
 	</property>
 </ArchaeologicalElement>
 \stoptyping
 \stopframedtext
 }
+
+\subsection{Relationships}
+
 Archaeological Elements contain a lot of information about what is being collected, but they don't actually define how the data being collected is organized or related. They can be used to say \quotation{users enter their location} and \quotation{users identify what they found,} but not \quotation{users identify what they found IF they are in a certain location.}
+
 
 This is why the Data Schema also has something called a Relationship Element, a kind of element that describes how archaeological elements relate to one another; whether they are in a hierarchy, one contains another, or they are bidirectional. Relationship element can also contain child elements with more information about the relationship. These child elements can include descriptions, definitions of the parent and child entities, and multiple properties, such as \quotation{lookup,} which lists controlled vocabulary terms.
 
-An example of a Relationship Element:
+An example of a Relationship Element can be found in \in{CodeBlock}[codeSimpleReln]\footnote{Brian's note: While I built relationships to hold data all the way back in FAIMS Mobile 1.0, no one ever used them for that purpose. For now, we use them link Archaeological Elements usually with a directed 1:1 relationship.}:
 
-<RelationshipElement name=\quotation{AboveBelow} type=\quotation{hierarchy}>
 
-<description>
-
-Indicates that one element is above or below another element.
-
-</description>
-
-<parent>
-
-Above
-
-</parent>
-
-<child>
-
-Below
-
-</child>
-
-<property type=\quotation{string} name=\quotation{relationship} isIdentifier=\quotation{true}>
-
-</property>
-
-<property type=\quotation{string} name=\quotation{name}>
-
-</property>
-
-<property type=\quotation{dropdown} name=\quotation{location}>
-
-<lookup>
-
-<term>Location A</term>
-
-<term>Location B</term>
-
-<term>Location C</term>
-
-<term>Location D</term>
-
-</lookup>
-
-</property>
-
+\placecode[force][codeSimpleReln]{A demonstration Relationship element or \quotation{Reln} allowing for a spatial relationship to be defined between two Archaeological Elements, one \quotation{above} the other. }{
+\startframedtext[align={hanging, hz},
+				 width=\makeupwidth,
+				background=color,
+				backgroundcolor=gray,				
+				framecolor=gray,
+				rulethickness=1pt				
+				 ]
+\starttyping[option=xml, tab=4, style={\tfx\tt}]
+<RelationshipElement name="AboveBelow" type="hierarchy">
+	<description>
+		Indicates that one element is above or below another element.
+	</description>
+	<parent>
+		Above
+	</parent>
+	<child>
+		Below
+	</child>
 </RelationshipElement>
-\stopchapter
+\stoptyping
+\stopframedtext
+}
+
+
 \stoptext
 \stopcomponent
