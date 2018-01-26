@@ -71,31 +71,35 @@ The UI Schema defines the basic layout of your module's user interface, but the 
 
 This part you handle more directly. Simply sort your images into folders, then put them all in a tarball (see "How do I share data with others?" for instructions). You can upload the tarball to the module generator directly, same as any other necessary file.
 
-Test your knowledge:
+TEST YOUR KNOWLEDGE:
 
-{\bf If data entered by a user isn't valid, is it collected?}
+1. {\bf If data entered by a user isn't valid, is it collected?}
 
-{\bf What} necessary file {\bf cannot be altered once a module has been created? }
+2. {\bf What} necessary file {\bf cannot be altered once a module has been created? }
 
-{\bf Which} necessary file {\bf do you need to worry about if some of your team speaks English and some only French?}
+3. {\bf Which} necessary file {\bf do you need to worry about if some of your team speaks English and some only French?}
 
 \subsubsection[tour-from-the-data-schema]{Tour from the Data Schema}
 
 \subsubsubsubsection[how-to-format-data-schema-for-the-faims-system]{How to format data schema for the FAIMS system}
 
-We've already explained that the Data Schema describes what data your module is going to store--in other words, what your team is going to record and what you'll be able to export and analyze later.
+We've already explained that the Data Schema describes what data your module is going to store--in other words, what your team is going to record and what you'll be able to export and analyze later. We've also explained that it defines the basic structure of the module and can't be altered once the module's been uploaded to your FAIMS server.
+
+Because the Data Schema and its structure are very important to FAIMS, it may be useful (and for advanced coding, will be necessary) to understand what exactly is contained within the Data Schema. 
+
+Unlike the rest of the document, you don't need to understand this next part fully before you continue on to the next section. Instead, revisit this section every so often as you master a new portion of the User to Developer document and see how well you can apply your understanding of modules and their structure to this information.
 
 A Data Schema contains "elements," or individual components that define some part of how the module works. The two kinds of elements you can find in a FAIMS Data Schema are called "Archaeological Elements" and "Relationship Elements," and they each do very different things to allow computers and users to collect and organize data.
 
-Archaeological Elements are exactly what they sound like: they define an individual piece of archaeological data which can be collected. Each Archaeological Element has "property types" which define exactly what it represents and what kind of data are collected with regards to it. They can contain multiple property elements, such as a name, value, associated file, picture, video, or audio file, as well as a description.
+Archaeological Elements are exactly what they sound like: they are definitions of an individual piece of data which can be collected. Each Archaeological Element has "property types" which define exactly what it represents and what kind of data are collected with regards to it. They can contain multiple property elements, such as a name, value, associated file, picture, video, or audio file, as well as a description.
 
-Below is an example of an Archaeological Element. You don't really need to understand this yet, but it won't hurt to familiarize yourself with its structure.
+Below is an example of an Archaeological Element for birds located within areas A, B, C, and D. Again: you don't really need to understand this yet, but it won't hurt to familiarize yourself with its structure.
 
 <ArchaeologicalElement name="small">
 
 <description>
 
-An small entity
+A bird located within the area.
 
 </description>
 
@@ -149,7 +153,7 @@ An small entity
 
 </ArchaeologicalElement>
 
-Archaeological Elements contain a lot of information about what is being collected, but they don't actually define how the data being collected is organized or related. They can be used to say "users enter their location" and "users identify what they found," but not "users identify what they found IF they are in a certain location."
+Archaeological Elements contain a lot of information about what is being collected, but they don't actually define how the data being collected is organized or related. They can be used to say "users enter the location in which the data was gathered" or "users identify what they found," but not "users identify what they found IF they are in a certain location." In other words, Archaelogical Elements explain how data is collected, but not how it is organized or related.
 
 This is why the Data Schema also has something called a Relationship Element, a kind of element that describes how archaeological elements relate to one another; whether they are in a hierarchy, one contains another, or they are bidirectional. Relationship element can also contain child elements with more information about the relationship. These child elements can include descriptions, definitions of the parent and child entities, and multiple properties, such as "lookup," which lists controlled vocabulary terms.
 
@@ -200,6 +204,13 @@ Below
 </property>
 
 </RelationshipElement>
+
+You'll understand more about how these elements are structured and what they mean after a thorough reading of "Coding Modules." In the meantime, as long as you understand in basic terms what's contained within a Data Schema, it's safe to proceed.
+
+TEST YOUR KNOWLEDGE:
+
+1. Which of the following are real types of element contained within the Data Schema: Archaelogical Elements, Data Elements, Module Elements, Relationship Elements
+
 
 \stoptext
 \stopcomponent
