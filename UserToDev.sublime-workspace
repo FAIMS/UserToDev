@@ -1,0 +1,858 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"q",
+				"Q2StudentID"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "WelcomeToFaims.tex",
+			"settings":
+			{
+				"buffer_size": 14195,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "SetupDev.tex",
+			"settings":
+			{
+				"buffer_size": 22913,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "DeployModules.tex",
+			"settings":
+			{
+				"buffer_size": 2251,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "frontispiece.tex",
+			"settings":
+			{
+				"buffer_size": 769,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "env_UserToDev.tex",
+			"settings":
+			{
+				"buffer_size": 681,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "UserToDev.tex",
+			"settings":
+			{
+				"buffer_size": 280,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "MakingYourOwn.tex",
+			"settings":
+			{
+				"buffer_size": 9082,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "DebugModules.tex",
+			"settings":
+			{
+				"buffer_size": 5644,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "CodingModules.tex",
+			"settings":
+			{
+				"buffer_size": 57302,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/Python/Python.sublime-build",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "package",
+		"selected_items":
+		[
+			[
+				"package",
+				"Package Control: Discover Packages"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"python",
+				"Set Syntax: Python3"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"sapce",
+				"Indentation: Convert to Spaces"
+			],
+			[
+				"tab",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"space",
+				"Indentation: Convert to Spaces"
+			],
+			[
+				"tabs",
+				"Indentation: Convert to Tabs"
+			]
+		],
+		"width": 485.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/brian/floobits/FAIMS_Project/ConTeXt.fedarch.org",
+		"/home/brian/floobits/FAIMS_Project/ConTeXt.fedarch.org/sandbox"
+	],
+	"file_history":
+	[
+		"/home/brian/.profile",
+		"/home/brian/.bashrc",
+		"/home/brian/exporters/scanExporter/stitchPDF.sh",
+		"/home/brian/ray/parse.py",
+		"/home/brian/modules/bluetoothPrinterModule/Zebra P4T/QRIGSN.zpl",
+		"/home/brian/modules/bluetoothPrinterModule/test.sql",
+		"/home/brian/modules/bluetoothPrinterModule/csiroCSV.py",
+		"/home/brian/modules/bluetoothPrinterModule/labels.tex",
+		"/home/brian/SoftwareX/faims.tex",
+		"/home/brian/SoftwareX/FAIMS.bib",
+		"/home/brian/Downloads/References from .bib",
+		"/home/brian/ray/setup.py",
+		"/home/brian/ray/.gitignore",
+		"/home/brian/floobits/FAIMS_Project/ConTeXt.fedarch.org/sandbox/hugePage.tex",
+		"/home/brian/exporters/scanExporter/shapefile.py",
+		"/home/brian/SoftwareX/faims.bbl",
+		"/home/brian/ray/parser.py",
+		"/home/brian/sw/2017-06-20-Macquarie/index.html",
+		"/home/brian/exporters/scanExporter/.git/config",
+		"/home/brian/exporters/scanExporter/config.json",
+		"/home/brian/exporters/scanExporter/install.sh",
+		"/home/brian/exporters/scanExporter/export.sh",
+		"/home/brian/exporters/scanExporter/makeCommit.sh",
+		"/home/brian/floobits/FAIMS_Project/ConTeXt.fedarch.org/FOAR705/envpresentationShield.tex",
+		"/home/brian/UA3/Session Notes.txt",
+		"/etc/apt/sources.list",
+		"/home/brian/sw/r-novice-inflammation/file1.r",
+		"/home/brian/floobits/FAIMS_Project/ConTeXt.fedarch.org/FOAR705/testImposition.tex",
+		"/home/brian/sw/2017-06-19-sydney-ttt/index.html",
+		"/home/brian/floobits/FAIMS_Project/ConTeXt.fedarch.org/log/testImposition.log",
+		"/home/brian/.ssh/config",
+		"/home/brian/exporters/shapefileExport/shapefile.py",
+		"/home/brian/sw/data-shell/notes.txt",
+		"/media/brian/RedLanyard/MQteacherJekyll/pages/program.md",
+		"/media/brian/RedLanyard/MQteacherJekyll/_config.yml",
+		"/home/brian/.factorio/CalcforFactorio_0.0.3/info.json",
+		"/home/brian/.factorio/CalcforFactorio_0.0.3/data.lua",
+		"/home/brian/.factorio/CalcforFactorio_0.0.3/control.lua",
+		"/home/brian/.factorio/CalcforFactorio_0.0.2/info.json",
+		"/home/brian/.factorio/CalcforFactorio_0.0.2/README.md",
+		"/home/brian/.factorio/factorio-current.log",
+		"/home/brian/factotum/factotum/factotum.py",
+		"/home/brian/factotum/factotum/update.py",
+		"/home/brian/factotum/factotum/settings.py",
+		"/home/brian/factotum/setup.py",
+		"/home/brian/sneakernet/uploadFactorio.py",
+		"/home/brian/factotum/__init__.py",
+		"/home/brian/factotum/README.md",
+		"/home/brian/factotum/MANIFEST.in",
+		"/home/brian/.factorio/unpackedMods/filtered-deconstruction-planner_0.4.10/gui.lua",
+		"/home/brian/.factorio/unpackedMods/filtered-deconstruction-planner_0.4.10/control.lua",
+		"/home/brian/.factorio/CalcforFactorio_0.0.1/README.md",
+		"/home/brian/.factorio/CalcforFactorio_0.0.1/control.lua",
+		"/home/brian/.factorio/CalcforFactorio_0.0.1/data.lua",
+		"/home/brian/.factorio/FactorioMaps_0.7.2/control.lua",
+		"/home/brian/.factorio/FactorioMaps_0.7.2/fm/guiLayout.lua",
+		"/home/brian/.factorio/FactorioMaps_0.7.2/prototypes/style.lua",
+		"/home/brian/.factorio/unpackedMods/advanced-logistics-system_0.4.0/styles/main.lua",
+		"/home/brian/.factorio/unpackedMods/advanced-logistics-system_0.4.0/data.lua",
+		"/home/brian/.factorio/unpackedMods/advanced-logistics-system_0.4.0/prototypes/input.lua",
+		"/home/brian/.factorio/unpackedMods/advanced-logistics-system_0.4.0/prototypes/controller.lua",
+		"/home/brian/.factorio/FactorioMaps_0.7.2/data.lua",
+		"/home/brian/.factorio/FactorioMaps_0.7.2/fm/gui.lua",
+		"/home/brian/.factorio/bobinserters_0.14.3/data-updates.lua",
+		"/home/brian/.factorio/bobinserters_0.14.3/data.lua",
+		"/home/brian/.factorio/bobinserters_0.14.3/prototypes/styles.lua",
+		"/home/brian/.factorio/bobinserters_0.14.3/control.lua",
+		"/home/brian/.factorio/bobinserters_0.14.3/prototypes/technology-inserter.lua",
+		"/home/brian/.factorio/mods/CalcforFactorio_0.0.1/data.lua",
+		"/home/brian/.factorio/mods/CalcforFactorio_0.0.1/info.json",
+		"/home/brian/.factorio/mods/CalcforFactorio_0.0.1/control.lua",
+		"/home/brian/.factorio/mods/SQLforFactorio_0.0.1/data.lua",
+		"/home/brian/.factorio/mods/what-is-it-used-for_1.1.5/data.lua",
+		"/home/brian/.factorio/mods/what-is-it-used-for_1.1.5/control.lua",
+		"/home/brian/.factorio/mods/SQLforFactorio_0.0.1/control.lua",
+		"/home/brian/.factorio/mods/SQLforFactorio_0.0.1/locale/en/CalcforFactorio.cfg",
+		"/home/brian/.factorio/disabledMods/what-is-it-used-for_1.1.5/data.lua",
+		"/home/brian/.factorio/mods/advanced-logistics-system_0.4.0/gui/main.lua",
+		"/home/brian/.factorio/mods/advanced-logistics-system_0.4.0/styles/main.lua",
+		"/home/brian/.factorio/mods/advanced-logistics-system_0.4.0/gui/events.lua",
+		"/home/brian/.factorio/mods/Screenshot_0.1408.003/actions.lua",
+		"/home/brian/.factorio/mods/advanced-logistics-system_0.4.0/control.lua",
+		"/home/brian/.factorio/mods/SQLforFactorio_0.0.1/locale/en/SQLforFactorio.cfg",
+		"/home/brian/.factorio/disabledMods/what-is-it-used-for_1.1.5/control.lua",
+		"/home/brian/.factorio/mods/Screenshot_0.1408.003/gui.lua",
+		"/home/brian/.factorio/mods/Screenshot_0.1408.003/data.lua",
+		"/home/brian/.factorio/mods/Screenshot_0.1408.003/control.lua",
+		"/home/brian/.factorio/disabledMods/what-is-it-used-for_1.1.5/info.json",
+		"/home/brian/.factorio/mods/SQLforFactorio_0.0.1/README.md",
+		"/home/brian/.factorio/mods/SQLforFactorio_0.0.1/info.json",
+		"/home/brian/.factorio/mods/advanced-logistics-system_0.4.0/data.lua",
+		"/home/brian/.factorio/mods/advanced-logistics-system_0.4.0/gui/network.lua",
+		"/home/brian/.factorio/mods/advanced-logistics-system_0.4.0/gui/items.lua",
+		"/home/brian/.factorio/mods/advanced-logistics-system_0.4.0/gui/widgets.lua",
+		"/home/brian/.factorio/mods/advanced-logistics-system_0.4.0/gui/settings.lua",
+		"/home/brian/.factorio/script-output/blueprint-string/denubis/Coal to Plastic.blueprint",
+		"/home/brian/.factorio/script-output/blueprint-string/denubis/Spiral Junciton.blueprint",
+		"/etc/X11/xorg.conf",
+		"/home/brian/Shawn/attendance.sql",
+		"/home/brian/Downloads/CSIROGeochemicalSampleCollection/archents.xml",
+		"/home/brian/Downloads/CSIROGeochemicalSampleCollection/attributes.xml",
+		"/home/brian/exporters/jsonExporter/jsonExport.py",
+		"/home/brian/exporters/jsonExporter/config.json",
+		"/home/brian/.netrc",
+		"/home/brian/hat_project/PostgreSQL/test.sql",
+		"/home/brian/hat_project/PostgreSQL/load.sql",
+		"/home/brian/Shawn/studentday.csv",
+		"/etc/lightdm/lightdm.conf.d/50-myconfig.conf",
+		"/etc/bumblebee/bumblebee.conf",
+		"/home/brian/into",
+		"/home/brian/Shawn/Attendance_October+12,+2016_13.29.csv",
+		"/home/brian/Heurist_files/load.sql",
+		"/home/brian/Heurist_files/queries.sql",
+		"/home/brian/Heurist_files/.git/config",
+		"/home/brian/viewsync/.gitignore",
+		"/home/brian/viewsync/README",
+		"/home/brian/Heurist_files/.ssh/config",
+		"/home/brian/Heurist_files/.ssh/commit",
+		"/home/brian/Heurist_files/DB_queries/What ethnicity is name with collective group name statement",
+		"/tmp/rsub-iobv40/masa2.xml",
+		"/home/brian/Shawn/barcode_stu.csv",
+		"/tmp/rsub-mqo2h6/pyrss2gen11.py",
+		"/tmp/rsub-d2i59s/getURL.py",
+		"/home/brian/foo.out",
+		"/tmp/rsub-s7iuci/PyRSS2Gen.py",
+		"/tmp/rsub-6xcfv0/getURL.py",
+		"/tmp/rsub-ip862q/getURL.py",
+		"/tmp/rsub-06vx8s/getURL.py"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"label",
+			"Pompeii",
+			"perma.cc",
+			"\\\\xa0",
+			"\\\\n",
+			"\\\\xa0",
+			"\\\\n",
+			"style=\"[^\"]+\"",
+			"-",
+			"echo",
+			"files",
+			"realExport",
+			"dump_data_utf8",
+			"md",
+			"parallel",
+			" -",
+			"so.5",
+			"\"libspatialite.so.5\"",
+			"libspatialite.so.5",
+			"libspat",
+			"roni",
+			"([A-Z][ \\t]+)\\[ ",
+			"\\[",
+			"table",
+			"INSERT",
+			"visibility",
+			"player.gui",
+			"top",
+			"gui",
+			"SQL",
+			"wiiuf_flow",
+			"flow",
+			"search_bar_textfield",
+			"playerCrea",
+			"font-m",
+			"als_button_main_icon",
+			"initGUI",
+			"style",
+			"style =",
+			"looking-glass",
+			"search_",
+			"search_flow_style",
+			"150",
+			"nvidia-37",
+			": ",
+			"@",
+			"\\((.*)\\)",
+			"vocabname",
+			"ethnici",
+			"epigraphic_person",
+			"ethnicName",
+			"Brian",
+			"mq20151400",
+			"print",
+			"publish",
+			"xml",
+			"link",
+			"url",
+			"rssItem",
+			":[0-9]+,,,",
+			",,,",
+			"22109008109105",
+			" [0-9]+:5",
+			":5",
+			"22109009488195",
+			"22109009487007",
+			"van der",
+			"meller",
+			"chann",
+			"munro",
+			"\\t",
+			"22109008179789",
+			"22109008109105",
+			"22109009083014",
+			"22109007521562",
+			",(,+)(221[0-9]+)",
+			"stdin",
+			"signal",
+			"get_ar",
+			"random",
+			" re",
+			"shut",
+			"sys",
+			" requ",
+			" io",
+			"io",
+			"codecs",
+			"json",
+			"subprocess",
+			"tempfile",
+			"time",
+			"stat",
+			"getSettingsFile",
+			"getSettings",
+			"copytree",
+			"get_script_dir",
+			"phrase.",
+			"diceware",
+			"password",
+			"getPas",
+			"newmap",
+			"generatePhrase",
+			"getFactorioPath",
+			"password\\(",
+			"password",
+			"pass",
+			"fact",
+			"install",
+			"getFact",
+			"path.exi",
+			"json.dump",
+			"'rw",
+			"^\\t\\t\\t  ",
+			"^\\t\\t  ",
+			"^\\t  ",
+			"^(  )",
+			"a",
+			"newFa",
+			"newmap",
+			"exist",
+			"install",
+			" ",
+			"rcon",
+			"  ",
+			"auth",
+			"newFact",
+			"__location",
+			"reques"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"\\xa0",
+			"\\n",
+			"\\xa0",
+			"\\n",
+			"",
+			"LIBSPATIALITE",
+			"\\1[H",
+			"[ ",
+			"episode",
+			"REPLACe",
+			"Calc",
+			"sql-icon",
+			"sql_",
+			"128",
+			"\\t",
+			"\\t\\1",
+			"brian",
+			"Brian",
+			"  ",
+			",\\2\\1",
+			",\\2\\1,",
+			"\\t\\t\\t\\t",
+			"\\t\\t\\t",
+			"\\t\\t",
+			"\\t",
+			"\\n",
+			"\\t",
+			"FACTORIOPATH",
+			",",
+			"\\1.x.x.\\4",
+			"`./h",
+			"factorioServerScripts",
+			"subject",
+			"\\\\item ",
+			"\\item ",
+			" ",
+			"Created,",
+			"'",
+			"')",
+			"INSERT INTO Comment(CommentID, Author, Score, CommentTimestamp, Subreddit, Body) VALUES('\\1', '\\2', \\3, '\\4', '\\5', '\\6\\');",
+			"INSERT INTO Author(Author, Create, CommentKarma, LinkKarma) VALUES('\\1', '\\2', \\3, \\4);",
+			"INSERT INTO Submission(SubmissionID, Author, Subreddit, Score, SubmissionTimestamp, SelfText) VALUES('\\1', '\\2', '\\5', \\3, '\\4', '\\6');",
+			"''",
+			"INTEGER",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "WelcomeToFaims.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 14195,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "SetupDev.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 22913,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "DeployModules.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2251,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "frontispiece.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 769,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								769,
+								769
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "env_UserToDev.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 681,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "UserToDev.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 280,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "MakingYourOwn.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9082,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "DebugModules.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5644,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "CodingModules.tex",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 57302,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 365.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Packages/Python 3/Python3.sublime-build",
+	"project": "UserToDev.sublime-project",
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 252.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
