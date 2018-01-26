@@ -1,0 +1,34 @@
+
+\section[installing-the-faims-tools]{Installing the FAIMS module \quotation{Auto-gen}}
+
+In addition to the FAIMS server, we'll also install the FAIMS \quotation{auto-generator} (Autogen)\footnote{The \quotation{Autogen} is a Domain Specific Language that we invented to make life easier for us to deploy modules. It turns out that this makes life easier for other people too.}. The FAIMS server is what you'll use to publish and manage your module, but it's the scripts and programs that comprise the Autogen that will allow you to create your module's necessary files in the first place. It's the Autogen that allow someone to create all the necessary files of a module without significant programming experience.
+
+\subsection[installing-the-prerequisites-for-the-faims-tools]{Installing the prerequisites for the Autogen}
+
+The Autogen in FAIMS-Tools is built on top of and depends on a few other programs. Before we start using the Autogen, we'll need to make sure all of those programs are correctly installed and configured.
+
+All of these tools are easier to install on a Linux system than on other operating systems, so we suggest downloading and installing them on the emulated Ubuntu installation you've just set up.
+
+The programs the Autogen depends on are the XSLT processors {\em XSLT Proc} and {\em Saxonb-XSLT}. Some versions of Linux already have these programs installed. The Ubuntu image we instructed you to download, however, does not. Fortunately, Linux has a handy command line program, apt-get, that provides access to tens of thousands of free software packages and makes installing programs like these straightforward\footnote{Brian's note, straightforward, but a bit intimidating because it's all knowledge-in-head instead of knowledge-at-hand. Power like this is... addicting though. Join us. We have cookies.}
+
+To install our prerequiste tools, type or copy the command in \in{Codeblock}[xsltproc] and press enter to run it. Every charac:
+
+\promptref{xsltproc}{BASH shell commands to install xsltproc. We have to tell the apt-get program to look for the latest versions of files first, though.}{\bashprompt{sudo apt-get update && sudo apt-get install -y \
+xsltproc gcj-4.8-jre-headless libsaxonb-java }}
+
+This will probably take some time to install. Have more coffee.
+
+You have now installed XSLT Proc, Java\footnote{Brian's note: Sorry.}, and libsaxonb. This program helps to transform the xml file you will be making into the data and ui schemas.
+
+
+
+\subsection[installing-the-faims-tools-1]{Installing the FAIMS Tools}
+
+To install the FAIMS-Tools, especially in Linux, use the version control software \useURL[url9][https://git-scm.com/download][][{\em Git}]\from[url9]. In the Terminal, on Linux and OSX, type "{\em git --version}" to see if Git is already installed. Type the following command into your terminal window on your Ubuntu installation:
+
+{\em git clone \useURL[url10][https://github.com/FAIMS/FAIMS-Tools.git][][{\em https://github.com/FAIMS/FAIMS-Tools.git}]\from[url10]}
+
+Git will copy all the files and notes in the GitHub repository (also known as a \quotation{repo}) to the directory from which you ran the Terminal command.
+
+\subsection[section-3]{\crlf
+}
