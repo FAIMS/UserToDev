@@ -1,0 +1,56 @@
+[33mcommit 8ae3ff6d4417d3d38f716f751a3f583b752a86c4[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Merge: b21d040 5a621e7
+Author: Brian Ballsun-Stanton <brian@fedarch.org>
+Date:   Fri Oct 20 08:09:44 2017 +1100
+
+    postmerge
+
+[33mcommit 5a621e7af20a1f59beced992f095b87a7072eee1[m
+Author: Brian Ballsun-Stanton <brian@fedarch.org>
+Date:   Thu Oct 19 10:41:08 2017 +1100
+
+    demo
+
+[33mcommit 2c9d03289b3b890f300e6c03516aaa822a72c04c[m
+Author: Brian Ballsun-Stanton <brian@fedarch.org>
+Date:   Thu Oct 19 10:29:00 2017 +1100
+
+    demo
+
+[33mcommit b21d040d37520eaf5346e2e34fa12c306b666245[m
+Author: Brian Ballsun-Stanton <brian@fedarch.org>
+Date:   Fri Oct 13 22:20:16 2017 +1100
+
+    landing
+
+[33mcommit 420ffba51177aef841054a5ef52da039a7ad95e8[m
+Author: Brian Ballsun-Stanton <brian@fedarch.org>
+Date:   Thu Oct 12 12:21:10 2017 +1100
+
+    after flight
+
+[33mcommit 70aa3a6df8c1e5147697c5ec84e8083caf5d89ec[m
+Author: Rutskarn <30422231+Rutskarn@users.noreply.github.com>
+Date:   Mon Oct 9 23:02:17 2017 -0700
+
+    Latest Revisions
+    
+    These files are ready to go. Will evaluate rest when I get up in ~8 hours.
+
+[33mcommit eb667f41ac11c549f9539b3c67a7e4db015788bd[m
+Author: Brian Ballsun-Stanton <brian@fedarch.org>
+Date:   Wed Sep 27 11:10:53 2017 +1000
+
+    Updates
+
+[33mcommit 3c688535a3eed52e4e2592272023bf664af3e3fd[m
+Author: Brian Ballsun-Stanton <brian@fedarch.org>
+Date:   Tue Jul 25 10:21:06 2017 +1000
+
+    tex
+
+[33mcommit 1e53f66658cd76afee61b74092f58c7bdb133c81[m
+Author: Brian Ballsun-Stanton <brian@fedarch.org>
+Date:   Mon Jul 24 18:41:50 2017 +1000
+
+    Initial commit

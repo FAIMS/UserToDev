@@ -3,12 +3,18 @@
 \starttext
 
 \component title
-% \component frontispiece
+\startchapter[marking={Forward}, title={Forward}]
+\component frontispiece
+\stopchapter
+
 
 % \component WelcomeToFaims
 \startchapter[title={Making Your Own Modules}, marking={Making your own}]
 
-% \component MakingYourOwn
+\component PartsOfModule
+\component TourDataSchema
+\stopchapter
+
 \component SetupDev
 \startsection[reference={how-to-code-modules}, title={How to Code Modules}]
 \stopsection
