@@ -2,4 +2,4 @@
 FAIMS Mobile User to Developer Documentation typeset using ConTeXt
 
 
-This readme needs updating - people should do it asap!
+This readme needs updating - people shoudl do it asap!
