@@ -40,7 +40,7 @@ Below is a very unusual description of a man named Richard. It's not code (it wo
   </Watch>
 </Richard>
 
-If you can read this and understand that Richard is old, that he's got wavy grey hair, that he's wearing a black Midnight Oil Dust and Diesel shirt with faded print, and that he has a gold watch, congratulations: you have already grasped the basic principle of how code in XML documents is  structured. If not, try again with that information in mind.
+If you can read this and understand that Richard is old, that he's got wavy grey hair, that he's wearing a black Midnight Oil Dust and Diesel shirt with faded print, and that he has a gold watch, congratulations: you have already grasped the basic principle of how code in XML documents is structured. If not, try again with that information in mind.
 
 Do you see how the description has a kind of flow to it? How the big category "Richard" is divided into smaller and more specific categories containing individual details? "Grey" and "Wavy" are singular details contained within the category "Hair," which is itself contained within the person "Richard"; therefore Richard has hair that is both grey and wavy. "Faded" and "Midnight Oil Diesel and Dust Tour" are contained within the category "Printed," which is contained along with "Black" and "Sleeveless" within the category "Shirt," which is contained within the person "Richard;" therefore Richard has a shirt, the shirt is black and sleeveless and printed, and the print is faded and says "Midnight Oil Diesel and Dust Tour." Because the details are contained within categories that have a beginning and an end, you know they pertain only to the thing that contains them; we know that Richard's shirt is not wavy, his hair is not black, and he as a person is not Faded. We also know that he's old, because within the person Richard is the detail "Old," but not whether or not his watch is old because the detail "Old" only appears in the person "Richard."
 
@@ -146,25 +146,25 @@ Review the following structure.
 
 <module>
 
-  <A>
+      <A>
   
-    <B>
-      <C/>
-      <C/>
-    </B>
+            <B>
+                  <C/>
+                  <C/>
+            </B>
     
-    <B>
-      <C/>
-    </B>
-  </A>
+            <B>
+                  <C/>
+            </B>
+      </A>
   
-  <A>
-    <B>
-      <C/>
-      <C/>
-      <C/>
-    </B>
-  </A>
+      <A>
+            <B>
+                  <C/>
+                  <C/>
+                  <C/>
+            </B>
+        </A>
 
 </module>
 
