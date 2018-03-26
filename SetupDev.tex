@@ -1,174 +1,193 @@
 \startcomponent[SetupDev]
 \starttext
-\section[setting-up-your-development-environment]{Deploying the Virtual Machine}
+\subsection[setting-up-your-development-environment]{Setting Up Your Development Environment}
 
 Before you can code any new modules, you'll need to download some files and free programs. Some of those programs you'll need to configure to make coding new modules easier and more efficient. At the end of this section, you will be able to:
 
 \startitemize
-\item Run the FAIMS Server, where your team members will download your module from and upload data to, on a virtual machine.
-\item Examine all the necessary files of a FAIMS module with a text editor.
+\item
+  \startblockquote
+  Run the FAIMS Server, where your team members will download your module from and upload data to, on a virtual machine.
+  \stopblockquote
+\item
+  \startblockquote
+  Examine all the necessary files of a FAIMS module with a text editor.
+  \stopblockquote
 \stopitemize
 
-\subsection[hardware-assumptions]{Hardware Assumptions}
+\subsubsubsection[hardware-assumptions]{Hardware Assumptions}
 
-Every computer is different, and unless you're using exactly the machine we used when writing these instructions (an HP laptop with a Core i7 processor and 8GB of RAM, running Windows 7) you probably won't be able to follow each step exactly as it's written. Many of the differences will be very minor; an option might have a slightly different name or be located somewhere else on your computer, for example. When you find an option isn't present as we describe it, take a deep breath. Click around or use your computer's \quotation{search} feature to see if you can find the option or setting somewhere else. If necessary, web search the terms we use in our instructions along with the system you're using in order to find equivalents. A good rule of thumb for general computer configuration is: whatever you can't figure out right now, someone else has had the same problem and a third person has fixed it for them.
+Every computer is different, and unless you're using exactly the machine we used when writing these instructions (an HP laptop with a Core i7 processor and 8GB of RAM, running Windows 7) you probably won't be able to follow each step exactly as it's written. Many of the differences will be very minor; an option might have a slightly different name or be located somewhere else on your computer, for example. When you find an option isn't present as we describe it, take a deep breath. Click around or use your computer's "search" feature to see if you can find the option or setting somewhere else. If necessary, web search the terms we use in our instructions along with the system you're using in order to find equivalents. A good rule of thumb for general computer configuration is: whatever you can't figure out right now, someone else has had the same problem and a third person has fixed it for them.
 
 As a last resort, we offer technical support services. See the appendix for further information.
 
-\subsection[before-you-start]{Before You Start}
+\subsubsubsection[before-you-start]{Before You Start}
 
 Before starting, you'll need to make sure you have enough room on your hard drive. We recommend about 25GB minimum for the server installation, as well as enough RAM to hold both your current operating system, the emulated machine, and any open programs in working memory. If you don't have that much space, delete files (especially large media files, like unnecessary videos) or uninstall programs until you're ready to begin. No good will come of trying to follow these next steps without enough room to work.
 
-\subsection[installing-the-faims-server-and-virtual-machine-vm]{Installing the FAIMS Server and Virtual Machine (VM)}
+\subsubsection[installing-the-faims-server-and-virtual-machine-vm]{Installing the FAIMS Server and Virtual Machine (VM)}
 
-For various reasons, the FAIMS server is designed to run on a machine running an operating system called Ubuntu Linux 14.04 (as opposed to, say, Windows or OSX). You probably don't use Ubuntu, and you probably wouldn't like to use it all of the time. That's why our first task here is to set up a \quotation{virtual machine} on the computer you do use. Virtual machines let you emulate entirely different kinds of computer system without making any significant changes to your own--in this case, an Ubuntu Linux 14.04 machine. It's like you're installing an application that simulates an entirely different computer whenever you need it.
+For various reasons, the FAIMS server is designed to run on a machine running an operating system called Ubuntu Linux 14.04 (as opposed to, say, Windows or OSX). You probably don't use Ubuntu, and you probably wouldn't like to use it all of the time. That's why our first task here is to set up a "virtual machine" on the computer you do use. Virtual machines let you emulate entirely different kinds of computer system without making any significant changes to your own--in this case, an Ubuntu Linux 14.04 machine. It's like you're installing an application that simulates an entirely different computer whenever you need it.
 
-\subsection[enable-vm-extensions-in-your-computer-bios-for-better-virtualbox-performance-vt-hypervisor]{Enable VM extensions in your computer BIOS for better VirtualBox Performance (VT Hypervisor)}
+\subsubsubsection[enable-vm-extensions-in-your-computer-bios-for-better-virtualbox-performance-vt-hypervisor]{Enable VM extensions in your computer BIOS for better VirtualBox Performance (VT Hypervisor)}
 
 You'll have a much easier time running your virtual machine, as well as Android emulators you'll need later, if you first enable a feature specifically designed for this purpose called "VT Hypervisor."
 
-To enable VT Hypervisor, enter your computer's BIOS or UEFI menu while booting your computer. This process differs a lot from computer to computer, but you should be able to find instructions here: \useURL[url2][http://www.howtogeek.com/213795/how-to-enable-intel-vt-x-in-your-computers-bios-or-uefi-firmware/][][{\tt\tfx\hyphenatedurl{http://www.howtogeek.com/213795/how-to-enable-intel-vt-x-in-your-computers-bios-or-uefi-firmware/}}]\from[url2]
+To enable VT Hypervisor, enter your computer's BIOS or UEFI menu while booting your computer. This process differs a lot from computer to computer, but you should be able to find instructions here.
 
-\placefigure[force][bios]{A rather literal picture of a computer's \quotation{BIOS} setup screen, showing the enabling of \quotation{VT-X extensions}}{\externalfigure[images/image23.jpg][width=\textwidth]}
+\useURL[url2][http://www.howtogeek.com/213795/how-to-enable-intel-vt-x-in-your-computers-bios-or-uefi-firmware/][][{\em http://www.howtogeek.com/213795/how-to-enable-intel-vt-x-in-your-computers-bios-or-uefi-firmware/}]\from[url2]
 
-We found the VT setting under the \quotation{Virtualization Technology} option in the System Configuration menu. Again, unless you're using an HP dv6qt Laptop, yours will probably be somewhere else. This process can feel a little intimidating if you're not used to messing with your computer on this basic a level, but relax: this step is perfect safe.
+{\externalfigure[media/image90.jpg][width=5.73958in,height=3.32078in]}
 
-\subsection[installing-virtualbox]{Installing VirtualBox}
+We found the VT setting under the "Virtualization Technology" option in the System Configuration menu. Again, unless you're using an HP dv6qt Laptop, yours will probably be somewhere else. This process can feel a little intimidating if you're not used to messing with your computer on this basic a level, but relax: this step is perfect safe.
 
-Now you can download and install the VirtualBox client from: \useURL[url3][https://www.virtualbox.org/wiki/Downloads][][{\tt\tfx\hyphenatedurl{https://www.virtualbox.org/wiki/Downloads}}]\from[url3]. This is what we're going to use to create a virtual machine that can run our Ubuntu Linux-based FAIMS server.
+\subsubsubsection[installing-virtualbox]{Installing VirtualBox}
 
-%TODO Check url. this looks odd.
+Now you can download and install the VirtualBox client. This is what we're going to use to create a virtual machine that can run our Ubuntu Linux-based FAIMS server.
+
+\useURL[url3][https://www.virtualbox.org/wiki/Downloads][][{\em https://www.virtualbox.org/wiki/Downloads}]\from[url3]
 
 You probably won't have installed VirtualBox before, but on the off chance you have (say, if this isn't your first time trying this step) make sure you uninstall the old version {\bf completely} before trying to install it again.
 
-%\alert{Note: As of 8/2015, VirtualBox is not compatible with Windows 10. If your operating system is Windows 10, you'll need to set up VirtualBox on a different machine.}
+{\bf Note: As of 8/2015, VirtualBox is not compatible with Windows 10. If your operating system is Windows 10, you'll need to set up VirtualBox on a different machine.}
 
-%TODO Brian check this.
+During installation, you may receive a couple Windows Security questions about Oracle drivers. Windows is naturally suspicious of this kind of installation, but nothing you're putting on your computer right now is dangerous. You can ignore each prompt individually or skip them all at once by selecting "always trust Oracle" in the popup window.
 
-During installation, you may receive a couple Windows Security questions about Oracle drivers. Windows is naturally suspicious of this kind of installation, but nothing you're putting on your computer right now is dangerous. You can ignore each prompt individually or skip them all at once by selecting \quotation{always trust Oracle} in the popup window (\in{Figure}[trustOracle]).
+{\externalfigure[media/image122.png][width=5.35417in,height=2.47917in]}
 
-\placefigure[force][trustOracle]{We are installing network device drivers here, so that your tablet can talk to this \quotation{Virtual Machine}}{\externalfigure[images/image51.png][width=.8\textwidth]}
+Once VirtualBox is installed, you can start the program. The default screen should look similar to the image below.
 
-Once VirtualBox is installed, you can start the program. The default screen should look similar to \in{Figure}[virtualBoxStart]
+{\externalfigure[media/image128.png][width=5.58026in,height=4.17625in]}
 
-\placefigure[force][virtualBoxStart]{VirtualBox without any virtual... boxes. A box inside your computer which can hold boxes\footnote{We call a computer a box because the old fashioned tower that older or powerful computers come with is usually referred to as the Box by tech types}, but not cats.}{\externalfigure[images/image57.png][width=.8\textwidth]}
+If you need to take a break, this is a good stopping point! 
 
-If you need to take a break, this is a good stopping point\footnote{Time for coffee! It's {\em always} time for coffee.}!
-
-If you're ready to move on, download the FAIMS Server image (2.5GB) from: \useURL[url4][https://cloudstor.aarnet.edu.au/plus/index.php/s/OToMafgHrpsvwTG][][{\tt\tfx\hyphenatedurl{https://cloudstor.aarnet.edu.au/plus/index.php/s/OToMafgHrpsvwTG}}]\from[url4]
+If you're ready to move on, download the FAIMS Server image (2.5GB) from: \useURL[url4][https://cloudstor.aarnet.edu.au/plus/index.php/s/OToMafgHrpsvwTG][][{\em https://cloudstor.aarnet.edu.au/plus/index.php/s/OToMafgHrpsvwTG}]\from[url4]
 
 The server image is packaged as an ".ova" file, which is a type of file that can be opened by VirtualBox. This file is the complete package: it represents an Ubuntu Linux 14.04 computer system that has the FAIMS server set to automatically configure and run. This image is the same one that our \useURL[url5][http://www.google.com/url?q=http\%3A\%2F\%2Fshop.fedarch.org\%2F&sa=D&sntz=1&usg=AFQjCNH6yZzwzTUdheN3jnKrgFMghsWrvQ][][{\em FAIMS-In-A-Box kits}]\from[url5] use, which will make supporting your FAIMS installation much easier if you run into any problems.
 
 Before using the image, you'll need to unzip the compressed zip file using your favorite archival program (e.g. \useURL[url6][http://sourceforge.net/projects/sevenzip/][][{\em 7-ZIP}]\from[url6], \useURL[url7][http://www.iceows.com/HomePageUS.html][][{\em ICEOWs}]\from[url7]).
 
-\placefigure[force][foo]{}{\externalfigure[images/image56.png][width=.8\textwidth]}
+{\externalfigure[media/image127.png][width=6.04167in,height=3.64583in]}
 
 To set up the emulated machine, we'll use the preconfigured machine image we downloaded in the last step.
 
 In VirtualBox, select the "File->Import Appliance" option.
 
-\placefigure[force][foo]{}{\externalfigure[images/image67.png][width=.8\textwidth]}
+{\externalfigure[media/image139.png][width=6.66880in,height=2.33547in]}
 
 Using the file browser that appears, navigate to the directory where you downloaded the FAIMS server image and select to open it.
 
-\placefigure[force][foo]{}{\externalfigure[images/image21.png][width=.8\textwidth]}
+{\externalfigure[media/image87.png][width=6.50000in,height=4.56944in]}
 
-The pre-configured settings will appear. Select the \quotation{Import} option.
+The pre-configured settings will appear. Select the "Import" option.
 
-\placefigure[force][foo]{}{\externalfigure[images/image32.png][width=.8\textwidth]}
+{\externalfigure[media/image99.png][width=5.28125in,height=4.61458in]}
 
 VirtualBox will now set to work importing the image and setting everything up. Depending on your system, this may take a few minutes.
 
-\placefigure[force][foo]{}{\externalfigure[images/image16.png][width=.8\textwidth]}
+{\externalfigure[media/image82.png][width=5.28125in,height=4.61458in]}
 
 Once the setup is complete, "FAIMS2 Web - Demo Server" will appear in the menu on the left in VirtualBox.
 
-\placefigure[force][foo]{}{\externalfigure[images/image46.png][width=.8\textwidth]}
+{\externalfigure[media/image113.png][width=5.33026in,height=3.98915in]}
 
-Click on the system and then click the \quotation{Start} button in VirtualBox to start the server. You {\em will} encounter the following error.
+Click on the system and then click the "Start" button in VirtualBox to start the server. You {\em will} encounter the following error.
 
-\placefigure[force][foo]{}{\externalfigure[images/image66.png][width=.8\textwidth]}
+{\externalfigure[media/image138.png][width=3.43750in,height=2.16667in]}
 
-\alert{DON'T PANIC.} Simply, click the \quotation{Close VM} button. You're still on the right track; sometimes, things just have to be a little fussy.
+{\bf DON'T PANIC.} Simply, click the "Close VM" button. You're still on the right track; sometimes, things just have to be a little fussy.
 
-Back on the main screen, click on the \quotation{Network} section.
+Back on the main screen, click on the "Network" section.
 
-\placefigure[force][foo]{}{\externalfigure[images/image30.png][width=.8\textwidth]}
+{\externalfigure[media/image97.png][width=6.50000in,height=5.51389in]}
 
-In the popup window that appears, check the \quotation{Enable Network Adapter} box on the \quotation{Adapter 1} tab, and select \quotation{Bridged Adapter} from the "Attached to:" menu.
+In the popup window that appears, check the "Enable Network Adapter" box on the "Adapter 1" tab, and select "Bridged Adapter" from the "Attached to:" menu.
 
-\placefigure[force][foo]{}{\externalfigure[images/image35.png][width=.8\textwidth]}
+{\externalfigure[media/image102.png][width=6.50000in,height=4.23611in]}
 
 You may choose your machine's wifi adapter but, if you run into any issues, try using your hardline connection instead.
 
-Click the \quotation{Start} button on the VirtualBox program. VirtualBox will pop up a new window in which your emulated machine will run. Give VirtualBox a few minutes to start your new emulated Ubuntu machine, and a few minutes longer for Ubuntu to start the FAIMS server. When they've finished, you will see the following message about the server having been set up.
+Click the "Start" button on the VirtualBox program. VirtualBox will pop up a new window in which your emulated machine will run. Give VirtualBox a few minutes to start your new emulated Ubuntu machine, and a few minutes longer for Ubuntu to start the FAIMS server. When they've finished, you will see the following message about the server having been set up.
 
-\placefigure[force][foo]{}{\externalfigure[images/image4.png][width=.8\textwidth]}
+{\externalfigure[media/image12.png][width=4.89884in,height=4.18442in]}
 
-If you like, you can skip ahead a little and, back on your real machine, you can open the FAIMS server by navigating to 192.168.1.121, or whatever address is listed by your FAIMS status page in your web browser (check your messages for the specific IP address on your machine). {\bf Note:} The default FAIMS account is "faimsadmin@intersect.org.au", password "Pass.123".
-
-\placefigure[force][foo]{}{\externalfigure[images/image55.png][width=.8\textwidth]}
+If you like, you can skip ahead a little and, back on your real machine, you can open the FAIMS server by navigating to 192.168.1.121, or whatever address is listed by your FAIMS status page in your web browser (check your messages for the specific IP address on your machine). {\bf Note:} The default FAIMS account is "faimsadmin@intersect.org.au", password "Pass.123".{\externalfigure[media/image126.png][width=6.50000in,height=3.65278in]}
 
 If you log out of the Ubuntu installation at any time, just use the password "Pass.123" to log back into the system.
 
-\subsection[getting-the-faims-server-up-to-date]{Getting the FAIMS Server Up to Date}
-%TODO Brian fix this fucking shit.
+\subsubsubsection[getting-the-faims-server-up-to-date]{Getting the FAIMS Server Up to Date}
 
-The final step for setting up the FAIMS server is to ensure it is up-to-date. To do this, inside Ubuntu, click on the Ubuntu symbol and type in "Terminal." Terminal (or \quotation{the terminal}) is a command line prompt that allows you to run many different programs using text commands. (To learn more about the Terminal and executing Bash commands, see here: \useURL[url8][https://help.ubuntu.com/community/UsingTheTerminal\#In_Unity][][{\em https://help.ubuntu.com/community/UsingTheTerminal\#In_Unity}]\from[url8]).
+The final step for setting up the FAIMS server is to ensure it is up-to-date. To do this, inside Ubuntu, click on the Ubuntu symbol and type in "Terminal." Terminal (or "the terminal") is a command line prompt that allows you to run many different programs using text commands. (To learn more about the Terminal and executing Bash commands, see here: \useURL[url8][https://help.ubuntu.com/community/UsingTheTerminal\#In_Unity][][{\em https://help.ubuntu.com/community/UsingTheTerminal\#In_Unity}]\from[url8]).
 
-\placefigure[force][foo]{}{\externalfigure[images/image121.png][width=.8\textwidth]}
+{\externalfigure[media/image121.png][width=6.50000in,height=5.55556in]}
 
 Now, in the Terminal, type or copy the following commands individually (each line is a command) and press enter to run each of them:
 
-\prompt{Updating the server.}{
-\bashprompt{wget http://fedarch.org/update.sh}
-\bashprompt{bash ./update.sh}}
-%TODO Brian fix
+{\em wget http://fedarch.org/update.sh}
 
-This may also be a good time to take a break. We like breaks.
+{\em bash ./update.sh}
 
-\quiz{Test your knowledge about the VM}{%
-\item If the FAIMS server is supposed to be run on an Ubuntu machine, how are you going to run it on your non-Ubuntu computer?
-\item What can you do if you can't find an option or setting we refer to in our instructions?
-\item If you've installed VirtualBox before, what do you need to do before setting it up on your computer?
-\item Before you import the server image into VirtualBox, what needs to be done to it?
+\subsubsection[section-2]{}
+
+\subsubsection[this-may-also-be-a-good-time-to-take-a-break.]{This may also be a good time to take a break. Particularly because this step often takes a long time for Ubuntu to complete. It may look like nothing's happening for a while, so try not to get anxious.}
+
+\subsubsection[test-your-knowledge]{Test your knowledge:}
+
+\subsubsection[if-the-faims-server-is-supposed-to-be-run-on-an-ubuntu-machine-how-are-you-going-to-run-it-on-your-non-ubuntu-computer]{If the FAIMS server is supposed to be run on an Ubuntu machine, how are you going to run it on your non-Ubuntu computer?}
+
+\subsubsection[what-can-you-do-if-you-cant-find-an-option-or-setting-we-refer-to-in-our-instructions]{What can you do if you can't find an option or setting we refer to in our instructions?}
+
+\subsubsection[if-youve-installed-virtualbox-before-what-do-you-need-to-do-before-setting-it-up-on-your-computer]{If you've installed VirtualBox before, what do you need to do before setting it up on your computer?}
+
+\subsubsection[before-you-import-the-server-image-into-virtualbox-what-needs-to-be-done-to-it]{Before you import the server image into VirtualBox, what needs to be done to it?\crlf
 }
 
-\section[installing-the-faims-tools]{Installing the FAIMS module \quotation{Auto-gen}}
+\subsubsection[installing-the-faims-tools]{Installing the FAIMS-Tools}
 
-In addition to the FAIMS server, we'll also install the FAIMS \quotation{auto-generator} (Autogen)\footnote{The \quotation{Autogen} is a Domain Specific Language that we invented to make life easier for us to deploy modules. It turns out that this makes life easier for other people too.}. The FAIMS server is what you'll use to publish and manage your module, but it's the scripts and programs that comprise the Autogen that will allow you to create your module's necessary files in the first place. It's the Autogen that allow someone to create all the necessary files of a module without significant programming experience.
+In addition to the FAIMS server, we'll also install the FAIMS-Tools. The FAIMS server is what you'll use to publish and manage your module, but it's the scripts and programs that comprise the FAIMS-Tools that will allow you to create your module's necessary files in the first place. It's the FAIMS-Tools that allow someone to create all the necessary files of a module without significant programming experience.
 
-\subsection[installing-the-prerequisites-for-the-faims-tools]{Installing the prerequisites for the Autogen}
+\subsubsubsection[installing-the-prerequisites-for-the-faims-tools]{Installing the prerequisites for the FAIMS-tools}
 
-The Autogen in FAIMS-Tools is built on top of and depends on a few other programs. Before we start using the Autogen, we'll need to make sure all of those programs are correctly installed and configured.
+FAIMS-Tools are built on top of and depend on a few other programs. Before we start using the FAIMS-Tools, we'll need to make sure all of those programs are correctly installed and configured.
 
 All of these tools are easier to install on a Linux system than on other operating systems, so we suggest downloading and installing them on the emulated Ubuntu installation you've just set up.
 
-The programs the Autogen depends on are the XSLT processors {\em XSLT Proc} and {\em Saxonb-XSLT}. Some versions of Linux already have these programs installed. The Ubuntu image we instructed you to download, however, does not. Fortunately, Linux has a handy command line program, apt-get, that provides access to tens of thousands of free software packages and makes installing programs like these straightforward\footnote{Brian's note, straightforward, but a bit intimidating because it's all knowledge-in-head instead of knowledge-at-hand. Power like this is... addicting though. Join us. We have cookies.}
+The programs the FAIMS-Tools depend on are the XSLT processors {\em XSLT Proc} and {\em Saxonb-XSLT}. Some versions of Linux already have these programs installed. The Ubuntu image we instructed you to download, however, does not. Fortunately, Linux has a handy command line program, apt-get, that provides access to thousands of free software packages and makes installing programs like these straightforward and easy.
 
-To install our prerequiste tools, type or copy the command in \in{Codeblock}[xsltproc] and press enter to run it. Every charac:
+\subsubsubsubsection[install-xslt-proc]{Install XSLT Proc }
 
-\promptref{xsltproc}{BASH shell commands to install xsltproc. We have to tell the apt-get program to look for the latest versions of files first, though.}{\bashprompt{sudo apt-get update && sudo apt-get install -y \
-xsltproc gcj-4.8-jre-headless libsaxonb-java }}
+To install XSLT Proc, type or copy the following command and press enter to run it:
 
-This will probably take some time to install. Have more coffee.
+{\em Sudo apt-get update && sudo apt-get install xsltproc}
 
-You have now installed XSLT Proc, Java\footnote{Brian's note: Sorry.}, and libsaxonb. This program helps to transform the xml file you will be making into the data and ui schemas.
+\subsubsubsubsection[you-have-now-installed-xslt-proc.]{You have now installed XSLT Proc.}
 
+\subsubsubsubsection[installing-java-on-ubuntu]{Installing Java on Ubuntu}
 
+Before installing the next tool, saxonb-xslt, you'll need to install Java. On your Ubuntu VM, you can install Java by running in the following command.
 
-\subsection[installing-the-faims-tools-1]{Installing the FAIMS Tools}
+sudo apt-get install gcj-4.8-jre-headless
+
+\subsubsubsubsection[itll-probably-take-a-few-minutes-to-download-and-install.]{It'll probably take a few minutes to download and install.}
+
+\subsubsubsubsection[install-saxonb-xslt]{Install saxonb-xslt }
+
+Run the following command:
+
+{\em sudo apt-get install libsaxonb-java}
+
+\subsubsubsection[installing-the-faims-tools-1]{Installing the FAIMS Tools}
 
 To install the FAIMS-Tools, especially in Linux, use the version control software \useURL[url9][https://git-scm.com/download][][{\em Git}]\from[url9]. In the Terminal, on Linux and OSX, type "{\em git --version}" to see if Git is already installed. Type the following command into your terminal window on your Ubuntu installation:
 
 {\em git clone \useURL[url10][https://github.com/FAIMS/FAIMS-Tools.git][][{\em https://github.com/FAIMS/FAIMS-Tools.git}]\from[url10]}
 
-Git will copy all the files and notes in the GitHub repository (also known as a \quotation{repo}) to the directory from which you ran the Terminal command.
+Git will copy all the files and notes in the GitHub repository (also known as a "repo") to the directory from which you ran the Terminal command.
 
-\subsection[section-3]{\crlf
+\subsubsection[section-3]{\crlf
 }
 
-\subsection[installing-a-text-editor-for-editing-necessary-files]{Installing a Text Editor for Editing Necessary Files}
+\subsubsection[installing-a-text-editor-for-editing-necessary-files]{Installing a Text Editor for Editing Necessary Files}
 
 The purpose of the FAIMS tools are to remove the need to individually craft all of your module's necessary files. Instead, you'll need to create one file the tools can use as a blueprint for making everything else. In order to make that one file (and to make any fancy edits to the necessary files to add detail or functionality), you're going to need a simple text editor that's good for coding with.
 
@@ -180,37 +199,43 @@ We particularly recommend:
 
 \startitemize
 \item
-    \useURL[url11][https://notepad-plus-plus.org/download/v6.8.1.html][][{\em Notepad++}]\from[url11] (Windows)
+  \startblockquote
+  \useURL[url11][https://notepad-plus-plus.org/download/v6.8.1.html][][{\em Notepad++}]\from[url11] (Windows)
+  \stopblockquote
 \item
-    \useURL[url12][https://atom.io/][][{\em Atom}]\from[url12] (Cross Platform)
+  \startblockquote
+  \useURL[url12][https://atom.io/][][{\em Atom}]\from[url12] (Cross Platform)
+  \stopblockquote
 \item
-    \useURL[url13][http://www.barebones.com/products/textwrangler/][][{\em TextWrangler}]\from[url13] (OSX)
+  \startblockquote
+  \useURL[url13][http://www.barebones.com/products/textwrangler/][][{\em TextWrangler}]\from[url13] (OSX)
+  \stopblockquote
 \stopitemize
 
 For each of these, simply download their binary installers and follow their installation wizards. If you're using a Linux device that isn't the virtual machine, you can install gEdit, Vim, Emacs, or another text editor using apt-get.
 
-{\em {\bf *Note from your friends at FAIMS:}} {\em One of the main reasons to use the text editors above is so that you can avoid "Smart Quotes," an automatic feature of many word processor programs that will insert differently styled or extra quotes that will cause the FAIMS server to reject your module. If you run into any issues with your module, ensure that \quotation{Smart Quotes} are disabled in your text editor.}
+{\em {\bf *Note from your friends at FAIMS:}} {\em One of the main reasons to use the text editors above is so that you can avoid "Smart Quotes," an automatic feature of many word processor programs that will insert differently styled or extra quotes that will cause the FAIMS server to reject your module. If you run into any issues with your module, ensure that "Smart Quotes" are disabled in your text editor.}
 
-\subsection[section-4]{\crlf
+\subsubsection[section-4]{\crlf
 }
 
-\subsection[get-access-to-your-local-files-via-virtualbox]{Get Access to your local files via VirtualBox}
+\subsubsection[get-access-to-your-local-files-via-virtualbox]{Get Access to your local files via VirtualBox}
 
-\subsection[installing-the-android-sdk]{Installing the Android SDK}
+\subsubsection[installing-the-android-sdk]{Installing the Android SDK}
 
 Now we'll need to install the Android Software Development Kit (ADK). It's available at \useURL[url14][https://developer.android.com/sdk/installing/index.html][][{\em https://developer.android.com/sdk/installing/index.html}]\from[url14] Ignore the Android Studio link; we just need the SDK Tools.
 
 Because you're going to use the tools for debugging an Android device plugged into your actual computer, you're going to want to download and install SDK Tools to your regular computer system, NOT your Ubuntu virtual machine.
 
-\placefigure[force][foo]{}{\externalfigure[images/image41.png][width=.8\textwidth]}
+{\externalfigure[media/image108.png][width=5.44792in,height=2.03338in]}
 
-\placefigure[force][foo]{}{\externalfigure[images/image36.png][width=.8\textwidth]}
+{\externalfigure[media/image103.png][width=5.41667in,height=1.95005in]}
 
-\placefigure[force][foo]{}{\externalfigure[images/image60.png][width=.8\textwidth]}
+{\externalfigure[media/image131.png][width=5.30942in,height=2.74831in]}
 
 Run the downloaded installer and follow its prompts to finish setting up the SDK tools.
 
-\subsection[installing-the-faims-debug-apk-on-your-android-device]{Installing the FAIMS Debug APK on your Android Device}
+\subsubsection[installing-the-faims-debug-apk-on-your-android-device]{Installing the FAIMS Debug APK on your Android Device}
 
 The final step to setting up your development environment is to install the FAIMS app on your Android tablet or phone. Instead of installing the app through the Google Play Store, navigate to \useURL[url15][https://www.fedarch.org/apk/faims-debug-latest.apk][][{\em https://www.fedarch.org/apk/{\bf faims-debug-latest.apk}}]\from[url15] and download the special debug version.
 
@@ -218,13 +243,13 @@ Next, you'll need to place the FAIMS APK file on your phone, either by moving it
 
 {\bf TIP:} If you load the URL \useURL[url16][https://www.fedarch.org/apk/faims-debug-latest.apk][][{\em https://www.fedarch.org/apk/{\bf faims-debug-latest.apk}}]\from[url16] on your Android devices, you'll be able to directly download the file.
 
-To install the APK, you may need to change the security settings on your device to allow non-market apps. Go to the \quotation{Settings} app, find the Security settings, and check \quotation{Unknown sources} (device pictured is a Samsung Galaxy s5. Your settings menu may look different).
+To install the APK, you may need to change the security settings on your device to allow non-market apps. Go to the "Settings" app, find the Security settings, and check "Unknown sources" (device pictured is a Samsung Galaxy s5. Your settings menu may look different).
 
-\placefigure[force][foo]{}{\externalfigure[images/image62.png][width=.8\textwidth]}
+{\externalfigure[media/image133.png][width=3.92708in,height=3.50213in]}
 
-\subsection[making-your-android-device-communicate-with-your-computer-with-usb-debugging]{Making your Android Device Communicate with your Computer with USB Debugging}
+\subsubsection[making-your-android-device-communicate-with-your-computer-with-usb-debugging]{Making your Android Device Communicate with your Computer with USB Debugging}
 
-First, you'll need to enable the \quotation{Developer Options} on your device. This is another step where the instructions are different depending on what kind of device you're using. Below are instructions for enabling Developer Options with a Samsung Galaxy S5; if you have something different, you may need to Google your device and \quotation{enable developer options} together.
+First, you'll need to enable the "Developer Options" on your device. This is another step where the instructions are different depending on what kind of device you're using. Below are instructions for enabling Developer Options with a Samsung Galaxy S5; if you have something different, you may need to Google your device and "enable developer options" together.
 
 Note that if you want for USB Debugging to work when your Galaxy S5 is connected with your computer, then you will first need to make sure that the \useURL[url17][http://www.android.gs/download-samsung-usb-drivers-for-android/][][Samsung USB Drivers are installed on your]\from[url17] PC.
 
@@ -232,23 +257,37 @@ Note that if you want for USB Debugging to work when your Galaxy S5 is connected
 
 For many non-Samsung devices, you can use Google's ABD/USB driver instead: \useURL[url19][https://developer.android.com/studio/run/oem-usb.html\#InstallingDriver][][{\em https://developer.android.com/studio/run/oem-usb.html\#InstallingDriver}]\from[url19]
 
-To enable the \quotation{Developer Options}:
+To enable the "Developer Options":
 
 \startitemize[n][stopper=.]
 \item
-    Open the App drawer.
+  \startblockquote
+  Open the App drawer.
+  \stopblockquote
 \item
-    Launch Settings menu.
+  \startblockquote
+  Launch Settings menu.
+  \stopblockquote
 \item
-    Find the open the 'About Device' menu.
+  \startblockquote
+  Find the open the 'About Device' menu.
+  \stopblockquote
 \item
-    Scroll down to 'Build Number'.
+  \startblockquote
+  Scroll down to 'Build Number'.
+  \stopblockquote
 \item
-    Next, tap on the 'Build Number' section seven times. (Yes, really.)
+  \startblockquote
+  Next, tap on the 'Build Number' section seven times. (Yes, really.)
+  \stopblockquote
 \item
-    After the seventh tap you will be told that you are now a developer. (Again, this is really how it works.)
+  \startblockquote
+  After the seventh tap you will be told that you are now a developer. (Again, this is really how it works.)
+  \stopblockquote
 \item
-    Go back to Settings menu and the Developer Options menu will now be displayed.
+  \startblockquote
+  Go back to Settings menu and the Developer Options menu will now be displayed.
+  \stopblockquote
 \stopitemize
 
 In order to enable the USB Debugging you will simply need to open Developer Options, scroll down and tick the box that says 'USB Debugging'.
@@ -269,17 +308,25 @@ Which of the following are true?
 
 \startitemize
 \item
-    VirtualBox allows you to run a different operating system on your computer
+  \startblockquote
+  VirtualBox allows you to run a different operating system on your computer
+  \stopblockquote
 \item
-    VirtualBox connects to a computer at the FAIMS offices
+  \startblockquote
+  VirtualBox connects to a computer at the FAIMS offices
+  \stopblockquote
 \item
-    You must install XSLT Proc and saxon-xslt before running the XML generator tool
+  \startblockquote
+  You must install XSLT Proc and saxon-xslt before running the XML generator tool
+  \stopblockquote
 \item
-    FAIMS can use both Android and Apple devices
+  \startblockquote
+  FAIMS can use both Android and Apple devices
+  \stopblockquote
 \stopitemize
 
 
 
-Exercise: Open up a command window (Windows key + type \quotation{cmd} + hit enter/select with mouse. In this command window, enter the text "adb --version" then enter. Some information about the Android Development Bridge (ADB) program should appear. Did you encounter any errors? If not, congratulations, ADB/Android SDK is successfully installed.
+Exercise: Open up a command window (Windows key + type "cmd" + hit enter/select with mouse. In this command window, enter the text "adb --version" then enter. Some information about the Android Development Bridge (ADB) program should appear. Did you encounter any errors? If not, congratulations, ADB/Android SDK is successfully installed.
 \stoptext
 \stopcomponent
