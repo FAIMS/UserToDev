@@ -1,0 +1,240 @@
+\startcomponent[MatchModule]
+\starttext
+
+
+\section[iterating-to-match-the-oral-history-module]{Iterating to Match the Oral History Module}
+
+Now that we've created a very straightforward version of the Oral History module, let's layer in some additional features. By the end of this section, we will have discussed all the steps that went into making the version of the Oral History Module you can download from the FAIMS Demo Server.
+
+Select "Demo Server" from the dropdown menu in the FAIMS setting menu, then download the "finished" version of the Oral History module. Our goal in this section will be to update the version you produced to match this more complex iteration.
+
+\placefigure[force][foo]{bar}{\externalfigure[images/image48.png][width=.5\textwidth]}
+
+The Oral History module has a bit more metadata information included than the version we've already discussed. You can update this information in the "Module" tab on your FAIMS server installation.
+
+\placefigure[force][foo]{bar}{
+\startcombination[2*1]
+{\externalfigure[images/image33.png][width=.5\textwidth]}{}
+{\externalfigure[images/image59.png][width=.5\textwidth]}{}
+\stopcombination
+}
+
+The first screen of the Oral History Demo looks similar to our module:
+
+\placefigure[force][foo]{bar}{\externalfigure[images/image31.png][width=.5\textwidth]}
+
+In the same module.xml file we used for our version of Oral History update the following code:
+
+<User f="nodata">
+
+<User>
+
+<Select_User t="dropdown" f="user"/>
+
+<Login t="button" l="Control"/>
+
+</User>
+
+</User>
+
+to match this (new code in {\bf bold}):
+
+<User f="nodata">
+
+{\bf <User_List>}
+
+{\bf <Users t="list" f="user" l="Control">}
+
+{\bf Users:}
+
+{\bf </Users>}
+
+{\bf </User_List>}
+
+</User>
+
+This replicates the "User List" tab illustrated in the above screenshot. 
+
+Save your modified module.xml, run "{\em ./generate.sh}" in your Ubuntu terminal again, edit your current module and upload the new necessary files in place of the old ones. Now donwload this updated module to your FAIMS app. 
+
+Importantly, to download the updated version of the module, you must touch and hold the "Simple Sample Module" in the list of modules until the below dialogue is displayed:
+
+\placefigure[force][foo]{bar}{\externalfigure[images/image14.png][width=.5\textwidth]}
+
+Tap "Update", then "Update Settings", wait for the update to occur, and finally load the module as usual.
+
+{\bf Note: While we can update Simple Sample Module to have an interface that mimics the Oral History module, we're going to make some changes that will make the module not completely functional. This is because, as you may recall, you can't change the Data Schema of a module once it's already been uploaded to the server. So the interface elements will look right, because the necessary files that govern those can be changed out freely, but the parts actually responsible for managing the data you collect to the server won't have gotten the memo that the module's been altered. If this weren't an exercise, and we wanted an absolutely functional module, we'd just create a new one from the updated necessary files and tell our team members to switch to it.} 
+
+\placefigure[force][foo]{bar}{\externalfigure[images/image24.png][width=.5\textwidth]}
+
+On this next screen (shown in the screenshot above), we need to condense a few elements from our original module. Change the following code:
+
+<Control f="nodata">
+
+<Main>
+
+<Record_Interview t="button" l="Interview"/>
+
+<GPS_Diagnostics t="gpsdiag"/>
+
+</Main>
+
+<search>
+
+Records
+
+</search>
+
+</Control>
+
+to match the following:
+
+<Control f="nodata">
+
+{\bf <Control>}
+
+{\bf <New_Oral_History_Form t="button" l="Form"/>}
+
+{\bf <New_Diary t="button" l="Diary"/>}
+
+{\bf <GPS_Diagnostics t="gpsdiag"/>}
+
+{\bf <Sample_Types t="dropdown" />}
+
+{\bf <List_of_Samples t="list" />}
+
+{\bf </Control>}
+
+</Control>
+
+This code replaces the "Main" and "Record" tab groups with a single one labelled "Control". (In a moment, we will define the "Form" and "Diary" tab groups linked to by the above buttons. We will also have to populate the "Sample Types" dropdown and "List of Samples" list by writing some additional code.)
+
+Save module.xml and run the generate.sh script again. Now use them to update your module again. You should see something similar to the image below after selecting a user in the uploaded module.
+
+\placefigure[force][foo]{bar}{\externalfigure[images/image8.png][width=.5\textwidth]}
+
+For the next step, we'll add new UI tab groups for each of our buttons: "Form" and "Diary" that we linked to in the last code block:
+
+<Form>
+
+<Recording_Form>
+
+</Recording_Form>
+
+<Interview_Details>
+
+</Interview_Details>
+
+<Main_Subjects>
+
+</Main_Subjects>
+
+</Form>
+
+<Diary>
+
+<Diary>
+
+</Diary>
+
+</Diary>
+
+Make sure that the <Form> and <Diary> elements are written directly within <module> so that the FAIMS-Tools correctly interprets them as tab groups. It may help, when drafting new elements, to write both the opening and closing tags and then fill in the middle.
+
+Now, under each of these new tab groups, we'll create individual tabs. The "Form" group has three tabs: "Recording Form","Interview Details", and "Main Subjects". Note that if these tab titles contain multiple words, you must use underscores between each word. When FAIMS creates the title for each tab, underscores will be replaced with spaces.
+
+\placefigure[force][foo]{bar}{\externalfigure[images/image53.png][width=.5\textwidth]}
+
+Now we have the individual tabs for each section, but those tabs don't have any content just yet. For simple text fields, like "Birth Place" and "Parents' Birth Place" you can simply add a self-closing tag with the field's title:
+
+<BIRTH_PLACE />
+
+Also, non-alphabetical characters, like apostrophes are not allowed as tag names in XML, so the FAIMS-Tools would fail to generate a module which contains the following:
+
+<PARENTS'_BIRTH_PLACE:/>
+
+If such characters must be included, the solution is to firstly give the element a sensible name without an apostrophe or colon:
+
+<PARENTS_BIRTH_PLACE/>
+
+Then, to make FAIMS-Tools display the apostrophe and colon in the GUI, write them as the element's text:\crlf
+\crlf
+<PARENTS_BIRTH_PLACE>
+
+PARENTS' BIRTH PLACE:
+
+</PARENTS_BIRTH_PLACE>
+
+This is similar to what we did with the "search" feature in the last section.
+
+Now, note that every tab group which you intend to save requires at least one {\em identifier}. In the original Oral History module, the identifiers were "PERSON" and "LANGUAGE_GROUP". We can use the "f" attribute to denote that in our new module:
+
+<PERSON f="id"/>\crlf
+<LANGUAGE_GROUP f="id"/>
+
+For the GPS fields and their corresponding "Take From GPS" button, enter:
+
+<gps/>
+
+<gps> is a special, self-contained shortcut tag that FAIMS will replace with several fields for the latitude, longitude, Easting, and Northing, as well as a button for inserting this data from GPS.
+
+To add fields for attached files, you can use the "Audio" and "Video" tags, as before:
+
+<Attached_Audio_Files t="audio" />
+
+<Attached_Videos t="video" />
+
+Simply set the type "t" to video or audio as required.
+
+\placefigure[force][foo]{bar}{
+\startcombination[3*1]
+{\externalfigure[images/image26.png][width=.3\textwidth]}{}
+{\externalfigure[images/image15.png][width=.3\textwidth]}{}
+{\externalfigure[images/image52.png][width=.3\textwidth]}{}
+\stopcombination
+}
+
+To add the radio buttons, use the code:
+
+<Recorded t="radio">
+
+Recorded?
+
+<opts>
+
+<opt>Recorded</opt>
+
+<opt>Notes Only</opt>
+
+<opt>No</opt>
+
+</opts>
+
+</Recorded>
+
+Note that to have the radio buttons' contents appear would require that the entire module is re-created and uploaded to the FAIMS server. Updating the existing module on the server, would cause the menu to appear but lack its options.
+
+\placefigure[force][foo]{bar}{
+\startcombination[2*1]
+{\externalfigure[images/image42.png][width=.5\textwidth]}{}
+{\externalfigure[images/image49.png][width=.5\textwidth]}{}
+\stopcombination
+}
+
+The "Timestamp" and "Created By" values are not actually fields that we'll allow users to enter in manually, so we won't put in a data entry field. Instead, we'll make FAIMS set and update these fields when the record is created. Since there's no simple shortcut for that, for now we'll put in the code:
+
+<Timestamp/>
+
+<Created_by/>
+
+There's actually not a lot more we can do until we've generated our necessary files. Then, we'll take ui_logic.bsh and make a few alterations that make use of these tags.
+
+\placefigure[force][foo]{bar}{
+\startcombination[2*1]
+{\externalfigure[images/image37.png][width=.5\textwidth]}{}
+{\externalfigure[images/image1.png][width=.5\textwidth]}{}
+\stopcombination
+}
+
+\stoptext
+\stopcomponent

@@ -1,0 +1,121 @@
+\startcomponent[WelcomeToFaims]
+\starttext
+
+As far as your team's day-to-day usage is concerned, FAIMS is a replacement for less precise or efficient data-gathering tools such as paper forms, notebooks, photo logs, and spreadsheets. In a more technical sense, it's a system that lets humans intuitively collect data and computers meaningfully organize it.
+
+The basic feature the FAIMS system revolves around is the {\bf module}. The module is the part you interact with and the part that manages the data. These are what you're going to learn how to make, and it's important to understand them fully.
+
+\section{What does the \quotation{module} do?}
+
+From the perspective of users (which in this case will include all members of your team who aren't responsible for the module's technical aspects), the module appears to be a digital form that can be accessed from an app and used to submit field data. What the user sees, what data the user are asked to provide, and even what kinds of data the user are allowed to submit are all functions of the module's design.
+
+\alert{When you design your module, you will have to think about what you do and do not need from your team.}
+
+More importantly, FAIMS modules act as databases that collect data submitted by your team while remembering when it was originally collected, by whom, and how the information is related. Regardless of how or when your team's data are collected, relevant context will be preserved and nothing will be accidentally discarded \quotation{saved over} by later findings. Not only does this provide a convenient and comprehensive centralized repository of your team's data, it means that team members who collect data far outside the range of internet or mobile service can be confident that when they're able to upload their work won't impact how the data are ultimately presented.
+
+\section[why-should-you-use-a-faims-database-why-not-stick-with-older-analog-methods]{Why should you use a FAIMS database? }
+
+{\em Why not stick with older analog methods?}
+
+When projects rely on combinations of multiple data-gathering methods, ranging from basic paper forms to supplemental map notes, annotations, GPS readouts, and photographs, it eventually becomes necessary to organize the data into physical files, folders, and electronic databases. Even when the data can be organized centrally, so that everything can be found in the same place and format, important considerations of context--where something was found, when it was found, who recorded it, how it relates to other pieces of collected data--are frequently lost in the transition. It's all too easy to scan a photograph and fail to capture the date penciled in on the border, or enter a paper form's submissions into a spreadsheet and have nowhere to insert a margin note, or digitize a stack of records and lose track of which folders and archaeological contexts they came from. 
+
+The goal of FAIMS is to replace those diverse tools with one kind of tool, Android tablets, running modules through which all data are collected efficiently and compiled automatically and completely. There's no longer as much need for integrating separate cameras, notebooks, and forms; instead you can collect all those kinds of data on one device. In addition to simple preselected or text inputs, you can can record and directly attach video, audio, and other files such as PDFs and electronic sketches collected with your tablet.
+
+Because your data are being recorded digitally from the start, you'll be able to mostly skip transcription once you get back from the field. In fact, a key advantage of FAIMS is that you can synchronize your Android devices with your main database at any time you have a network connection, and then use the updated data to plan where to focus your next day's field activities - while still out in the field!
+
+FAIMS modules can be exhaustively customized to suit your team's needs, and to an extent may even be altered and automatically updated to all devices even after your team's project has begun. As you test out your new digital modules, you'll naturally find places where you'll want to add features like taking photographs on the tablet, tracking GPS locations of each record, and including additional files such as videos in your digital documentation. Once FAIMS becomes embedded in your field recording, you'll also discover ways, usually through the feedback of your field crews, that you can optimize your modules to allow recording to proceed faster and more efficiently. For example, you may include tracking for individual FAIMS user accounts so that field technicians no longer have to worry about including their initials, automating time and date fields, and organizing fields so that they appear in the order of your recording workflow.
+
+For more details as to the tradeoffs between traditional methods, see <<<PARKER>>> 
+%TODO get parker ref.
+
+\placefigure[here]{A prototypical workflow for a FAIMS Mobile module.}{\externalfigure[images/image68.png][width={.9\textwidth}]}
+
+\section[what-are-the-benefits-of-using-the-faims-database-over-other-databases]{What are the benefits of using the FAIMS database over other databases?}
+
+While any database can be used to collect your team's data, FAIMS is designed with the specific needs and tools of archaeologists in mind.
+
+For one thing, FAIMS treats the records you collect with an eye towards preservation. If you and another researcher enter in conflicting records, one of you doesn't \quotation{save over} the other; both of your contributions are preserved. Similarly, if a researcher alters a record, the project manager can still go back and see what it used to say. This can be particularly important when your team is collecting data in remote conditions and may not always be able to submit their findings in a timely manner.
+
+Furthermore, unlike simple databases which only allow for text input, FAIMS accounts for all the diverse tools the modern archaeologist has at their disposal, including video, photographs, audio logs, and GPS tags. You can attach these directly to your digital forms and store them seamlessly along with the rest of your collected data.
+
+\section[what-are-the-benefits-of-using-the-faims-database-over-a-spreadsheet]{What are the benefits of using the FAIMS database over a spreadsheet? }
+
+The obvious reason is that spreadsheets are clunky and not really designed for records-keeping. Even if you put a painstaking amount of effort into creating a custom form for you and your team to use that clearly outlines where data should go and what form it should take, it's very easy for someone to accidentally undo that work by hitting the wrong key or saving at the wrong time. Furthermore, if you ever want to look at an earlier version of your record, you'll need to have been saving multiple redundant versions.
+
+But there's a more important reason, and it has to do with the difference between how humans like to format data and how computers have to interpret it. This reason is technical, but may be useful to understand once you begin formatting and designing your own modules.
+
+Let's say a researcher turns in a typical data-collection spreadsheet like this:
+\placetable[here]{A sample spreadsheet table presenting complications with contextual whitespace.}{
+\bTABLE
+\bTR\bTH SITE: \eTH\bTH SITE GROUND COVER: \eTH\bTH ANIMAl: \eTH\bTH COLOUR: \eTH \eTR
+\bTR\bTD Site A\eTD\bTD Grasses \eTD\bTD Bird 1 \eTD\bTD Red and White Wings \eTD \eTR
+\bTR\bTD ~ \eTD\bTD ~ \eTD\bTD ~ \eTD\bTD Blue Plumage \eTD\eTR
+\eTABLE}
+
+
+We can immediately understand a lot about this spreadsheet from reading it. That's because we, as humans, can intuitively grasp things about it that a computer must be explicitly told.
+
+We know that \quotation{Bird 1} is located somewhere called \quotation{Site A.} We also know, without having to think about it, that a location like Site A can have multiple birds that belong to it or no birds at all. We can think of such birds we find there as instances of data (or a \quotation{record}) which belong to another \quotation{record} called \quotation{Site A}. Because there is a central piece of data to which zero or more pieces of data are hierarchically structured beneath, the relationship between Site A and Bird 1 is called a {\em parent-child relationship.}
+
+We know also know from observing the spreadsheet that Bird 1 has red and white wings as well as blue plumage. Now, Bird 1 cannot have \quotation{zero or more} color in its wings or \quotation{zero or more} color to its plumage. It will obviously have a definable color for both, and the form expects this color to be described in straightforward terms. Similarly, the site will obviously have definable ground cover; the only question is what the ground cover looks like. We call these {\em attributes of an entity}.
+
+Because of our unspoken knowledge of these factors, we are able to make clear intuitive sense of the spreadsheet. The problem is that forms that make sense to humans often don't make sense to computers. This form, for example, is not digitally parseable. All a computer knows looking at those six cells is that at Site A there is a Bird 1 with Red and White Wings, but the quality of Blue Plumage has no connection to any other data. The attribute has no defined entity. The computer knows that something is Blue, but has absolutely no way of inferring further information from context, as humans invariably do when reading {\em and compiling} data.
+
+When demonstrating {\em parent-child relationships} and {\em attributes of an entity} in a spreadsheet, inevitably human users will format data in a way a computer won't be able to meaningfully parse or store. The structure of FAIMS prevents natural human tendencies from making data unclear or digitally unmanageable.
+
+\subsection{Some framing questions for FAIMS Mobile}
+\startitemize
+\head How does FAIMS handle multiple users collecting data at the same time?
+
+FAIMS has no problem handling simultaneous usages or submissions. When two users create, edit, or delete records at the same time, FAIMS automatically takes note of who uploaded it and when and preserves both in the database. (Though if the two users are working without talking to each other, the server will raise a \quotation{flag} for someone to review the submissions.)
+
+\head How does FAIMS handle international teams and multiple languages?
+
+We'll explain more in a section below, but when you design your module, you can include a translation file that will allow users to choose between differently-worded forms.
+
+\head How is data reviewed?
+
+If you just want to quickly review your data, and not export it to a format such as shapefile or json, you've got two options:
+\startitemize[n, packed, joinedup]
+\item You can navigate to your FAIMS server and use the Record View feature to look through individual records your team has made; or,
+\item using your device, you can navigate using your module to \quotation{table views.}
+\stopitemize
+
+\stopitemize
+
+\section{Exporters: how to share data with others.}
+
+To get the data in a viewable, usable fashion, you'll need to find and download a type of program called an exporter. What form you want the data to be in decides which exporter you'll want to use. You can find exporters for formats like shapefile and json by visiting github.com/FAIMS/ and searching for the correct program. Look for something called \quotation{(x)Exporter or (x)Export,} where (x) is the desired end format (e.g., \quotation{jsonExporter} or \quotation{shapefileExport}).
+
+On a PC, you can simply download the file from github. If you're using your UNIX virtual machine, you can do so by entering at the command prompt (denoted by \$. Don't copy the \$):
+
+\prompt{A command to use the program \quotation{git} to make a copy of the remote code onto your computer}{\bashprompt{git clone https://github.com/FAIMS/shapefileExport/}}
+
+...with the name of whatever exporter you want, in this example shapefileExport, in the final position.
+
+Once you've got the exporter program, you're going to put it in a usable form. To do that with a PC, create a tarball from the exporter using a program like 7zip; if you're using UNIX, enter something like:
+
+\prompt{A command to: tell the {\tt tar} command to compress, gzip, and save the folder \quotation{shapefileExport} to the file {\tt shapefileExport.tar.gz}}{tar -czf shapefileExport.tar.gz shapefileExport/}
+
+Now, if you navigate on the server to your module, you'll see a tab at the top labeled \quotation{Plugin Management.} Click that and you'll be brought to a page with the handy feature, \quotation{Upload Exporter.} Choose the tarball you've just created and hit \quotation{upload.} You now have an exporter permanently stored to your FAIMS server and may make use of it whenever you'd like.
+
+From now on, whenever you'd like to use your uploaded exporter, navigate to your module from the main page on the server and click \quotation{export module.} Select from the dropdown menu the exporter you'd like to use, review and select from any additional options, and click \quotation{export.}
+
+You'll be brought to your module's background jobs page while the server exports your data. After a few moments, you should be able to hit \quotation{refresh} and see a blue hyperlink to \quotation{export results.} Clicking that will allow you to download your exported data in a compressed file.
+
+Exporting data doesn't close down the project or prevent you from working any further on it, so feel free to export data whenever it's convenient.
+
+\quiz{Test your knowledge of some of the fundamental concepts of FAIMS Mobile}{
+
+\item Once you've set up your FAIMS module, will it be possible to alter it to suit the needs of your team?
+
+\item Can you use FAIMS to collect audio or video files as part of your field data?
+
+\item What's the difference between data as stored by FAIMS and data as stored by a spreadsheet?
+
+\item If two researchers enter data at the same time, does one of them \quotation{save over} the other's work?
+
+\item Can you view collected data via your tablet?}
+
+\stoptext
+\stopcomponent

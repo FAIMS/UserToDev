@@ -1,0 +1,78 @@
+\startcomponent[DebugModules]
+\starttext
+
+
+\section[how-to-debug-modules]{How to Debug Modules}
+
+When running your FAIMS modules from your Android device, you may encounter the occasional error where things don't work as expected, a dropdown or other UI element fails to function properly, or the module refuses to open. If you're lucky, your module programmer included an error message that identifies what error occurred, or even how to fix it. In many cases, these error messages won't appear as popup windows in the app, but can instead be accessed by monitoring the FAIMS app as it runs by connecting your Android device to your computer.
+
+\subsection[connecting-your-android-device-to-your-computer]{Connecting your Android Device to your Computer}
+
+Up until now, we've worked mostly wirelessly, sending data back and forth from our FAIMS server to our Android device over a WiFi or cellular network. Now it's time to break out one of the trusty USB cables that seem to litter offices and attics these days and physically connect your Android device to the laptop or desktop you've installed the Android SDK tools on.
+
+\placefigure[force][foo]{bar}{\externalfigure[images/image20.jpg][width=.5\textwidth]}
+
+Connect the USB cable to your device and connect the other end to your computer's USB port. Once completed, open up the FAIMS app on your device. 
+
+(Mug, lunch box, and dice are optional.)
+
+\subsection[the-android-debug-monitor]{The Android Debug Monitor}
+
+On your computer, open up the command window (on Windows, press the Windows key, and search for "cmd"). Using the change directory ("cd") and "ls" to list directory contents, navigate to where you installed the android-sdk.
+
+\placefigure[force][foo]{bar}{\externalfigure[images/image18.png][width=.5\textwidth]}
+
+While in this directory, type in:
+
+{\em monitor}
+
+and hit enter. Wait a few minutes and this command will open the Android Debug Monitor, a graphical program you can use to view messages and information from any attached Android devices and emulated devices.
+
+\placefigure[force][foo]{bar}{\externalfigure[images/image63.png][width=.5\textwidth]}
+
+The Android Debug Monitor show messages from your attached devices. Here we have two devices: an Android emulator and a physically attached Samsung phone.
+
+\subsection[filtering-monitor-messages-by-application]{Filtering Monitor Messages by Application}
+
+The bottom portion of the Android Debug Monitor displays different messages from your applications running on your Android device. This is sometimes known as the "LogCat" window. When several applications are running, the window will quickly fill up with messages and it may be hard to keep track of them all. Luckily, you can limit the displayed messages using the filter box. To see only messages from the FAIMS app, type in:
+
+{\em app: faims}
+
+and hit enter. Now only messages from the FAIMS app will appear in the window.
+
+\placefigure[force][foo]{bar}{\externalfigure[images/image38.png][width=.5\textwidth]}
+
+You can limit messages in the Android Debug Monitor by using the filter box to search for pid; app; tag, or text.
+
+\subsection[identifying-log-messages]{Identifying Log Messages}
+
+Logs are messages developers create to complete when apps complete certain actions or when special cases arise that the programmer anticipated. To search from log messages from applications, type:
+
+{\em text: Log}
+
+into the LogCat search field.
+
+\subsection[identifying-error-messages]{Identifying Error Messages}
+
+Errors differ from logs in that they are automatically sent out when a program encounters something that doesn't work properly. A FAIMS programmer may have specified a certain message to be shown when an error happens, but the Android operating system will also send out more general error messages when an app encounters a problem the programmer didn't specifically anticipate.
+
+To further limit your LogCat output to show just error messages, you can click the dropdown menu to the right of the search field. By default, LogCat shows all messages with the "verbose" option. You can also select to show just debug, info, warn, or assert messages from the dropdown menu as well.
+
+\placefigure[force][foo]{bar}{\externalfigure[images/image61.png][width=.5\textwidth]}
+
+Now that you are able to display and identify log and error messages from the FAIMS app, you can use them to see when and where modules are having trouble. This information is invaluable when fixing bugs or communicating problems to support staff.
+
+Finally, to save a copy of your LogCat output, click on the floppy disk icon to the right of the search field. This allows you to save a copy of the log as a text file that you can email or copy and paste to share log and error messages with the rest of your team.
+
+\placefigure[force][foo]{bar}{\externalfigure[images/image3.png][width=.5\textwidth]}
+
+\quiz{Test your knowledge}{
+	\item True or False: You can monitor app messages from your Android device on your desktop using a wireless connection. 
+	\item What is the difference between an error message and a log?
+}
+
+{\em Exercise: Try searching the LogCat messages using a different filter, like "text: " or "tag: ." What messages appear or disappear depending on the filter? Can you find another way to filter out messages from just the "FAIMS" app?}
+
+
+\stoptext
+\stopcomponent

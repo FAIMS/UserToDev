@@ -1,0 +1,100 @@
+\startcomponent[UnderstandingXMLDocuments]
+\starttext
+
+\section[understanding-the-structure-of-xml-documents]{Understanding The Structure of XML Documents}
+
+Below is a very unusual description of a man named Richard. It's not code (it won't do anything if you plug it into FAIMS-Tools, because it contains no recognizable instructions), but it's written in a format very similar to what your module's code will look like. Take a minute and look it over and try to guess, just from the text and the way it's formatted, what Richard looks like.
+
+<Richard>
+
+  </Old>
+
+  <Hair>
+
+    <Grey/>
+
+    <Wavy/>
+
+  </Hair>
+
+  <Shirt>
+
+    <Black/>
+
+    <Sleeveless/>
+
+    <Printed>
+
+      <Midnight Oil Diesel and Dust Tour/>
+
+      <Faded/>
+
+    </Printed>
+
+  </Shirt>
+  <Watch>
+    <Gold/>
+  </Watch>
+</Richard>
+
+If you can read this and understand that Richard is old, that he's got wavy grey hair, that he's wearing a black Midnight Oil Dust and Diesel shirt with faded print, and that he has a gold watch, congratulations: you have already grasped the basic principle of how code in XML documents is structured. If not, try again with that information in mind.
+
+Do you see how the description has a kind of flow to it? How the big category "Richard" is divided into smaller and more specific categories containing individual details? "Grey" and "Wavy" are singular details contained within the category "Hair," which is itself contained within the person "Richard"; therefore Richard has hair that is both grey and wavy. "Faded" and "Midnight Oil Diesel and Dust Tour" are contained within the category "Printed," which is contained along with "Black" and "Sleeveless" within the category "Shirt," which is contained within the person "Richard;" therefore Richard has a shirt, the shirt is black and sleeveless and printed, and the print is faded and says "Midnight Oil Diesel and Dust Tour." Because the details are contained within categories that have a beginning and an end, you know they pertain only to the thing that contains them; we know that Richard's shirt is not wavy, his hair is not black, and he as a person is not Faded. We also know that he's old, because within the person Richard is the detail "Old," but not whether or not his watch is old because the detail "Old" only appears in the person "Richard."
+
+Let's take that basic understanding and look at this section of actual code from the Oral History module's module.xml. You probably won't know what it means or does yet yet, but for now, just focus on the structure as we explain each part of it in detail.
+
+<User f="nodata">
+
+  <User>
+
+    <Select_User t="dropdown" f="user" />
+
+    <Login t="button" l="Control" />
+
+  </User>
+
+</User>
+
+The first thing to understand is the purpose of the angle brackets, <>. By enclosing text that has utility in XML, the angle brackets create something called a {\em tag}. The tag is the basic, functional unit of XML documents. 
+
+Tags contain information, and the information they contain is referred to as an {\em element}*{\em .} In our first example, the tags <Richard> and </Richard> defined the boundaries of the element Richard, and everything between them was contained within that element.
+
+*Remember when we talked about archaeological and relationship elements? Now may be a good time to review.
+
+Usually, elements are defined by two tags: the {\em opening tag}, and the {\em closing tag.} Opening tags signify that a new element is beginning. Creating an opening tag instructs that computer that everything that follows until the closing tag (which will be the same as the opening tag, but begin with a / ) is part of that element. For example, the tag <User> states that everything until the closing tag, </User>, is part of the element {\em User} being outlined{\em . }
+
+You may notice that there's two "</User>" tags above. You can probably guess from the way the code snippet is indented that the very last </User> closing tag corresponds to the very first tag, <User f="nodata"> (we'll explain later why this isn't closed by the tag, </User f="nodata">). However, it's worth mentioning that formatting doesn't really matter to FAIMS-Tools when it interprets how your code works; indenting when you start a new element is just a good practice for helping you keep track of your code. So in instance, and others like it: how does FAIMS-Tools decide which </User> closing tag belongs to which <User> opening tag?
+
+Remember that opening and closing tags are used to show that elements are contained within one another. That's the key word to keep in mind: {\em contained}. It may help to think of opening and closing tags as functioning like parentheses or quotation marks. If we consider the following sentence:
+
+I went to the store (the one that had the food I like (eggs, milk, bacon) and low prices) in my car.
+
+It's clear that the idea (eggs, milk, bacon) needs to be concluded before the idea of (the one that had the food I like and low prices) can be resumed and itself concluded. Therefore, we instinctively know that the first right parentheses belongs to the most recent left parentheses, not to the first one. Beginning and end tags work the same way. You can't close the first "User" element if the second "User" element, more recently begun, hasn't itself been closed. 
+
+You may have noticed that the XML code snippet contains two tags which don't fall into either the "opening tag" or "closing tag" categories:
+
+<Select_User t="dropdown" f="user"/>
+
+<Login t="button" l="Control"/>
+
+These are known as {\em empty-element tags}. Sometimes, an element is complete with only a single instruction. It's not creating something larger that has multiple qualities; it's just a single detail, such as a simple button the user can press. In these cases, it isn't really necessary to have both an opening and a closing tag, as there's nothing to put between them. The above tags are really just shorthand for the following:
+
+<Select_User t="dropdown" f="user">
+
+</Select_User>
+
+<Login t="button" l="Control"/>
+
+</Login>
+
+There's no point in having an opening AND closing tag if there's nothing you're going to put between them. Hence the name, "empty element tags"; they denote elements which do not contain any other elements.
+
+\quiz{Test your knowledge}{
+  \item What's the connection between "tags" and "elements"?
+  \item If you've got two of the same opening tag and neither has been closed yet, which will the first closing tag you write belong to?
+  \item Where do you put the slash (/) to denote an empty element tag?
+}
+
+
+\stoptext
+\stopcomponent

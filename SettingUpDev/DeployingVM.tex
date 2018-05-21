@@ -1,0 +1,126 @@
+\startcomponent[DeployingVM]
+\starttext
+
+While it would be wonderfully exciting\footnote{Brian's note: Exciting for some folks.} to be able to jump right into module development, we must first get your computer ready to handle the \quotation{excitement}.
+
+
+Before you can code any new modules, you'll need to download some files and free programs. Some of those programs you'll need to configure to make coding new modules easier and more efficient. At the end of this chapter, you will be able to:
+
+\startitemize
+\item Run the FAIMS Server, where your team members will download your module from and upload data to, on a virtual machine.
+\item Examine all the necessary files of a FAIMS module with a text editor.
+\stopitemize
+
+
+
+\section[setting-up-your-development-environment]{Deploying the Virtual Machine}
+
+\subsection[hardware-assumptions]{Hardware Assumptions}
+
+Every computer is different, and unless you're using exactly the machine we used when writing these instructions (an HP laptop with a Core i7 processor and 8GB of RAM, running Windows 7) you probably won't be able to follow each step exactly as it's written. Many of the differences will be very minor; an option might have a slightly different name or be located somewhere else on your computer, for example. When you find an option isn't present as we describe it, take a deep breath. Click around or use your computer's \quotation{search} feature to see if you can find the option or setting somewhere else. If necessary, web search the terms we use in our instructions along with the system you're using in order to find equivalents. A good rule of thumb for general computer configuration is: whatever you can't figure out right now, someone else has had the same problem and a third person has fixed it for them.
+
+As a last resort, we offer technical support services. See the appendix for further information.
+
+\subsection[before-you-start]{Before You Start}
+
+Before starting, you'll need to make sure you have enough room on your hard drive. We recommend about 25GB minimum for the server installation, as well as enough RAM to hold both your current operating system, the emulated machine, and any open programs in working memory. If you don't have that much space, delete files (especially large media files, like unnecessary videos) or uninstall programs until you're ready to begin. No good will come of trying to follow these next steps without enough room to work.
+
+\subsection[installing-the-faims-server-and-virtual-machine-vm]{Installing the FAIMS Server and Virtual Machine (VM)}
+
+For various reasons, the FAIMS server is designed to run on a machine running an operating system called Ubuntu Linux 14.04 (as opposed to, say, Windows or OSX). You probably don't use Ubuntu, and you probably wouldn't like to use it all of the time. That's why our first task here is to set up a \quotation{virtual machine} on the computer you do use. Virtual machines let you emulate entirely different kinds of computer system without making any significant changes to your own--in this case, an Ubuntu Linux 14.04 machine. It's like you're installing an application that simulates an entirely different computer whenever you need it.
+
+\subsection[enable-vm-extensions-in-your-computer-bios-for-better-virtualbox-performance-vt-hypervisor]{Enable VM extensions in your computer BIOS for better VirtualBox Performance (VT Hypervisor)}
+
+You'll have a much easier time running your virtual machine, as well as Android emulators you'll need later, if you first enable a feature specifically designed for this purpose called "VT Hypervisor."
+
+To enable VT Hypervisor, enter your computer's BIOS or UEFI menu while booting your computer. This process differs a lot from computer to computer, but you should be able to find instructions here: \useURL[url2][http://www.howtogeek.com/213795/how-to-enable-intel-vt-x-in-your-computers-bios-or-uefi-firmware/][][{\tt\tfx\hyphenatedurl{http://www.howtogeek.com/213795/how-to-enable-intel-vt-x-in-your-computers-bios-or-uefi-firmware/}}]\from[url2]
+
+\placefigure[force][bios]{A rather literal picture of a computer's \quotation{BIOS} setup screen, showing the enabling of \quotation{VT-X extensions}}{\externalfigure[images/image23.jpg][width=.5\textwidth]}{}
+
+We found the VT setting under the \quotation{Virtualization Technology} option in the System Configuration menu. Again, unless you're using an HP dv6qt Laptop, yours will probably be somewhere else. This process can feel a little intimidating if you're not used to messing with your computer on this basic a level, but relax: this step is perfectly safe.
+
+\subsection[installing-virtualbox]{Installing VirtualBox}
+
+Now you can download and install the VirtualBox client from: \useURL[url3][https://www.virtualbox.org/wiki/Downloads][][{\tt\tfx\hyphenatedurl{https://www.virtualbox.org/wiki/Downloads}}]\from[url3]. This is what we're going to use to create a virtual machine that can run our Ubuntu Linux-based FAIMS server.
+
+%TODO Check url. this looks odd.
+
+You probably won't have installed VirtualBox before, but on the off chance you have (say, if this isn't your first time trying this step) make sure you uninstall the old version {\bf completely} before trying to install it again.
+
+During installation, you may receive a couple Windows Security questions about Oracle drivers. Windows is naturally suspicious of this kind of installation, but nothing you're putting on your computer right now is dangerous. You can ignore each prompt individually or skip them all at once by selecting \quotation{always trust Oracle} in the popup window (\in{Figure}[trustOracle]).
+
+\placefigure[force][trustOracle]{We are installing network device drivers here, so that your tablet can talk to this \quotation{Virtual Machine}}{\externalfigure[images/image51.png][width=.5\textwidth]}{}
+
+Once VirtualBox is installed, you can start the program. The default screen should look similar to \in{Figure}[virtualBoxStart]
+
+\placefigure[force][virtualBoxStart]{VirtualBox without any virtual... boxes. A box inside your computer which can hold boxes\footnote{We call a computer a box because the old fashioned tower that older or powerful computers come with is usually referred to as the Box by tech types}, but not cats.}{\externalfigure[images/image57.png][width=.5\textwidth]}{}
+
+If you need to take a break, this is a good stopping point\footnote{Time for coffee! It's {\em always} time for coffee.}!
+
+% TODO Fixurl
+
+If you're ready to move on, download the FAIMS Server image (2.5GB) from: \useURL[url4][FIXME][][{\tt\tfx\hyphenatedurl{FIXME}}]\from[url4]
+
+The server image is packaged as an ".ova" file, which is a type of file that can be opened by VirtualBox. This file is the complete package: it represents an Ubuntu Linux 16.04 computer system that has the FAIMS server set to automatically configure and run. If you would like a server prepared for you, contact {\tt support@fedarch.org}.
+
+Before using the image, you'll need to unzip the compressed zip file using your favorite archival program (e.g. \useURL[url6][http://sourceforge.net/projects/sevenzip/][][{\em 7-ZIP}]\from[url6], \useURL[url7][http://www.iceows.com/HomePageUS.html][][{\em ICEOWs}]\from[url7]).
+
+\placefigure[force][foo]{}{\externalfigure[images/image56.png][width=.5\textwidth]}
+
+To set up the emulated machine, we'll use the preconfigured machine image we downloaded in the last step.
+
+In VirtualBox, select the "File->Import Appliance" option.
+
+\placefigure[force][foo]{}{\externalfigure[images/image67.png][width=.5\textwidth]}
+
+Using the file browser that appears, navigate to the directory where you downloaded the FAIMS server image and select to open it.
+
+\placefigure[force][foo]{}{\externalfigure[images/image21.png][width=.5\textwidth]}
+
+The pre-configured settings will appear. Select the \quotation{Import} option.
+
+\placefigure[force][foo]{}{\externalfigure[images/image32.png][width=.5\textwidth]}
+
+VirtualBox will now set to work importing the image and setting everything up. Depending on your system, this may take a few minutes.
+
+\placefigure[force][foo]{}{\externalfigure[images/image16.png][width=.5\textwidth]}
+
+Once the setup is complete, "FAIMS2 Web - Demo Server" will appear in the menu on the left in VirtualBox.
+
+\placefigure[force][foo]{}{\externalfigure[images/image46.png][width=.5\textwidth]}
+
+Click on the system and then click the \quotation{Start} button in VirtualBox to start the server. You {\em will} encounter the following error.
+
+\placefigure[force][foo]{}{\externalfigure[images/image66.png][width=.5\textwidth]}
+
+\alert{DON'T PANIC.} Simply, click the \quotation{Close VM} button. You're still on the right track; sometimes, things just have to be a little fussy.
+
+Back on the main screen, click on the \quotation{Network} section.
+
+\placefigure[force][foo]{}{\externalfigure[images/image30.png][width=.5\textwidth]}
+
+In the popup window that appears, check the \quotation{Enable Network Adapter} box on the \quotation{Adapter 1} tab, and select \quotation{Bridged Adapter} from the "Attached to:" menu.
+
+\placefigure[force][foo]{}{\externalfigure[images/image35.png][width=.5\textwidth]}
+
+You may choose your machine's wifi adapter but, if you run into any issues, try using your hardline connection instead.
+
+Click the \quotation{Start} button on the VirtualBox program. VirtualBox will pop up a new window in which your emulated machine will run. Give VirtualBox a few minutes to start your new emulated Ubuntu machine, and a few minutes longer for Ubuntu to start the FAIMS server. When they've finished, you will see the following message about the server having been set up.
+
+\placefigure[force][foo]{}{\externalfigure[images/image4.png][width=.5\textwidth]}
+
+If you like, you can skip ahead a little and, back on your real machine, you can open the FAIMS server by navigating to 192.168.1.121, or whatever address is listed by your FAIMS status page in your web browser (check your messages for the specific IP address on your machine). {\bf Note:} The default FAIMS account is {\tt faimsadmin@intersect.org.au}, password {\tt Pass.123}.
+
+\placefigure[force][foo]{}{\externalfigure[images/image55.png][width=.5\textwidth]}
+
+If you log out of the Ubuntu installation at any time, just use the password {\tt Pass.123} to log back into the system.
+
+\quiz{Test your knowledge about the VM}{%
+\item If the FAIMS server is supposed to be run on an Ubuntu machine, how are you going to run it on your non-Ubuntu computer?
+\item What can you do if you can't find an option or setting we refer to in our instructions?
+\item If you've installed VirtualBox before, what do you need to do before setting it up on your computer?
+}
+
+
+\stoptext
+\stopcomponent

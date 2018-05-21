@@ -1,0 +1,111 @@
+\startcomponent[TourDataSchema]
+\starttext
+\page
+\section[tour-from-the-data-schema]{Tour from the Data Schema}
+
+We've already explained that the Data Schema describes what data your module is going to store--in other words, what your team is going to record and what you'll be able to export and analyze later. We've also explained that it defines the basic structure of the module and can't be altered once the module's been uploaded to your FAIMS server.
+
+Because the Data Schema and its structure are very important to FAIMS, it may be useful (and for advanced coding, will be necessary) to understand what exactly is contained within the Data Schema. 
+
+Unlike the rest of the document, you don't need to understand this next part fully before you continue on to the next section. Instead, revisit this section every so often as you master a new portion of the User to Developer document and see how well you can apply your understanding of modules and their structure to this information.
+
+A Data Schema contains \quotation{elements,} or individual components that define some part of how the module works. The two kinds of elements you can find in a FAIMS Data Schema are called \quotation{Archaeological Elements} and \quotation{Relationship Elements,} and they each do very different things to allow computers and users to collect and organize data.
+
+
+\subsection{Archaeological Elements}
+
+Archaeological Elements\footnote{We will also use the term \quotation{Archaeological Entities or ArchEnts to refer to these. The term \quotation{Element} refers to {\em this specific file's definition} while entitiy refers to the thing living and working inside the module. Don't worry about it, but know that we use both terms.}} are exactly what they sound like: they define an individual piece of archaeological data which can be collected. Each Archaeological Element has \quotation{property types} which define exactly what it represents and what kind of data are collected with regards to it. They can contain multiple property elements, such as a name, value, associated file, picture, video, or audio file, as well as a description.
+
+\in{Codeblock}[codeSimpleArchEnt] below is an example of an Archaeological Element for birds located within areas A, B, C, and D. Again: you don't really need to understand this yet, but it won't hurt to familiarize yourself with its structure.
+
+
+\placecode[here][codeSimpleArchEnt]{A demonstration archaeological element or \quotation{Archent}}{
+\startframedtext[align={hanging, hz},
+				 width=\makeupwidth,
+				background=color,
+				backgroundcolor=gray,				
+				framecolor=gray,
+				rulethickness=1pt				
+				 ]
+\starttyping[option=xml, tab=4, style={\tfx\tt}]		 		 
+<ArchaeologicalElement name="small">
+	<description>
+		A bird located within the area.
+	</description>
+	<property type="string" name="entity" isIdentifier="true">
+	</property>
+	<property type="string" name="name">
+	</property>
+	<property type="integer" name="value">
+	</property>
+	<property type="file" name="filename">
+	</property>
+	<property type="file" name="picture">
+	</property>
+	<property type="file" name="video">
+	</property>
+	<property type="file" name="audio">
+	</property>
+	<property type="timestamp" name="timestamp">
+	</property>
+	<property type="dropdown" name="location">
+		<lookup>
+			<term>Location A
+				<description>This is the first location.
+				</description>
+			</term>
+			<term>Location B</term>
+			<term>Location C</term>			
+		</lookup>
+	</property>
+</ArchaeologicalElement>
+\stoptyping
+\stopframedtext
+}
+
+
+
+\subsection{Relationships}
+
+Archaeological Elements contain a lot of information about what is being collected, but they don't actually define how the data being collected is organized or related. They can be used to say \quotation{users enter their location} and \quotation{users identify what they found,} but not \quotation{users identify what they found IF they are in a certain location.} In other words, Archaelogical Elements explain how data is collected, but not how it is organized or related.
+
+
+
+This is why the Data Schema also has something called a Relationship Element, a kind of element that describes how archaeological elements relate to one another; whether they are in a hierarchy, one contains another, or they are bidirectional. Relationship element can also contain child elements with more information about the relationship. These child elements can include descriptions, definitions of the parent and child entities, and multiple properties, such as \quotation{lookup,} which lists controlled vocabulary terms.
+
+An example of a Relationship Element can be found in \in{CodeBlock}[codeSimpleReln]\footnote{Brian's note: While I built relationships to hold data all the way back in FAIMS Mobile 1.0, no one ever used them for that purpose. For now, we use them link Archaeological Elements usually with a directed 1:1 relationship.}:
+
+
+\placecode[force][codeSimpleReln]{A demonstration Relationship element or \quotation{Reln} allowing for a spatial relationship to be defined between two Archaeological Elements, one \quotation{above} the other. }{
+\startframedtext[align={hanging, hz},
+				 width=\makeupwidth,
+				background=color,
+				backgroundcolor=gray,				
+				framecolor=gray,
+				rulethickness=1pt				
+				 ]
+\starttyping[option=xml, tab=4, style={\tfx\tt}]
+<RelationshipElement name="AboveBelow" type="hierarchy">
+	<description>
+		Indicates that one element is above or below another element.
+	</description>
+	<parent>
+		Above
+	</parent>
+	<child>
+		Below
+	</child>
+</RelationshipElement>
+\stoptyping
+\stopframedtext
+}
+
+
+You'll understand more about how these elements are structured and what they mean after a thorough reading of "Coding Modules." In the meantime, as long as you understand in basic terms what's contained within a Data Schema, it's safe to proceed.
+
+\quiz{Test your knowledge of element types}{
+	\item Which of the following are real types of element contained within the Data Schema: Archaelogical Elements, Data Elements, Module Elements, Relationship Elements
+}
+
+\stoptext
+\stopcomponent
