@@ -105,11 +105,11 @@ Consider for a moment the module in the image shown below and to the left. There
 
 The other image (below, right) shows all the {\bf tabs} which belong to a presently displayed {\bf tab group} called "Form". Entering a different tab group would cause a different set of tabs to be displayed. The below image shows two different tab groups---"Control" and "Form"---each containing their own sets of tabs.
 
-{\externalfigure[media/image118.png][width=3.35261in,height=2.91762in]}
+{\externalfigure[images/image71.png][width=.5\textwidth]}{\externalfigure[images/image64.png][width=.5\textwidth]}
 
 So the hierarchy flows: your module has tab groups have tabs which have GUI elements. When you structure the elements of module.xml, it'll be contained exactly the same way. Your module element will contain tab group elements will contain tab elements which will contain GUI elements, many of which may be empty elements as they'll stand on their own without needing to contain anything else. Make sense so far? Let's see what it looks like in practice.
 
-{\externalfigure[media/image143.png][width=1.64493in,height=2.91974in]}{\externalfigure[media/image136.png][width=1.65480in,height=2.93016in]}
+{\externalfigure[images/image47.png][width=.5\textwidth]}{}
 
 <?xml version="1.0"?>
 
@@ -170,7 +170,7 @@ Without knowing what's really inside the tags, can you figure out which elements
 
 Now that you understand the how the XML structure relates to FAIMS modules, let's explore the simple module we uploaded in the last section.
 
-{\externalfigure[media/image135.png][width=2.64658in,height=2.78859in]}
+{\externalfigure[images/image25.png][width=.5\textwidth]}{}
 
 To create this first login screen, we used the following XML code:
 
@@ -207,7 +207,7 @@ So how do we determine what's in that drop down menu? In this case, by creating 
  
  So let's say we're using our module, we've just clicked the dropdown menu and chosen our user, then we've hit the button that says "Login." If you're using the finished sample module, you'll find yourself looking at this screen:
  
-{\externalfigure[media/image40.png][width=2.96510in,height=2.88707in]}
+{\externalfigure[images/image46.png][width=.5\textwidth]}{}
 
 Let's take a look at the code for this tab group here. As you review it, see if you can figure out which elements are tab groups, tabs, and GUI elements.
 
@@ -229,7 +229,7 @@ Records
 
 </Control>
 
-{\externalfigure[media/image110.png][width=7.48031in,height=2.95833in]}
+{\externalfigure[images/image43.png][width=.5\textwidth]}{}
 
 The XML in module.xml describes the different FAIMS elements and how they should appear in the module.
 
@@ -239,7 +239,7 @@ The <Main> element creates the first tab. Inside that tab we have a GUI element,
 
 Let's turn on our Android device's internal GPS antenna by tapping \useURL[url22][https://www.youtube.com/watch?v=o_eSwq1ewsU][][{\em the three vertical dots}]\from[url22] in the upper right of the screen to open the settings menu.
 
-{\externalfigure[media/image112.png][width=3.31250in,height=2.67574in]}{\externalfigure[media/image101.png][width=3.33333in,height=2.67922in]}
+{\externalfigure[images/image45.png][width=.5\textwidth]}{\externalfigure[images/image34.png][width=.5\textwidth]}
 
 With the GPS antenna turned on, the "gpsdiag" element now displays quite a bit more information, including the status of the GPS antenna, location in both Latitude/Longitude and Easting/Northing, and an accuracy measurement.
 
@@ -249,13 +249,13 @@ Don't worry; you haven't missed anything. It's just that there are certain kinds
 
 In this case, the tab is "search," which, once some data has been collected, will contain GUI elements that allow you to search records according to various criteria, including term or entity type. We don't have to include code for all these GUI elements; FAIMS-Tools knows to include them in a tab labelled with the shorthand "search". The only thing we have included is the plaintext "Records", without a tag. When FAIMS-Tools sees text like this written inside an element, it labels the element that way instead of basing its name on the tab group. This is why you see "Records" as the tab label when you might have expected to see "search".
 
-{\externalfigure[media/image141.png][width=3.17708in,height=2.96741in]}{\externalfigure[media/image137.png][width=3.16667in,height=2.96741in]}
+{\externalfigure[images/image69.png][width=.5\textwidth]}{\externalfigure[images/image65.png][width=.5\textwidth]}
 
 The Search element before and after adding a few records.
 
 Going back to the finished module, let's tap the "Main" tab and then click the "Record Interview" button, which, you may recall, will take us to "Interview." "Interview" looks like this:
 
-{\externalfigure[media/image111.png][width=2.31875in,height=3.70371in]}{\externalfigure[media/image32.png][width=2.29792in,height=3.70801in]}{\externalfigure[media/image88.png][width=2.31406in,height=3.71326in]}
+{\externalfigure[images/image44.png][width=.5\textwidth]}{\externalfigure[images/image6.png[width=.5\textwidth}{\externalfigure[images/image22.png][width=.5\textwidth]}
 
 The code to create this long screen looks like this. This is a lot more code than you've seen before in one go, but it serves as a very useful example of a lot of different techniques, so resist the urge to skim it. Take your time, and when you don't recognize what a tag is or what an element is for, see if you can guess what it does just from context. 
 
@@ -483,7 +483,7 @@ For the <Title> element, there is no UI "type" (represented by t=) specified. So
 
 <desc> allows you to set a description that your users can access by tapping and holding for a few seconds on the info button:
 
-{\externalfigure[media/image142.png][width=3.75082in,height=2.74692in]}
+{\externalfigure[images/image70.png][width=.5\textwidth]}{}
 
 That wraps up the <Title> element. Now we have an opening tag for another GUI element, <Private>. Private is a radio button UI object, required, has a description, and includes two options ("True" and "False"). Review the code below and see if you can understand how all of this is accomplished.
 
@@ -517,13 +517,13 @@ The final two element types used in this tab are the 't="audio"'' and 't="video"
 
 <Attached_Video t="video"/>
 
-{\externalfigure[media/image129.png][width=3.51042in,height=4.46662in]}
+{\externalfigure[images/image58.png][width=.5\textwidth]}{}
 
 With the audio UI element, you'll get a popup window that allows you to start and stop your audio recording.
 
 The final elements are on the Agent Role tab group, and include a few element types we've already seen: two text input fields: <First_Name> and <Last_Name> both with flags that designate them as "ids" and a dropdown menu, <Role> which contains a few options and is also flagged as an "id."
 
-{\externalfigure[media/image125.png][width=4.02760in,height=3.64077in]}
+{\externalfigure[images/image54.png][width=.5\textwidth]}{}
 
 <Agent_Role>
 
@@ -601,15 +601,15 @@ Now that we've created a very straightforward version of the Oral History module
 
 Select "Demo Server" from the dropdown menu in the FAIMS setting menu, then download the "finished" version of the Oral History module. Our goal in this section will be to update the version you produced to match this more complex iteration.
 
-{\externalfigure[media/image119.png][width=2.66472in,height=4.73651in]}
+{\externalfigure[images/image48.png][width=.5\textwidth]}{}
 
 The Oral History module has a bit more metadata information included than the version we've already discussed. You can update this information in the "Module" tab on your FAIMS server installation.
 
-{\externalfigure[media/image100.png][width=2.68625in,height=4.62192in]}{\externalfigure[media/image130.png][width=2.68655in,height=4.56558in]}
+{\externalfigure[images/image33.png][width=.5\textwidth]}{\externalfigure[images/image59.png][width=.5\textwidth]}
 
 The first screen of the Oral History Demo looks similar to our module:
 
-{\externalfigure[media/image98.png][width=2.70677in,height=4.81028in]}
+{\externalfigure[images/image31.png][width=.5\textwidth]}{}
 
 In the same module.xml file we used for our version of Oral History update the following code:
 
@@ -647,13 +647,13 @@ Save your modified module.xml, run "{\em ./generate.sh}" in your Ubuntu terminal
 
 Importantly, to download the updated version of the module, you must touch and hold the "Simple Sample Module" in the list of modules until the below dialogue is displayed:
 
-{\externalfigure[media/image80.png][width=4.56944in,height=2.56944in]}
+{\externalfigure[images/image14.png][width=.5\textwidth]}{}
 
 Tap "Update", then "Update Settings", wait for the update to occur, and finally load the module as usual.
 
 {\bf Note: While we can update Simple Sample Module to have an interface that mimics the Oral History module, we're going to make some changes that will make the module not completely functional. This is because, as you may recall, you can't change the Data Schema of a module once it's already been uploaded to the server. So the interface elements will look right, because the necessary files that govern those can be changed out freely, but the parts actually responsible for managing the data you collect to the server won't have gotten the memo that the module's been altered. If this weren't an exercise, and we wanted an absolutely functional module, we'd just create a new one from the updated necessary files and tell our team members to switch to it. 
 
-{\externalfigure[media/image91.png][width=2.70989in,height=4.81294in]}
+{\externalfigure[images/image24.png][width=.5\textwidth}{}
 
 On this next screen (shown in the screenshot above), we need to condense a few elements from our original module. Change the following code:
 
@@ -699,7 +699,7 @@ This code replaces the "Main" and "Record" tab groups with a single one labelled
 
 Save module.xml and run the generate.sh script again. Now use them to update your module again. You should see something similar to the image below after selecting a user in the uploaded module.
 
-{\externalfigure[media/image34.png][width=3.39583in,height=3.33547in]}
+{\externalfigure[images/image8.png][width=.5\textwidth]}{}
 
 For the next step, we'll add new UI tab groups for each of our buttons: "Form" and "Diary" that we linked to in the last code block:
 
@@ -731,7 +731,7 @@ Make sure that the <Form> and <Diary> elements are written directly within <modu
 
 Now, under each of these new tab groups, we'll create individual tabs. The "Form" group has three tabs: "Recording Form","Interview Details", and "Main Subjects". Note that if these tab titles contain multiple words, you must use underscores between each word. When FAIMS creates the title for each tab, underscores will be replaced with spaces.
 
-{\externalfigure[media/image124.png][width=2.04167in,height=3.60949in]}
+{\externalfigure[images/image53.png][width=.5\textwidth]}{}
 
 Now we have the individual tabs for each section, but those tabs don't have any content just yet. For simple text fields, like "Birth Place" and "Parents' Birth Place" you can simply add a self-closing tag with the field's title:
 
@@ -774,7 +774,7 @@ To add fields for attached files, you can use the "Audio" and "Video" tags, as b
 
 Simply set the type "t" to video or audio as required.
 
-{\externalfigure[media/image93.png][width=1.65934in,height=2.95099in]}{\externalfigure[media/image81.png][width=1.66466in,height=2.95099in]}{\externalfigure[media/image123.png][width=1.65555in,height=2.94058in]}
+{\externalfigure[images/image26.png][width=.5\textwidth]}{\externalfigure[images/image15.png][width=.5\textwidth]}{\externalfigure[images/image52.png][width=.5\textwidth]}
 
 To add the radio buttons, use the code:
 
@@ -796,7 +796,7 @@ Recorded?
 
 Note that to have the radio buttons' contents appear would require that the entire module is re-created and uploaded to the FAIMS server. Updating the existing module on the server, would cause the menu to appear but lack its options.
 
-{\externalfigure[media/image109.png][width=1.72969in,height=3.05516in]}{\externalfigure[media/image120.png][width=1.70974in,height=3.03433in]}
+{\externalfigure[images/image42.png][width=.5\textwidth]}{\externalfigure[images/image49.png][width=.5\textwidth]}
 
 The "Timestamp" and "Created By" values are not actually fields that we'll allow users to enter in manually, so we won't put in a data entry field. Instead, we'll make FAIMS set and update these fields when the record is created. Since there's no simple shortcut for that, for now we'll put in the code:
 
@@ -806,7 +806,7 @@ The "Timestamp" and "Created By" values are not actually fields that we'll allow
 
 There's actually not a lot more we can do until we've generated our necessary files. Then, we'll take ui_logic.bsh and make a few alterations that make use of these tags.
 
-{\externalfigure[media/image104.png][width=1.71094in,height=3.03433in]}{\externalfigure[media/image5.png][width=1.69627in,height=3.01349in]}
+{\externalfigure[images/image37.png][width=.5\textwidth]}{\externalfigure[images/image1.png][width=.5\textwidth]}
 
 \subsubsection[additional-features]{Additional Features}
 
