@@ -20,4 +20,4 @@ context --batchmode --silent $compile > run.log
 grep -A 15 	"tex error" run.log 
 
 
-evince ${base}.pdf
+open ${base}.pdf
