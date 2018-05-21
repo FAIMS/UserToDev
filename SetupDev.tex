@@ -37,7 +37,7 @@ To enable VT Hypervisor, enter your computer's BIOS or UEFI menu while booting y
 
 \useURL[url2][http://www.howtogeek.com/213795/how-to-enable-intel-vt-x-in-your-computers-bios-or-uefi-firmware/][][{\em http://www.howtogeek.com/213795/how-to-enable-intel-vt-x-in-your-computers-bios-or-uefi-firmware/}]\from[url2]
 
-{\externalfigure[images/image23.jpg][width=.5\textwidth]}{}
+\placefigure[force][foo]{bar}{\externalfigure[images/image23.jpg][width=.5\textwidth]}
 
 We found the VT setting under the "Virtualization Technology" option in the System Configuration menu. Again, unless you're using an HP dv6qt Laptop, yours will probably be somewhere else. This process can feel a little intimidating if you're not used to messing with your computer on this basic a level, but relax: this step is perfect safe.
 
@@ -53,11 +53,11 @@ You probably won't have installed VirtualBox before, but on the off chance you h
 
 During installation, you may receive a couple Windows Security questions about Oracle drivers. Windows is naturally suspicious of this kind of installation, but nothing you're putting on your computer right now is dangerous. You can ignore each prompt individually or skip them all at once by selecting "always trust Oracle" in the popup window.
 
-{\externalfigure[images/image51.png][width=.5\textwidth]}{}
+\placefigure[force][foo]{bar}{\externalfigure[images/image51.png][width=.5\textwidth]}
 
 Once VirtualBox is installed, you can start the program. The default screen should look similar to the image below.
 
-{\externalfigure[images/image57.png][width=.5\textwidth]}{}
+\placefigure[force][foo]{bar}{\externalfigure[images/image57.png][width=.5\textwidth]}
 
 If you need to take a break, this is a good stopping point! 
 
@@ -67,49 +67,49 @@ The server image is packaged as an ".ova" file, which is a type of file that can
 
 Before using the image, you'll need to unzip the compressed zip file using your favorite archival program (e.g. \useURL[url6][http://sourceforge.net/projects/sevenzip/][][{\em 7-ZIP}]\from[url6], \useURL[url7][http://www.iceows.com/HomePageUS.html][][{\em ICEOWs}]\from[url7]).
 
-{\externalfigure[images/image56.png][width=.5\textwidth]}{}
+\placefigure[force][foo]{bar}{\externalfigure[images/image56.png][width=.5\textwidth]}
 
 To set up the emulated machine, we'll use the preconfigured machine image we downloaded in the last step.
 
 In VirtualBox, select the "File->Import Appliance" option.
 
-{\externalfigure[images/image67.png][width=.5\textwidth]}{}
+\placefigure[force][foo]{bar}{\externalfigure[images/image67.png][width=.5\textwidth]}
 
 Using the file browser that appears, navigate to the directory where you downloaded the FAIMS server image and select to open it.
 
-{\externalfigure[images/image21.png][width=.5\textwidth]}{}
+\placefigure[force][foo]{bar}{\externalfigure[images/image21.png][width=.5\textwidth]}
 
 The pre-configured settings will appear. Select the "Import" option.
 
-{\externalfigure[images/image32.png][width=.5\textwidth]}{}
+\placefigure[force][foo]{bar}{\externalfigure[images/image32.png][width=.5\textwidth]}
 
 VirtualBox will now set to work importing the image and setting everything up. Depending on your system, this may take a few minutes.
 
-{\externalfigure[images/image16.png][width=.5\textwidth]}{}
+\placefigure[force][foo]{bar}{\externalfigure[images/image16.png][width=.5\textwidth]}
 
 Once the setup is complete, "FAIMS2 Web - Demo Server" will appear in the menu on the left in VirtualBox.
 
-{\externalfigure[images/image46.png][width=.5\textwidth]}{}
+\placefigure[force][foo]{bar}{\externalfigure[images/image46.png][width=.5\textwidth]}
 
 Click on the system and then click the "Start" button in VirtualBox to start the server. You {\em will} encounter the following error.
 
-{\externalfigure[images/image66.png][width=.5\textwidth]}{}
+\placefigure[force][foo]{bar}{\externalfigure[images/image66.png][width=.5\textwidth]}
 
 {\bf DON'T PANIC.} Simply, click the "Close VM" button. You're still on the right track; sometimes, things just have to be a little fussy.
 
 Back on the main screen, click on the "Network" section.
 
-{\externalfigure[images/image30.png][width=.5\textwidth]}{}
+\placefigure[force][foo]{bar}{\externalfigure[images/image30.png][width=.5\textwidth]}
 
 In the popup window that appears, check the "Enable Network Adapter" box on the "Adapter 1" tab, and select "Bridged Adapter" from the "Attached to:" menu.
 
-{\externalfigure[images/image35.png][width=.5\textwidth]}{}
+\placefigure[force][foo]{bar}{\externalfigure[images/image35.png][width=.5\textwidth]}
 
 You may choose your machine's wifi adapter but, if you run into any issues, try using your hardline connection instead.
 
 Click the "Start" button on the VirtualBox program. VirtualBox will pop up a new window in which your emulated machine will run. Give VirtualBox a few minutes to start your new emulated Ubuntu machine, and a few minutes longer for Ubuntu to start the FAIMS server. When they've finished, you will see the following message about the server having been set up.
 
-{\externalfigure[images/image4.png][width=.5\textwidth]}
+\placefigure[force][foo]{bar}{\externalfigure[images/image4.png][width=.5\textwidth]}
 
 If you like, you can skip ahead a little and, back on your real machine, you can open the FAIMS server by navigating to 192.168.1.121, or whatever address is listed by your FAIMS status page in your web browser (check your messages for the specific IP address on your machine). {\bf Note:} The default FAIMS account is "faimsadmin@intersect.org.au", password "Pass.123".{\externalfigure[images/image55.png][width=.5\textwidth]}{}
 
@@ -119,7 +119,7 @@ If you log out of the Ubuntu installation at any time, just use the password "Pa
 
 The final step for setting up the FAIMS server is to ensure it is up-to-date. To do this, inside Ubuntu, click on the Ubuntu symbol and type in "Terminal." Terminal (or "the terminal") is a command line prompt that allows you to run many different programs using text commands. (To learn more about the Terminal and executing Bash commands, see here: \useURL[url8][https://help.ubuntu.com/community/UsingTheTerminal\#In_Unity][][{\em https://help.ubuntu.com/community/UsingTheTerminal\#In_Unity}]\from[url8]).
 
-{\externalfigure[images/image50.png][width=.5\textwidth]}{}
+\placefigure[force][foo]{bar}{\externalfigure[images/image50.png][width=.5\textwidth]}
 
 Now, in the Terminal, type or copy the following commands individually (each line is a command) and press enter to run each of them:
 
@@ -227,11 +227,11 @@ Now we'll need to install the Android Software Development Kit (ADK). It's avail
 
 Because you're going to use the tools for debugging an Android device plugged into your actual computer, you're going to want to download and install SDK Tools to your regular computer system, NOT your Ubuntu virtual machine.
 
-{\externalfigure[images/image41.png][width=.5\textwidth]}{}
+\placefigure[force][foo]{bar}{\externalfigure[images/image41.png][width=.5\textwidth]}
 
-{\externalfigure[images/image36.png][width=.5\textwidth]}{}
+\placefigure[force][foo]{bar}{\externalfigure[images/image36.png][width=.5\textwidth]}
 
-{\externalfigure[images/image60.png][width=.5\textwidth]}{}
+\placefigure[force][foo]{bar}{\externalfigure[images/image60.png][width=.5\textwidth]}
 
 Run the downloaded installer and follow its prompts to finish setting up the SDK tools.
 
@@ -245,7 +245,7 @@ Next, you'll need to place the FAIMS APK file on your phone, either by moving it
 
 To install the APK, you may need to change the security settings on your device to allow non-market apps. Go to the "Settings" app, find the Security settings, and check "Unknown sources" (device pictured is a Samsung Galaxy s5. Your settings menu may look different).
 
-{\externalfigure[images/image62.png][width=.5\textwidth]}{}
+\placefigure[force][foo]{bar}{\externalfigure[images/image62.png][width=.5\textwidth]}
 
 \subsubsection[making-your-android-device-communicate-with-your-computer-with-usb-debugging]{Making your Android Device Communicate with your Computer with USB Debugging}
 
