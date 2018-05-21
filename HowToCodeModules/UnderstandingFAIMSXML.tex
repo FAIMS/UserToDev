@@ -13,14 +13,14 @@ The other image (below, right) shows all the {\bf tabs} which belong to a presen
 
 \placefigure[force][foo]{bar}{
 \startcombination[2*1]
-{\externalfigure[images/image71.png][width=.5\textwidth]}{}
-{\externalfigure[images/image64.png][width=.5\textwidth]}{}
+{\externalfigure[image71.png][width=.5\textwidth]}{}
+{\externalfigure[image64.png][width=.5\textwidth]}{}
 \stopcombination
 }
 
 So the hierarchy flows: your module has tab groups have tabs which have GUI elements. When you structure the elements of module.xml, it'll be contained exactly the same way. Your module element will contain tab group elements will contain tab elements which will contain GUI elements, many of which may be empty elements as they'll stand on their own without needing to contain anything else. Make sense so far? Let's see what it looks like in practice.
 
-\placefigure[force][foo]{bar}{\externalfigure[images/image47.png][width=.5\textwidth]}
+\placefigure[force][foo]{bar}{\externalfigure[image47.png][width=.5\textwidth]}
 
 <?xml version="1.0"?>
 

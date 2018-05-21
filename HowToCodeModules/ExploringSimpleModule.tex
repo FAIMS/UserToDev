@@ -5,7 +5,7 @@
 
 Now that you understand the how the XML structure relates to FAIMS modules, let's explore the simple module we uploaded in the last section.
 
-\placefigure[force][foo]{bar}{\externalfigure[images/image25.png][width=.5\textwidth]}
+\placefigure[force][foo]{bar}{\externalfigure[image25.png][width=.5\textwidth]}
 
 To create this first login screen, we used the following XML code:
 
@@ -42,7 +42,7 @@ So how do we determine what's in that drop down menu? In this case, by creating 
  
  So let's say we're using our module, we've just clicked the dropdown menu and chosen our user, then we've hit the button that says "Login." If you're using the finished sample module, you'll find yourself looking at this screen:
  
-\placefigure[force][foo]{bar}{\externalfigure[images/image46.png][width=.5\textwidth]}
+\placefigure[force][foo]{bar}{\externalfigure[image46.png][width=.5\textwidth]}
 
 Let's take a look at the code for this tab group here. As you review it, see if you can figure out which elements are tab groups, tabs, and GUI elements.
 
@@ -64,7 +64,7 @@ Records
 
 </Control>
 
-\placefigure[force][foo]{bar}{\externalfigure[images/image43.png][width=.5\textwidth]}
+\placefigure[force][foo]{bar}{\externalfigure[image43.png][width=.5\textwidth]}
 
 The XML in module.xml describes the different FAIMS elements and how they should appear in the module.
 
@@ -76,8 +76,8 @@ Let's turn on our Android device's internal GPS antenna by tapping \useURL[url22
 
 \placefigure[force][foo]{bar}{
 \startcombination[2*1]
-{\externalfigure[images/image45.png][width=.5\textwidth]}{}
-{\externalfigure[images/image34.png][width=.5\textwidth]}{}
+{\externalfigure[image45.png][width=.5\textwidth]}{}
+{\externalfigure[image34.png][width=.5\textwidth]}{}
 \stopcombination
 }
 
@@ -91,8 +91,8 @@ In this case, the tab is "search," which, once some data has been collected, wil
 
 \placefigure[force][foo]{bar}{
 \startcombination[2*1]
-{\externalfigure[images/image69.png][width=.5\textwidth]}{}
-{\externalfigure[images/image65.png][width=.5\textwidth]}{}
+{\externalfigure[image69.png][width=.5\textwidth]}{}
+{\externalfigure[image65.png][width=.5\textwidth]}{}
 \stopcombination
 }
 
@@ -102,9 +102,9 @@ Going back to the finished module, let's tap the "Main" tab and then click the "
 
 \placefigure[force][foo]{bar}{
 \startcombination[3*1]
-{\externalfigure[images/image44.png][width=.3\textwidth]}{}
-{\externalfigure[images/image6.png][width=.3\textwidth]}{}
-{\externalfigure[images/image22.png][width=.3\textwidth]}{}
+{\externalfigure[image44.png][width=.3\textwidth]}{}
+{\externalfigure[image6.png][width=.3\textwidth]}{}
+{\externalfigure[image22.png][width=.3\textwidth]}{}
 \stopcombination
 }
 
@@ -334,7 +334,7 @@ For the <Title> element, there is no UI "type" (represented by t=) specified. So
 
 <desc> allows you to set a description that your users can access by tapping and holding for a few seconds on the info button:
 
-\placefigure[force][foo]{bar}{\externalfigure[images/image70.png][width=.5\textwidth]}
+\placefigure[force][foo]{bar}{\externalfigure[image70.png][width=.5\textwidth]}
 
 That wraps up the <Title> element. Now we have an opening tag for another GUI element, <Private>. Private is a radio button UI object, required, has a description, and includes two options ("True" and "False"). Review the code below and see if you can understand how all of this is accomplished.
 
@@ -368,13 +368,13 @@ The final two element types used in this tab are the 't="audio"'' and 't="video"
 
 <Attached_Video t="video"/>
 
-\placefigure[force][foo]{bar}{\externalfigure[images/image58.png][width=.5\textwidth]}
+\placefigure[force][foo]{bar}{\externalfigure[image58.png][width=.5\textwidth]}
 
 With the audio UI element, you'll get a popup window that allows you to start and stop your audio recording.
 
 The final elements are on the Agent Role tab group, and include a few element types we've already seen: two text input fields: <First_Name> and <Last_Name> both with flags that designate them as "ids" and a dropdown menu, <Role> which contains a few options and is also flagged as an "id."
 
-\placefigure[force][foo]{bar}{\externalfigure[images/image54.png][width=.5\textwidth]}
+\placefigure[force][foo]{bar}{\externalfigure[image54.png][width=.5\textwidth]}
 
 <Agent_Role>
 
