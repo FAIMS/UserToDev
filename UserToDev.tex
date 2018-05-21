@@ -2,50 +2,57 @@
 
 \starttext
 
-\component title
+% \component title
 
-\startchapter[marking={Forward}, title={Forward}]
+% \startchapter[marking={Forward}, title={Forward}]
 
-\component frontispiece
-\stopchapter
+% \component frontispiece
+% \stopchapter
 
-\startchapter[title={What is FAIMS?}, marking={What is FAIMS?}]
+% \startchapter[title={What is FAIMS?}, marking={What is FAIMS?}]
 
-\component WelcomeToFaims
-\stopchapter
+% \component WelcomeToFaims
+% \stopchapter
 
-\startchapter[title={Making Your Own Modules}, marking={Making your own}]
+% \startchapter[title={Making Your Own Modules}, marking={Making your own}]
 
-\component PartsOfModule
-\component TourDataSchema
-\stopchapter
+% \component PartsOfModule
+% \component TourDataSchema
+% \stopchapter
 
-\startchapter[title={Setting up the Development Environment}, marking={Setting up Dev}]
+% \startchapter[title={Setting up the Development Environment}, marking={Setting up Dev}]
 
-\component DeployingVM
-\component InstallingTools
+% \component DeployingVM
+% \component InstallingTools
 
-\stopchapter
+% \stopchapter
 
 \startchapter[reference={how-to-code-modules}, title={How to Code Modules}]
 
-\component CodingModulesIntro
-% \component CodingModulesCreationProcess
+\component HowToCodeModules/CodingModulesIntro
+
+\component HowToCodeModules/CodingModulesCreationProcess
+\component HowToCodeModules/UnderstandingXMLDocuments
+\component HowToCodeModules/UnderstandingFAIMSXML
+\component HowToCodeModules/MatchModule
+\component HowToCodeModules/AdditionalFeatures
+\component HowToCodeModules/AdvancedProgramming
+
+\startchapter[title={Deploy and Debug Modules}, marking={Deploy and Debug}]
+
+\component DeployDebug/DeployModules
+\component DeployDebug/DebugModules
 
 \stopchapter
 
-	
-% 	\component CodingModules
+\startchapter[title={Can't Solve Your Problem?}, marking={Can't Solve Problem}]
 
-% The below are part of what was originally CodingModules
-\component UnderstandingXMLDocuments
-\component UnderstandingFAIMSXML
-\component MatchModule
-\component AdditionalFeatures
-\component AdvancedProgramming
+\component Finis/CantSolveProblem
 
-\component DeployModules
-\component DebugModules
+\stopchapter
+
+
+
 
 
 
