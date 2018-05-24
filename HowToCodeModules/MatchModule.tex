@@ -8,11 +8,11 @@ Now that we've created a very straightforward version of the Oral History module
 
 Select "Demo Server" from the dropdown menu in the FAIMS setting menu, then download the "finished" version of the Oral History module. Our goal in this section will be to update the version you produced to match this more complex iteration.
 
-\placefigure[force][foo]{bar}{\externalfigure[image48.png][width=.5\textwidth]}
+\placefigure[force][OHD]{Tap "Oral History Demo" to download.}{\externalfigure[image48.png][width=.5\textwidth]}
 
 The Oral History module has a bit more metadata information included than the version we've already discussed. You can update this information in the "Module" tab on your FAIMS server installation.
 
-\placefigure[force][foo]{bar}{
+\placefigure[force][OHD-metadata]{More detailed metadata.}{
 \startcombination[2*1]
 {\externalfigure[image33.png][width=.5\textwidth]}{}
 {\externalfigure[image59.png][width=.5\textwidth]}{}
@@ -21,7 +21,7 @@ The Oral History module has a bit more metadata information included than the ve
 
 The first screen of the Oral History Demo looks similar to our module:
 
-\placefigure[force][foo]{bar}{\externalfigure[image31.png][width=.5\textwidth]}
+\placefigure[force][user-list]{Match your model to "Oral History Demo" by adding a User List.}{\externalfigure[image31.png][width=.5\textwidth]}
 
 In the same module.xml file we used for our version of Oral History update the following code:
 
@@ -59,13 +59,13 @@ Save your modified module.xml, run "{\em ./generate.sh}" in your Ubuntu terminal
 
 Importantly, to download the updated version of the module, you must touch and hold the "Simple Sample Module" in the list of modules until the below dialogue is displayed:
 
-\placefigure[force][foo]{bar}{\externalfigure[image14.png][width=.5\textwidth]}
+\placefigure[force][SSM-popup]{Tap and hold "Simple Sample Module" to open this pop-up.}{\externalfigure[image14.png][width=.5\textwidth]}
 
 Tap "Update", then "Update Settings", wait for the update to occur, and finally load the module as usual.
 
 \alert{\bf Note: While we can update Simple Sample Module to have an interface that mimics the Oral History module, we're going to make some changes that will make the module not completely functional. This is because, as you may recall, you can't change the Data Schema of a module once it's already been uploaded to the server. So the interface elements will look right, because the necessary files that govern those can be changed out freely, but the parts actually responsible for managing the data you collect to the server won't have gotten the memo that the module's been altered. If this weren't an exercise, and we wanted an absolutely functional module, we'd just create a new one from the updated necessary files and tell our team members to switch to it.} 
 
-\placefigure[force][foo]{bar}{\externalfigure[image24.png][width=.5\textwidth]}
+\placefigure[force][OHD-control]{"Oral History Demo" combines "Main" and "Record" into "Control".}{\externalfigure[image24.png][width=.5\textwidth]}
 
 On this next screen (shown in the screenshot above), we need to condense a few elements from our original module. Change the following code:
 
@@ -111,7 +111,7 @@ This code replaces the "Main" and "Record" tab groups with a single one labelled
 
 Save module.xml and run the generate.sh script again. Now use them to update your module again. You should see something similar to the image below after selecting a user in the uploaded module.
 
-\placefigure[force][foo]{bar}{\externalfigure[image8.png][width=.5\textwidth]}
+\placefigure[force][SSM-control]{"Control" tab in your updated module.}{\externalfigure[image8.png][width=.5\textwidth]}
 
 For the next step, we'll add new UI tab groups for each of our buttons: "Form" and "Diary" that we linked to in the last code block:
 
@@ -141,9 +141,9 @@ For the next step, we'll add new UI tab groups for each of our buttons: "Form" a
 
 Make sure that the <Form> and <Diary> elements are written directly within <module> so that the FAIMS-Tools correctly interprets them as tab groups. It may help, when drafting new elements, to write both the opening and closing tags and then fill in the middle.
 
-Now, under each of these new tab groups, we'll create individual tabs. The "Form" group has three tabs: "Recording Form","Interview Details", and "Main Subjects". Note that if these tab titles contain multiple words, you must use underscores between each word. When FAIMS creates the title for each tab, underscores will be replaced with spaces.
+Now, under each of these new tab groups, we'll create individual tabs. The "Form" group has three tabs: "Recording Form", "Interview Details", and "Main Subjects". Note that if these tab titles contain multiple words, you must use underscores between each word. When FAIMS creates the title for each tab, underscores will be replaced with spaces.
 
-\placefigure[force][foo]{bar}{\externalfigure[image53.png][width=.5\textwidth]}
+\placefigure[force][empty-tab]{Three newly created empty tabs.}{\externalfigure[image53.png][width=.5\textwidth]}
 
 Now we have the individual tabs for each section, but those tabs don't have any content just yet. For simple text fields, like "Birth Place" and "Parents' Birth Place" you can simply add a self-closing tag with the field's title:
 
@@ -186,7 +186,7 @@ To add fields for attached files, you can use the "Audio" and "Video" tags, as b
 
 Simply set the type "t" to video or audio as required.
 
-\placefigure[force][foo]{bar}{
+\placefigure[force][input-examplees]{Examples of simple text fields, GPS input, and attaching files.}{
 \startcombination[3*1]
 {\externalfigure[image26.png][width=.3\textwidth]}{}
 {\externalfigure[image15.png][width=.3\textwidth]}{}
@@ -214,7 +214,7 @@ Recorded?
 
 Note that to have the radio buttons' contents appear would require that the entire module is re-created and uploaded to the FAIMS server. Updating the existing module on the server, would cause the menu to appear but lack its options.
 
-\placefigure[force][foo]{bar}{
+\placefigure[force][radio-buttons]{Radio buttons in "Interview Details" and a simple text field in "Main Subjects".}{
 \startcombination[2*1]
 {\externalfigure[image42.png][width=.5\textwidth]}{}
 {\externalfigure[image49.png][width=.5\textwidth]}{}
@@ -229,7 +229,7 @@ The "Timestamp" and "Created By" values are not actually fields that we'll allow
 
 There's actually not a lot more we can do until we've generated our necessary files. Then, we'll take ui_logic.bsh and make a few alterations that make use of these tags.
 
-\placefigure[force][foo]{bar}{
+\placefigure[force][autofill]{"Timestamp" and "Created by" are automatically filled in by FAIMS.}{
 \startcombination[2*1]
 {\externalfigure[image37.png][width=.5\textwidth]}{}
 {\externalfigure[image1.png][width=.5\textwidth]}{}

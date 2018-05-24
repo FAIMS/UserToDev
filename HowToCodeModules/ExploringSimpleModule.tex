@@ -5,7 +5,7 @@
 
 Now that you understand the how the XML structure relates to FAIMS modules, let's explore the simple module we uploaded in the last section.
 
-\placefigure[force][foo]{bar}{\externalfigure[image25.png][width=.5\textwidth]}
+\placefigure[force][login-screen]{A user login screen.}{\externalfigure[image25.png][width=.5\textwidth]}
 
 To create this first login screen, we used the following XML code:
 
@@ -42,7 +42,7 @@ So how do we determine what's in that drop down menu? In this case, by creating 
  
  So let's say we're using our module, we've just clicked the dropdown menu and chosen our user, then we've hit the button that says "Login." If you're using the finished sample module, you'll find yourself looking at this screen:
  
-\placefigure[force][foo]{bar}{\externalfigure[image46.png][width=.5\textwidth]}
+\placefigure[force][main-tab]{The "main" tab.}{\externalfigure[image13.png][width=.5\textwidth]}
 
 Let's take a look at the code for this tab group here. As you review it, see if you can figure out which elements are tab groups, tabs, and GUI elements.
 
@@ -64,7 +64,7 @@ Records
 
 </Control>
 
-\placefigure[force][foo]{bar}{\externalfigure[image43.png][width=.5\textwidth]}
+\placefigure[force][XML-GUI]{How XML in module.xml describes different FAIMS Elements.}{\externalfigure[image43.png][width=1\textwidth]}
 
 The XML in module.xml describes the different FAIMS elements and how they should appear in the module.
 
@@ -74,7 +74,7 @@ The <Main> element creates the first tab. Inside that tab we have a GUI element,
 
 Let's turn on our Android device's internal GPS antenna by tapping \useURL[url22][https://www.youtube.com/watch?v=o_eSwq1ewsU][][{\em the three vertical dots}]\from[url22] in the upper right of the screen to open the settings menu.
 
-\placefigure[force][foo]{bar}{
+\placefigure[force][on-GPS]{Turn on internal GPS by tapping the dots in the red box.}{
 \startcombination[2*1]
 {\externalfigure[image45.png][width=.5\textwidth]}{}
 {\externalfigure[image34.png][width=.5\textwidth]}{}
@@ -89,18 +89,16 @@ Don't worry; you haven't missed anything. It's just that there are certain kinds
 
 In this case, the tab is "search," which, once some data has been collected, will contain GUI elements that allow you to search records according to various criteria, including term or entity type. We don't have to include code for all these GUI elements; FAIMS-Tools knows to include them in a tab labelled with the shorthand "search". The only thing we have included is the plaintext "Records", without a tag. When FAIMS-Tools sees text like this written inside an element, it labels the element that way instead of basing its name on the tab group. This is why you see "Records" as the tab label when you might have expected to see "search".
 
-\placefigure[force][foo]{bar}{
+\placefigure[force][search-element]{The Search element before and after adding a few records.}{
 \startcombination[2*1]
 {\externalfigure[image69.png][width=.5\textwidth]}{}
 {\externalfigure[image65.png][width=.5\textwidth]}{}
 \stopcombination
 }
 
-The Search element before and after adding a few records.
-
 Going back to the finished module, let's tap the "Main" tab and then click the "Record Interview" button, which, you may recall, will take us to "Interview." "Interview" looks like this:
 
-\placefigure[force][foo]{bar}{
+\placefigure[force][interview-tab]{Scroll to see all fields in the "Interview" tab.}{
 \startcombination[3*1]
 {\externalfigure[image44.png][width=.3\textwidth]}{}
 {\externalfigure[image6.png][width=.3\textwidth]}{}
@@ -334,7 +332,7 @@ For the <Title> element, there is no UI "type" (represented by t=) specified. So
 
 <desc> allows you to set a description that your users can access by tapping and holding for a few seconds on the info button:
 
-\placefigure[force][foo]{bar}{\externalfigure[image70.png][width=.5\textwidth]}
+\placefigure[force][desc-popup]{A description pop-up appears.}{\externalfigure[image70.png][width=.5\textwidth]}
 
 That wraps up the <Title> element. Now we have an opening tag for another GUI element, <Private>. Private is a radio button UI object, required, has a description, and includes two options ("True" and "False"). Review the code below and see if you can understand how all of this is accomplished.
 
@@ -368,13 +366,11 @@ The final two element types used in this tab are the 't="audio"'' and 't="video"
 
 <Attached_Video t="video"/>
 
-\placefigure[force][foo]{bar}{\externalfigure[image58.png][width=.5\textwidth]}
-
-With the audio UI element, you'll get a popup window that allows you to start and stop your audio recording.
+\placefigure[force][audio-UI]{With the audio UI element, you'll get a popup window that allows you to start and stop your audio recording.}{\externalfigure[image58.png][width=.5\textwidth]}
 
 The final elements are on the Agent Role tab group, and include a few element types we've already seen: two text input fields: <First_Name> and <Last_Name> both with flags that designate them as "ids" and a dropdown menu, <Role> which contains a few options and is also flagged as an "id."
 
-\placefigure[force][foo]{bar}{\externalfigure[image54.png][width=.5\textwidth]}
+\placefigure[force][agent-role]{"Agent Role" tab group.}{\externalfigure[image54.png][width=.5\textwidth]}
 
 <Agent_Role>
 
