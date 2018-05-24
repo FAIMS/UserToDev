@@ -37,11 +37,11 @@ The <Select_User> and <Login> elements represent GUI elements, or the actual thi
 
 So how do we determine what's in that drop down menu? In this case, by creating an attribute, f="users", which in this context FAIMS understands to mean "get the list of usernames from the server and put them here."\footnote{{\bf Note from FAIMS programmer Christian Nassif-Haynes:} If you use t=dropdown, then it is possible for the user to avoid logging in (in error or intentionally) by selecting the null option and clicking the login button. If you want to prevent logging with the null user option (de facto avoiding the login), then you need to manually modify the ui_logic.bsh file after it's been generated or use t=list, following the guidelines below. Lists, unlike dropdowns, do not allow null elements so using a t="list" for login, as in the code below, prevents the problem of logging in with null user.
 
- <User f="nodata">
- 	<User f="noscroll">
- 		<Select_User t="list" f="user" l="Control"/>
- 	</User>
- </User
+<User f="nodata">
+~~<User f="noscroll">
+~~~~<Select_User t="list" f="user" l="Control"/>
+~~</User>
+</User
 }
  
  Setting t="button", as in the case of <Login>, creates a button you can tap. The purpose of the button is described by the text that comes after it; otherwise, it's just a button, which probably isn't going to be very useful for your module. Here we've included the code l="Control" within the tag, which causes FAIMS to link to the "Control" tab group when it is tapped. In fact, the "l" attribute works not only for buttons, but many other GUI elements as well. Note carefully that the "Control" tab group linked to by the "l" attribute's value is defined further down in the module.xml file; this code only functions because the destination is valid. If we had 1="Control" and then didn't actually have a "Control" to link to, it's safe to say this wouldn't work. Also note that references are case-sensitive, so writing "control" with a lower-case "c" would fail.
