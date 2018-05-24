@@ -25,30 +25,30 @@ The below image shows two different tab groups---"Control" and "Form"---each con
 So the hierarchy flows: your module has tab groups have tabs which have GUI elements. When you structure the elements of module.xml, it'll be contained exactly the same way. Your module element will contain tab group elements will contain tab elements which will contain GUI elements, many of which may be empty elements as they'll stand on their own without needing to contain anything else. Make sense so far? Let's see what it looks like in practice.
 
 
-
-<?xml version="1.0"?>
-
-<module>
-
-<Tab_Group>
-
-<Tab_1>
-
-<Select_User t="dropdown" f="user"/>
-
-<Login t="button" l="Control"/>
-
-</Tab_1>
-
-<Tab_2>
-
-<Button t="button" />
-
-</Tab_2>
-
-</Tab_Group>
-
-</module>
+\placecode[here][codeModuleTabHierarchy]{The hierarchy of modules, tab groups, tabs, and GUI elements.}{
+\startframedtext[align={hanging, hz},
+                         width=\makeupwidth,
+                        background=color,
+                        backgroundcolor=gray,                        
+                        framecolor=gray,
+                        rulethickness=1pt                        
+                         ]
+\starttyping[option=xml, tab=4, style={\tfx\tt}] 
+      <?xml version="1.0"?>
+      <module>
+            <Tab_Group>
+                  <Tab_1>
+                        <Select_User t="dropdown" f="user"/>
+                        <Login t="button" l="Control"/>
+                  </Tab_1>
+                  <Tab_2>
+                        <Button t="button" />
+                  </Tab_2>
+            </Tab_Group>
+      </module>
+\stoptyping
+\stopframedtext
+}
 
 Remember that you're creating a version of module.xml that XML-Tools can read and interpret in creating your necessary files. Because XML-Tools understands the hierarchical structure we've just explained, it'll automatically understand whether something is a tab group or tab just from where it falls in the hierarchy. XML-Tools knows that <Tab_Group> is a tab group not because of its name, but because it appears straight away from the <module> tags without being contained in anything else. \footnote{There are some caveats to this rule, but it is true in the vast majority of instances.}. Similarly, elements which appear directly within a tab group are automatically understood to be tabs. XML elements within tabs are interpreted as GUI elements.
 
@@ -56,30 +56,35 @@ Remember that you're creating a version of module.xml that XML-Tools can read an
 
 Review the following structure.
 
-<module>
-      
-      <A>
-  
-            <B>
-                  <C/>
-                  <C/>
-            </B>
-    
-            <B>
-                  <C/>
-            </B>
-      </A>
-  
-      <A>
-            <B>
-                  <C/>
-                  <C/>
-                  <C/>
-            </B>
-        </A>
-
-
-</module>
+\placecode[here][codeTYK]{}{
+\startframedtext[align={hanging, hz},
+                         width=\makeupwidth,
+                        background=color,
+                        backgroundcolor=gray,                        
+                        framecolor=gray,
+                        rulethickness=1pt                        
+                         ]
+\starttyping[option=xml, tab=4, style={\tfx\tt}] 
+      <module>
+            <A>
+                  <B>
+                        <C/>
+                        <C/>
+                  </B>
+                  <B>
+                        <C/>
+                  </B>
+            </A>
+            <A>
+                  <B>
+                        <C/>
+                        <C/>
+                        <C/>
+                  </B>
+            </A>
+      </module>
+\stoptyping
+\stopframedtext
 
 Without knowing what's really inside the tags, can you figure out which elements are the tab groups, which are the tabs, and which are UI elements? If you have difficulty guessing that the "A" elements are tab groups, the "B" elements are tabs, and the "C" elements are the GUI, you may need to review the previous section. }
 

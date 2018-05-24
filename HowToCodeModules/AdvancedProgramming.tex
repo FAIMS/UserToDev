@@ -130,26 +130,51 @@ ________________________________________________________________________________
 \crlf
 SEMANTICS OF <cols> TAGS\crlf
 \crlf
-Direct children of <cols> tags are interpreted as columns. For example,\crlf
-<cols>\crlf
-<Field_1 t="input"/>\crlf
-<Field_2 t="input"/>\crlf
-<Field_3 t="input"/>\crlf
-</cols>\crlf
-has three columns, each containing an input. The left-most column is Field_1,\crlf
-whereas the right-most is Field_3.\crlf
+Direct children of <cols> tags are interpreted as columns. For example:
+
+\placecode[here][codeColumns]{Each field forms a new column.}{
+\startframedtext[align={hanging, hz},
+				 width=\makeupwidth,
+				background=color,
+				backgroundcolor=gray,				
+				framecolor=gray,
+				rulethickness=1pt				
+				 ]
+\starttyping[option=xml, tab=4, style={\tfx\tt}] 
+	<cols>
+		<Field_1 t="input"/>
+		<Field_2 t="input"/>
+		<Field_3 t="input"/>
+	</cols>
+\stoptyping
+\stopframedtext
+}
+
+has three columns, each containing an input. The left-most column is Field_1, whereas the right-most is Field_3.\crlf
 \crlf
-When a <col> tag is a direct child, its contents are interpreted as being part\crlf
-of a distinct column. Therefore,\crlf
-<cols>\crlf
-<Field_1 t="input"/>\crlf
-<col>\crlf
-<Field_2 t="input"/>\crlf
-<Field_3 t="input"/>\crlf
-</col>\crlf
-</cols>\crlf
-results in two columns. The left column contains Field_1, while the right\crlf
-contains Field_2 and Field_3.\crlf
+When a <col> tag is a direct child, its contents are interpreted as being part of a distinct column. Therefore,
+
+\placecode[here][codeComColumns]{Fields between {\tt <col>} and {\tt </col>} are in the same columns.}{
+\startframedtext[align={hanging, hz},
+				 width=\makeupwidth,
+				background=color,
+				backgroundcolor=gray,				
+				framecolor=gray,
+				rulethickness=1pt				
+				 ]
+\starttyping[option=xml, tab=4, style={\tfx\tt}] 
+	<cols>
+		<Field_1 t="input"/>
+		<col>
+			<Field_2 t="input"/>
+			<Field_3 t="input"/>
+		</col>
+	</cols>
+\stoptyping
+\stopframedtext
+}
+
+results in two columns. The left column contains Field_1, while the right contains Field_2 and Field_3.\crlf
 ________________________________________________________________________________\crlf
 \crlf
 CHILD ENTITIES\crlf
@@ -160,14 +185,28 @@ instance, writing\crlf
 generates a button which links to the Child_Ent tab group. When displayed by\crlf
 clicking the Add_Child button, the Child_Ent tab group will have auto-saving\crlf
 enabled and be saved as a child of the tab group that the button appeared in.\crlf
-For example, consider the following module.xml:\crlf
-<module>\crlf
-<Tab_Group>\crlf
-<Tab>\crlf
-<Add_Child t="button" lc="Tab_Group" />\crlf
-</Tab>\crlf
-</Tab_Group>\crlf
-</module>\crlf
+For example, consider the following module.xml:
+
+\placecode[here][codeSavingChildren]{XML to save entities as children.}{
+\startframedtext[align={hanging, hz},
+				 width=\makeupwidth,
+				background=color,
+				backgroundcolor=gray,				
+				framecolor=gray,
+				rulethickness=1pt				
+				 ]
+\starttyping[option=xml, tab=4, style={\tfx\tt}] 
+	<module>
+		<Tab_Group>
+			<Tab>
+				<Add_Child t="button" lc="Tab_Group" />
+			</Tab>
+		</Tab_Group>
+	</module>
+\stoptyping
+\stopframedtext
+}
+
 Clicking the Add_Child button will cause the user to be taken to a new\crlf
 instance of Tab_Group which will be saved as a child of the original instance.\crlf
 But because the original instance was not loaded by clicking the button, it\crlf
@@ -175,7 +214,21 @@ will not be saved as a child.\crlf
 \crlf
 A list of child entities can be displayed to the user by using the "ec"\crlf
 attribute:\crlf
-<List_Of_Related_Entities t="list" ec="Type_Of_Childen" />\crlf
+
+\placecode[here][codeListOfChildren]{XML to display a list of child entities.}{
+\startframedtext[align={hanging, hz},
+				 width=\makeupwidth,
+				background=color,
+				backgroundcolor=gray,				
+				framecolor=gray,
+				rulethickness=1pt				
+				 ]
+\starttyping[option=xml, tab=4, style={\tfx\tt}] 
+	<List_Of_Related_Entities t="list" ec="Type_Of_Childen" />\crlf
+\stoptyping
+\stopframedtext
+}
+
 The list will be populated with entities which are children of the tab group\crlf
 the list appears in. The entities will be constrained to have the type\crlf
 "Type_Of_Children". However, writing `ec=""` produces an unconstrained list,\crlf
@@ -188,20 +241,48 @@ ________________________________________________________________________________
 \crlf
 LABELS\crlf
 \crlf
-An element's text is taken as its label. For instance, the following input\crlf
-<My_Input t="input">\crlf
-Droopy Soup\crlf
-<desc>Similar to drippy soup, but not quite...</desc>\crlf
-</My_Input>\crlf
+An element's text is taken as its label. For instance, the following input
+
+\placecode[here][codeInputLabeless]{Labeless input.}{
+\startframedtext[align={hanging, hz},
+				 width=\makeupwidth,
+				background=color,
+				backgroundcolor=gray,				
+				framecolor=gray,
+				rulethickness=1pt				
+				 ]
+\starttyping[option=xml, tab=4, style={\tfx\tt}] 
+	<My_Input t="input">
+		Droopy Soup
+		<desc>Similar to drippy soup, but not quite...</desc>
+	</My_Input>
+\stoptyping
+\stopframedtext
+}
+
 has the label "Droopy Soup". Note that following and preceding whitespace is\crlf
 stripped.\crlf
 \crlf
 If a label is not provided, it is "inferred" from the element's name. More\crlf
 specifically, underscores in the element's name are replaced with spaces,\crlf
-which becomes the element's label. Therefore, the element\crlf
-<Droopy_Soup t="input">\crlf
-<desc>Similar to drippy soup, but not quite...</desc>\crlf
-</Droopy_Soup>\crlf
+which becomes the element's label. Therefore, the element
+
+\placecode[here][codeOverlappingLabel]{Different input, same label.}{
+\startframedtext[align={hanging, hz},
+				 width=\makeupwidth,
+				background=color,
+				backgroundcolor=gray,				
+				framecolor=gray,
+				rulethickness=1pt				
+				 ]
+\starttyping[option=xml, tab=4, style={\tfx\tt}] 
+	<Droopy_Soup t="input">
+		<desc>Similar to drippy soup, but not quite...</desc>
+	</Droopy_Soup>
+\stoptyping
+\stopframedtext
+}
+
 has the same label as in the above example. Thus, the user will see exactly\crlf
 the same thing in both cases. However, their representations in the data and\crlf
 UI schemas, and the arch16n file will be different.\crlf
