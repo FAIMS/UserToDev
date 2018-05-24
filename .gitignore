@@ -1,2 +1,4 @@
 *.tuc
 *.log
+*.DS_Store
+*.Rhistory
