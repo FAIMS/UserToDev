@@ -52,11 +52,8 @@ So the hierarchy flows: your module has tab groups have tabs which have GUI elem
 
 Remember that you're creating a version of module.xml that XML-Tools can read and interpret in creating your necessary files. Because XML-Tools understands the hierarchical structure we've just explained, it'll automatically understand whether something is a tab group or tab just from where it falls in the hierarchy. XML-Tools knows that <Tab_Group> is a tab group not because of its name, but because it appears straight away from the <module> tags without being contained in anything else. \footnote{There are some caveats to this rule, but it is true in the vast majority of instances.}. Similarly, elements which appear directly within a tab group are automatically understood to be tabs. XML elements within tabs are interpreted as GUI elements.
 
-\quiz{Test your knowledge}{ 
 
-Review the following structure.
-
-\placecode[here][codeTYK]{}{
+\placecode[here][codeTYK]{Can you infer which elements are tab groups, tabs, and UI elements?}{
 \startframedtext[align={hanging, hz},
                          width=\makeupwidth,
                         background=color,
@@ -64,7 +61,7 @@ Review the following structure.
                         framecolor=gray,
                         rulethickness=1pt                        
                          ]
-\starttyping[option=xml, tab=4, style={\tfx\tt}] 
+\starttyping[option=xml, tab=4, style={\tfx\tt}]
       <module>
             <A>
                   <B>
@@ -83,10 +80,17 @@ Review the following structure.
                   </B>
             </A>
       </module>
-\stoptyping
+\stoptyping 
 \stopframedtext
+}
 
-Without knowing what's really inside the tags, can you figure out which elements are the tab groups, which are the tabs, and which are UI elements? If you have difficulty guessing that the "A" elements are tab groups, the "B" elements are tabs, and the "C" elements are the GUI, you may need to review the previous section. }
+\quiz{Test your knowledge}{ 
+
+
+\item Review the structure in code block \in[codeTYK]. 
+
+\item Without knowing what's really inside the tags, can you figure out which elements are the tab groups, which are the tabs, and which are UI elements? If you have difficulty guessing that the "A" elements are tab groups, the "B" elements are tabs, and the "C" elements are the GUI, you may need to review the previous section. 
+}
 
 \stoptext
 \stopcomponent
