@@ -7,9 +7,9 @@ So that's how XML is structured. How does that structure relate to FAIMS modules
 
 FAIMS modules have the same kind of hierarchical structure as other XML documents: all {\bf GUI elements} (ie, the user interface) such as buttons, text fields, and dropdown menus appear inside of {\bf tabs}.
 
-Consider for a moment the module in the image shown below and to the left. There are {\bf GUI elements} (or, "useful parts you can interact with") which all belong to the "Recording Form" tab. If the user were to tap on a different tab, for instance the "Interview Details" tab, they would see a different set of GUI elements belonging to that different tab. 
+Consider for a moment the module in \in{Figure}[GUI-tabs] (left image). There are {\bf GUI elements} (or, "useful parts you can interact with") which all belong to the "Recording Form" tab. If the user were to tap on a different tab, for instance the "Interview Details" tab, they would see a different set of GUI elements belonging to that different tab. 
 
-The other image (below, right) shows all the {\bf tabs} which belong to a presently displayed {\bf tab group} called "Form". Entering a different tab group would cause a different set of tabs to be displayed. 
+The right image in \in{Figure}[GUI-tabs] shows all the {\bf tabs} which belong to a presently displayed {\bf tab group} called "Form". Entering a different tab group would cause a different set of tabs to be displayed. 
 
 \placefigure[force][GUI-tabs]{GUI elements in a tab and tabs in a tab group.}{
 \startcombination[2*1]
@@ -18,11 +18,11 @@ The other image (below, right) shows all the {\bf tabs} which belong to a presen
 \stopcombination
 }
 
-The below image shows two different tab groups---"Control" and "Form"---each containing their own sets of tabs.
+\in{Figure}[tab-groups] shows two different tab groups---"Control" and "Form"---each containing their own sets of tabs.
 
 \placefigure[force][tab-groups]{"Control" and "Form" have different tabs and GUI elements.}{\externalfigure[image47.png][width=.5\textwidth]}
 
-So the hierarchy flows: your module has tab groups have tabs which have GUI elements. When you structure the elements of module.xml, it'll be contained exactly the same way. Your module element will contain tab group elements will contain tab elements which will contain GUI elements, many of which may be empty elements as they'll stand on their own without needing to contain anything else. Make sense so far? Let's see what it looks like in practice.
+So the hierarchy flows: your module has tab groups have tabs which have GUI elements. When you structure the elements of module.xml, it'll be contained exactly the same way. Your module element will contain tab group elements will contain tab elements which will contain GUI elements, many of which may be empty elements as they'll stand on their own without needing to contain anything else. Make sense so far? See what it looks like in practice in \in{Figure}[codeModuleTabHierarchy].
 
 
 \placecode[here][codeModuleTabHierarchy]{The hierarchy of modules, tab groups, tabs, and GUI elements.}{
@@ -50,7 +50,7 @@ So the hierarchy flows: your module has tab groups have tabs which have GUI elem
 \stopframedtext
 }
 
-Remember that you're creating a version of module.xml that XML-Tools can read and interpret in creating your necessary files. Because XML-Tools understands the hierarchical structure we've just explained, it'll automatically understand whether something is a tab group or tab just from where it falls in the hierarchy. XML-Tools knows that <Tab_Group> is a tab group not because of its name, but because it appears straight away from the <module> tags without being contained in anything else. \footnote{There are some caveats to this rule, but it is true in the vast majority of instances.}. Similarly, elements which appear directly within a tab group are automatically understood to be tabs. XML elements within tabs are interpreted as GUI elements.
+Remember that you're creating a version of module.xml that XML-Tools can read and interpret in creating your necessary files. Because XML-Tools understands the hierarchical structure we've just explained, it'll automatically understand whether something is a tab group or tab just from where it falls in the hierarchy. XML-Tools knows that {\tt <Tab_Group>} is a tab group not because of its name, but because it appears straight away from the {\tt <module>} tags without being contained in anything else. \footnote{There are some caveats to this rule, but it is true in the vast majority of instances.}. Similarly, elements which appear directly within a tab group are automatically understood to be tabs. XML elements within tabs are interpreted as GUI elements.
 
 
 \placecode[here][codeTYK]{Can you infer which elements are tab groups, tabs, and UI elements?}{

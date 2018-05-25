@@ -19,11 +19,11 @@ The Oral History module has a bit more metadata information included than the ve
 \stopcombination
 }
 
-The first screen of the Oral History Demo looks similar to our module:
+The first screen of the Oral History Demo (\in{Figure}[user-list]) looks similar to our module.
 
 \placefigure[force][user-list]{Match your model to "Oral History Demo" by adding a User List.}{\externalfigure[image31.png][width=.5\textwidth]}
 
-In the same module.xml file we used for our version of Oral History update the following code:
+In the same module.xml file we used for our version of Oral History update the code in \in{Codeblock}[codeOutdatedUserList] to match \in{Codeblock}[codeUpdatedUserList] (new code in {\bf bold}).
 
 \placecode[here][codeOutdatedUserList]{Current code.}{
 \startframedtext[align={hanging, hz},
@@ -34,17 +34,15 @@ In the same module.xml file we used for our version of Oral History update the f
 				rulethickness=1pt				
 				 ]
 \starttyping[option=xml, tab=4, style={\tfx\tt}] 
-	<User f="nodata">
-		<User>
-			<Select_User t="dropdown" f="user"/>
-			<Login t="button" l="Control"/>
-		</User>
+<User f="nodata">
+	<User>
+		<Select_User t="dropdown" f="user"/>
+		<Login t="button" l="Control"/>
 	</User>
+</User>		
 \stoptyping
 \stopframedtext
 }
-
-To match this (new code in {\bf bold}):
 
 \placecode[here][codeUpdatedUserList]{This code replicates "Oral History Demo".}{
 \startframedtext[align={hanging, hz},
@@ -55,22 +53,22 @@ To match this (new code in {\bf bold}):
 				rulethickness=1pt				
 				 ]
 \starttyping[option=xml, tab=4, style={\tfx\tt}] 
-	<User f="nodata">
-		{\bf <User_List>}
-			{\bf <Users t="list" f="user" l="Control">}
-				{\bf Users:}
-			{\bf </Users>}
-		{\bf </User_List>}
-	</User>
+<User f="nodata">
+	{\bf <User_List>}
+		{\bf <Users t="list" f="user" l="Control">}
+			{\bf Users:}
+		{\bf </Users>}
+	{\bf </User_List>}
+</User>		
 \stoptyping
 \stopframedtext
 }
 
 This replicates the "User List" tab illustrated in the above screenshot. 
 
-Save your modified module.xml, run "{\em ./generate.sh}" in your Ubuntu terminal again, edit your current module and upload the new necessary files in place of the old ones. Now donwload this updated module to your FAIMS app. 
+Save your modified module.xml, run "{\em ./generate.sh}" in your Ubuntu terminal again, edit your current module and upload the new necessary files in place of the old ones. Now download this updated module to your FAIMS app. 
 
-Importantly, to download the updated version of the module, you must touch and hold the "Simple Sample Module" in the list of modules until the below dialogue is displayed:
+Importantly, to download the updated version of the module, you must touch and hold the "Simple Sample Module" in the list of modules until the dialogue in \in{Figure}[SSM-popup] is displayed.
 
 \placefigure[force][SSM-popup]{Tap and hold "Simple Sample Module" to open this pop-up.}{\externalfigure[image14.png][width=.5\textwidth]}
 
@@ -80,7 +78,7 @@ Tap "Update", then "Update Settings", wait for the update to occur, and finally 
 
 \placefigure[force][OHD-control]{"Oral History Demo" combines "Main" and "Record" into "Control".}{\externalfigure[image24.png][width=.5\textwidth]}
 
-On this next screen (shown in the screenshot above), we need to condense a few elements from our original module. Change the following code:
+On the screen in \in{Figure}[OHD-control], we need to condense a few elements from our original module. Change the code in \in{Codeblock}[codeOutdatedCondenseTabs] to match the code in \in{Codeblock}[codeUpdatedCondenseTabs].
 
 \placecode[here][codeOutdatedCondenseTabs]{Current code.}{
 \startframedtext[align={hanging, hz},
@@ -91,20 +89,18 @@ On this next screen (shown in the screenshot above), we need to condense a few e
 				rulethickness=1pt				
 				 ]
 \starttyping[option=xml, tab=4, style={\tfx\tt}] 
-	<Control f="nodata">
-		<Main>
-			<Record_Interview t="button" l="Interview"/>
-			<GPS_Diagnostics t="gpsdiag"/>
-		</Main>
-		<search>
-			Records
-		</search>
-	</Control>
+<Control f="nodata">
+	<Main>
+		<Record_Interview t="button" l="Interview"/>
+		<GPS_Diagnostics t="gpsdiag"/>
+	</Main>
+	<search>
+		Records
+	</search>
+</Control>		
 \stoptyping
 \stopframedtext
 }
-
-To match the following:
 
 \placecode[here][codeUpdatedCondenseTabs]{Condense "Main" and "Record" into "Control".}{
 \startframedtext[align={hanging, hz},
@@ -115,26 +111,26 @@ To match the following:
 				rulethickness=1pt				
 				 ]
 \starttyping[option=xml, tab=4, style={\tfx\tt}] 
-	<Control f="nodata">
-		{\bf <Control>}
-			{\bf <New_Oral_History_Form t="button" l="Form"/>}
-			{\bf <New_Diary t="button" l="Diary"/>}
-			{\bf <GPS_Diagnostics t="gpsdiag"/>}
-			{\bf <Sample_Types t="dropdown" />}
-			{\bf <List_of_Samples t="list" />}
-		{\bf </Control>}
-	</Control>
+<Control f="nodata">
+	{\bf <Control>}
+		{\bf <New_Oral_History_Form t="button" l="Form"/>}
+		{\bf <New_Diary t="button" l="Diary"/>}
+		{\bf <GPS_Diagnostics t="gpsdiag"/>}
+		{\bf <Sample_Types t="dropdown" />}
+		{\bf <List_of_Samples t="list" />}
+	{\bf </Control>}
+</Control>		
 \stoptyping
 \stopframedtext
 }
 
-This code replaces the "Main" and "Record" tab groups with a single one labelled "Control". (In a moment, we will define the "Form" and "Diary" tab groups linked to by the above buttons. We will also have to populate the "Sample Types" dropdown and "List of Samples" list by writing some additional code.)
+\in{Codeblock}[codeUpdatedCondenseTabs] replaces the "Main" and "Record" tab groups with a single one labelled "Control". (In a moment, we will define the "Form" and "Diary" tab groups linked to by the above buttons. We will also have to populate the "Sample Types" dropdown and "List of Samples" list by writing some additional code.)
 
-Save module.xml and run the generate.sh script again. Now use them to update your module again. You should see something similar to the image below after selecting a user in the uploaded module.
+Save module.xml and run the generate.sh script again. Now use them to update your module again. You should see something similar to \in{Figure}[SSM-control] after selecting a user in the uploaded module.
 
 \placefigure[force][SSM-control]{"Control" tab in your updated module.}{\externalfigure[image8.png][width=.5\textwidth]}
 
-For the next step, we'll add new UI tab groups for each of our buttons: "Form" and "Diary" that we linked to in the last code block:
+For the next step, we'll add new UI tab groups for each of our buttons: "Form" and "Diary" that we linked to in \in{Codeblock}[codeFormDiary].
 
 \placecode[here][codeFormDiary]{Add "Form" and "Diary" tab groups.}{
 \startframedtext[align={hanging, hz},
@@ -145,29 +141,29 @@ For the next step, we'll add new UI tab groups for each of our buttons: "Form" a
 				rulethickness=1pt				
 				 ]
 \starttyping[option=xml, tab=4, style={\tfx\tt}] 
-	<Form>
-		<Recording_Form>
-		</Recording_Form>
-		<Interview_Details>
-		</Interview_Details>
-		<Main_Subjects>
-		</Main_Subjects>
-	</Form>
+<Form>
+	<Recording_Form>
+	</Recording_Form>
+	<Interview_Details>
+	</Interview_Details>
+	<Main_Subjects>
+	</Main_Subjects>
+</Form>
+<Diary>
 	<Diary>
-		<Diary>
-		</Diary>
 	</Diary>
+</Diary>		
 \stoptyping
 \stopframedtext
 }
 
-Make sure that the <Form> and <Diary> elements are written directly within <module> so that the FAIMS-Tools correctly interprets them as tab groups. It may help, when drafting new elements, to write both the opening and closing tags and then fill in the middle.
+Make sure that the {\tt <Form>} and {\tt <Diary>} elements are written directly within {\tt <module>} so that the FAIMS-Tools correctly interprets them as tab groups. It may help, when drafting new elements, to write both the opening and closing tags and then fill in the middle.
 
 Now, under each of these new tab groups, we'll create individual tabs. The "Form" group has three tabs: "Recording Form", "Interview Details", and "Main Subjects". Note that if these tab titles contain multiple words, you must use underscores between each word. When FAIMS creates the title for each tab, underscores will be replaced with spaces.
 
 \placefigure[force][empty-tab]{Three newly created empty tabs.}{\externalfigure[image53.png][width=.5\textwidth]}
 
-Now we have the individual tabs for each section, but those tabs don't have any content just yet. For simple text fields, like "Birth Place" and "Parents' Birth Place" you can simply add a self-closing tag with the field's title:
+Now we have the individual tabs for each section, but those tabs don't have any content just yet. For simple text fields, like "Birth Place" and "Parents' Birth Place" you can simply add a self-closing tag with the field's title as in \in{Codeblock}[codeBirthPlace].
 
 \placecode[here][codeBirthPlace]{A self-closing "Birth Place" tag.}{
 \startframedtext[align={hanging, hz},
@@ -178,12 +174,12 @@ Now we have the individual tabs for each section, but those tabs don't have any 
 				rulethickness=1pt				
 				 ]
 \starttyping[option=xml, tab=4, style={\tfx\tt}] 
-	<BIRTH_PLACE />
+<BIRTH_PLACE />
 \stoptyping
 \stopframedtext
 }
 
-Also, non-alphabetical characters, like apostrophes are not allowed as tag names in XML, so the FAIMS-Tools would fail to generate a module which contains the following:
+Also, non-alphabetical characters, like apostrophes are not allowed as tag names in XML, so the FAIMS-Tools would fail to generate a module which contains the code in \in{Codeblock}[codeApostropheFail].
 
 \placecode[here][codeApostropheFail]{The apostrophe causes this to fail.}{
 \startframedtext[align={hanging, hz},
@@ -194,12 +190,12 @@ Also, non-alphabetical characters, like apostrophes are not allowed as tag names
 				rulethickness=1pt				
 				 ]
 \starttyping[option=xml, tab=4, style={\tfx\tt}] 
-	<PARENTS'_BIRTH_PLACE:/>
+<PARENTS'_BIRTH_PLACE:/>
 \stoptyping
 \stopframedtext
 }
 
-If such characters must be included, the solution is to firstly give the element a sensible name without an apostrophe or colon:
+If such characters must be included, the solution is to firstly give the element a sensible name without an apostrophe or colon as in \in{Codeblock}[codeApostropheFix].
 
 \placecode[here][codeApostropheFix]{First name the element without an apostrophe.}{
 \startframedtext[align={hanging, hz},
@@ -210,12 +206,12 @@ If such characters must be included, the solution is to firstly give the element
 				rulethickness=1pt				
 				 ]
 \starttyping[option=xml, tab=4, style={\tfx\tt}] 
-	<PARENTS_BIRTH_PLACE/>
+<PARENTS_BIRTH_PLACE/>
 \stoptyping
 \stopframedtext
 }
 
-Then, to make FAIMS-Tools display the apostrophe and colon in the GUI, write them as the element's text:
+Then, to make FAIMS-Tools display the apostrophe and colon in the GUI, write them as the element's text as in \in{Codeblock}[codeApostropheFix2].
 
 \placecode[here][codeApostropheFix2]{Write any special characters in the element's text.}{
 \startframedtext[align={hanging, hz},
@@ -226,16 +222,16 @@ Then, to make FAIMS-Tools display the apostrophe and colon in the GUI, write the
 				rulethickness=1pt				
 				 ]
 \starttyping[option=xml, tab=4, style={\tfx\tt}] 
-	<PARENTS_BIRTH_PLACE>
-		PARENTS' BIRTH PLACE:
-	</PARENTS_BIRTH_PLACE>
+<PARENTS_BIRTH_PLACE>
+	PARENTS' BIRTH PLACE:
+</PARENTS_BIRTH_PLACE>
 \stoptyping
 \stopframedtext
 }
 
 This is similar to what we did with the "search" feature in the last section.
 
-Now, note that every tab group which you intend to save requires at least one {\em identifier}. In the original Oral History module, the identifiers were "PERSON" and "LANGUAGE_GROUP". We can use the "f" attribute to denote that in our new module:
+Now, note that every tab group which you intend to save requires at least one {\em identifier}. In the original Oral History module, the identifiers were "PERSON" and "LANGUAGE_GROUP". We can use the "f" attribute to denote that in our new module as in \in{Codeblock}[codeDenoteID].
 
 \placecode[here][codeDenoteID]{Denoting an {\em identifier}.}{
 \startframedtext[align={hanging, hz},
@@ -246,13 +242,13 @@ Now, note that every tab group which you intend to save requires at least one {\
 				rulethickness=1pt				
 				 ]
 \starttyping[option=xml, tab=4, style={\tfx\tt}] 
-	<PERSON f="id"/>\crlf
-	<LANGUAGE_GROUP f="id"/>
+<PERSON f="id"/>\crlf
+<LANGUAGE_GROUP f="id"/>
 \stoptyping
 \stopframedtext
 }
 
-For the GPS fields and their corresponding "Take From GPS" button, enter:
+For the GPS fields and their corresponding "Take From GPS" button, refer to \in{Codeblock}[codeGPS]. {\tt <gps>} is a special, self-contained shortcut tag that FAIMS will replace with several fields for the latitude, longitude, Easting, and Northing, as well as a button for inserting this data from GPS.
 
 \placecode[here][codeGPS]{XML for GPS fields and button.}{
 \startframedtext[align={hanging, hz},
@@ -263,14 +259,12 @@ For the GPS fields and their corresponding "Take From GPS" button, enter:
 				rulethickness=1pt				
 				 ]
 \starttyping[option=xml, tab=4, style={\tfx\tt}] 
-	<gps/>
+<gps/>
 \stoptyping
 \stopframedtext
 }
 
-<gps> is a special, self-contained shortcut tag that FAIMS will replace with several fields for the latitude, longitude, Easting, and Northing, as well as a button for inserting this data from GPS.
-
-To add fields for attached files, you can use the "Audio" and "Video" tags, as before:
+To add fields for attached files, you can use the "Audio" and "Video" tags, as in \in{Codeblock}[codeAVtag]. Simply set the type "t" to video or audio as required.
 
 \placecode[here][codeAVtag]{XML for attaching audio and visual files.}{
 \startframedtext[align={hanging, hz},
@@ -281,13 +275,12 @@ To add fields for attached files, you can use the "Audio" and "Video" tags, as b
 				rulethickness=1pt				
 				 ]
 \starttyping[option=xml, tab=4, style={\tfx\tt}] 
-	<Attached_Audio_Files t="audio" />
-	<Attached_Videos t="video" />
+<Attached_Audio_Files t="audio" />
+<Attached_Videos t="video" />
 \stoptyping
 \stopframedtext
 }
 
-Simply set the type "t" to video or audio as required.
 
 \placefigure[force][input-examplees]{Examples of simple text fields, GPS input, and attaching files.}{
 \startcombination[3*1]
@@ -297,7 +290,7 @@ Simply set the type "t" to video or audio as required.
 \stopcombination
 }
 
-To add the radio buttons, use the code:
+To add the radio buttons, use the code in \in{Codeblock}[codeRadioButtons].
 
 \placecode[here][codeRadioButtons]{XML for radio buttons.}{
 \startframedtext[align={hanging, hz},
@@ -308,14 +301,14 @@ To add the radio buttons, use the code:
 				rulethickness=1pt				
 				 ]
 \starttyping[option=xml, tab=4, style={\tfx\tt}] 
-	<Recorded t="radio">
-		Recorded?
-		<opts>
-			<opt>Recorded</opt>
-			<opt>Notes Only</opt>
-			<opt>No</opt>
-		</opts>
-	</Recorded>
+<Recorded t="radio">
+	Recorded?
+	<opts>
+		<opt>Recorded</opt>
+		<opt>Notes Only</opt>
+		<opt>No</opt>
+	</opts>
+</Recorded>		
 \stoptyping
 \stopframedtext
 }
@@ -329,7 +322,7 @@ Note that to have the radio buttons' contents appear would require that the enti
 \stopcombination
 }
 
-The "Timestamp" and "Created By" values are not actually fields that we'll allow users to enter in manually, so we won't put in a data entry field. Instead, we'll make FAIMS set and update these fields when the record is created. Since there's no simple shortcut for that, for now we'll put in the code:
+The "Timestamp" and "Created By" values are not actually fields that we'll allow users to enter in manually, so we won't put in a data entry field. Instead, we'll make FAIMS set and update these fields when the record is created. Since there's no simple shortcut for that, for now we'll put in the code in \in{Codeblock}[codeTimeCreated].
 
 \placecode[here][codeTimeCreated]{XML for "Timestamp" and "Created by".}{
 \startframedtext[align={hanging, hz},
@@ -340,8 +333,8 @@ The "Timestamp" and "Created By" values are not actually fields that we'll allow
 				rulethickness=1pt				
 				 ]
 \starttyping[option=xml, tab=4, style={\tfx\tt}] 
-	<Timestamp/>
-	<Created_by/>
+<Timestamp/>
+<Created_by/>
 \stoptyping
 \stopframedtext
 }
