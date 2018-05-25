@@ -34,18 +34,18 @@ So the hierarchy flows: your module has tab groups have tabs which have GUI elem
                         rulethickness=1pt                        
                          ]
 \starttyping[option=xml, tab=4, style={\tfx\tt}] 
-      <?xml version="1.0"?>
-      <module>
-            <Tab_Group>
-                  <Tab_1>
-                        <Select_User t="dropdown" f="user"/>
-                        <Login t="button" l="Control"/>
-                  </Tab_1>
-                  <Tab_2>
-                        <Button t="button" />
-                  </Tab_2>
-            </Tab_Group>
-      </module>
+    <?xml version="1.0"?>
+    <module>
+        <Tab_Group>
+            <Tab_1>
+                <Select_User t="dropdown" f="user"/>
+                <Login t="button" l="Control"/>
+            </Tab_1>
+            <Tab_2>
+                <Button t="button" />
+            </Tab_2>
+        </Tab_Group>
+    </module>
 \stoptyping
 \stopframedtext
 }
@@ -62,24 +62,24 @@ Remember that you're creating a version of module.xml that XML-Tools can read an
                         rulethickness=1pt                        
                          ]
 \starttyping[option=xml, tab=4, style={\tfx\tt}]
-      <module>
-            <A>
-                  <B>
-                        <C/>
-                        <C/>
-                  </B>
-                  <B>
-                        <C/>
-                  </B>
-            </A>
-            <A>
-                  <B>
-                        <C/>
-                        <C/>
-                        <C/>
-                  </B>
-            </A>
-      </module>
+    <module>
+        <A>
+            <B>
+                <C/>
+                <C/>
+            </B>
+            <B>
+                <C/>
+            </B>
+        </A>
+        <A>
+            <B>
+                <C/>
+                <C/>
+                <C/>
+            </B>
+        </A>
+    </module>
 \stoptyping 
 \stopframedtext
 }
@@ -87,7 +87,7 @@ Remember that you're creating a version of module.xml that XML-Tools can read an
 \quiz{Test your knowledge}{ 
 
 
-\item Review the structure in code block \in[codeTYK]. 
+\item Review the structure in \in{Codeblock}[codeTYK]. 
 
 \item Without knowing what's really inside the tags, can you figure out which elements are the tab groups, which are the tabs, and which are UI elements? If you have difficulty guessing that the "A" elements are tab groups, the "B" elements are tabs, and the "C" elements are the GUI, you may need to review the previous section. 
 }
