@@ -26,14 +26,7 @@ So the hierarchy flows: your module has tab groups have tabs which have GUI elem
 
 
 \placecode[here][codeModuleTabHierarchy]{The hierarchy of modules, tab groups, tabs, and GUI elements.}{
-\startframedtext[align={hanging, hz},
-                         width=\makeupwidth,
-                        background=color,
-                        backgroundcolor=gray,                        
-                        framecolor=gray,
-                        rulethickness=1pt                        
-                         ]
-\starttyping[option=xml, tab=4, style={\tfx\tt}] 
+\startXML
     <?xml version="1.0"?>
     <module>
         <Tab_Group>
@@ -46,8 +39,7 @@ So the hierarchy flows: your module has tab groups have tabs which have GUI elem
             </Tab_2>
         </Tab_Group>
     </module>
-\stoptyping
-\stopframedtext
+\stopXML
 }
 
 Remember that you're creating a version of module.xml that XML-Tools can read and interpret in creating your necessary files. Because XML-Tools understands the hierarchical structure we've just explained, it'll automatically understand whether something is a tab group or tab just from where it falls in the hierarchy. XML-Tools knows that {\tt <Tab_Group>} is a tab group not because of its name, but because it appears straight away from the {\tt <module>} tags without being contained in anything else. \footnote{There are some caveats to this rule, but it is true in the vast majority of instances.}. Similarly, elements which appear directly within a tab group are automatically understood to be tabs. XML elements within tabs are interpreted as GUI elements.

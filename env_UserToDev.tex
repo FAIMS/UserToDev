@@ -40,16 +40,24 @@ marking=on]
         backgroundoffset=0.2cm,
         location=paragraph,
         offset=3cm,
-        margin=1cm,
  		before={\startnarrower},
         after={\stopnarrower},        
         frame=off]
 
 \definetyping[longcodetyping]
 \setuptyping[longcodetyping][option=xml, tab=4, style={\tfx\tt},
-lines=yes,bodyfont=8.0pt,
+lines=yes,bodyfont=10.0pt,
 before={\starttextbackground[longcode]},
 after={\stoptextbackground}]
+
+\definefloat[code]
+
+\definetyping[XML]
+\setuptyping[XML][option=xml, tab=4, style={\tfx\tt},
+lines=yes, bodyfont=10.0pt,
+before={\starttextbackground[longcode]},
+after={\stoptextbackground}]
+
 
 
 \setuptyping[lines=yes]
@@ -98,25 +106,25 @@ after={\stoptextbackground}]
 \stopframedtext
 }}
 
-\definefloat[code]
 
-\setupcaption[code][location=below, width=.8\textwidth]
-%TODO Figure out how to make smaller and indented.
 
-\define[2]\code{%
-\placecode[here]{#1}{
-\startframedtext[align={hanging, hz},
-				 width=\makeupwidth,
-				background=color,
-				backgroundcolor=gray,				
-				framecolor=gray,
-				rulethickness=1pt				
-				 ]
+% \setupcaption[code][location=below, width=.8\textwidth]
+% %TODO Figure out how to make smaller and indented.
+
+% \define[2]\code{%
+% \placecode[here]{#1}{
+% \startframedtext[align={hanging, hz},
+% 				 width=\makeupwidth,
+% 				background=color,
+% 				backgroundcolor=gray,				
+% 				framecolor=gray,
+% 				rulethickness=1pt				
+% 				 ]
 				 
-\type[style={\tfx\tt}]{ #2}		 
+% \type[style={\tfx\tt}]{ #2}		 
 
-\stopframedtext
-}}
+% \stopframedtext
+% }}
 
 
 

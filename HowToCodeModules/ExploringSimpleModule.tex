@@ -10,22 +10,14 @@ Now that you understand the how the XML structure relates to FAIMS modules, let'
 To create this first login screen (\in{Figure}[login-screen]), we used the XML code in \in{Codeblock}[codeLoginScreen].
 
 \placecode[here][codeLoginScreen]{XML code for a user login screen.}{
-\startframedtext[align={hanging, hz},
-				 width=\makeupwidth,
-				background=color,
-				backgroundcolor=gray,				
-				framecolor=gray,
-				rulethickness=1pt				
-				 ]
-\starttyping[option=xml, tab=4, style={\tfx\tt}] 
+\startXML
 <User f="nodata">
 	<User>
 		<Select_User t="dropdown" f="user"/>
 		<Login t="button" l="Control"/>
 	</User>
 </User>
-\stoptyping
-\stopframedtext
+\stopXML
 }
 
 The outermost set of {\tt <User>} tags comes right after the {\tt <module>} tags, so they create a {\bf tab group}. You can name these whatever you want. The only rule you should follow, for reasons we'll get into very shortly, is that it should start with an uppercase letter. The {\em tag name} you write is displayed in the breadcrumb navigation bar at the top of the screen.
@@ -56,14 +48,7 @@ So how do we determine what's in that drop down menu? In this case, by creating 
 Let's take a look at the code for this tab group here. As you review \in{Codeblock}[codeXMLtoFAIMS], see if you can figure out which elements are tab groups, tabs, and GUI elements.
 
 \placecode[here][codeXMLtoFAIMS]{Matching XML to FAIMS elements.}{
-\startframedtext[align={hanging, hz},
-				 width=\makeupwidth,
-				background=color,
-				backgroundcolor=gray,				
-				framecolor=gray,
-				rulethickness=1pt				
-				 ]
-\starttyping[option=xml, tab=4, style={\tfx\tt}] 
+\startXML
 <Control f="nodata">
 	<Main>
 		<Record_Interview t="button" l="Interview"/>
@@ -73,8 +58,7 @@ Let's take a look at the code for this tab group here. As you review \in{Codeblo
 		Records
 	</search>
 </Control>
-\stoptyping
-\stopframedtext
+\stopXML
 }
 
 \placefigure[force][XML-GUI]{How XML in module.xml describes different FAIMS Elements.}{\externalfigure[image43.png][width=1\textwidth]}
@@ -121,16 +105,6 @@ Going back to the finished module, let's tap the "Main" tab and then click the "
 
 The code to create this long screen is below. This is a lot more code than you've seen before in one go, but it serves as a very useful example of a lot of different techniques, so resist the urge to skim it. Take your time, and when you don't recognize what a tag is or what an element is for, see if you can guess what it does just from context. 
 
-% \placecode[here][codeInterviewTab]{XML for the "Interview" tab.}{
-% \startframedtext[align={hanging, hz},
-% 				 width=\makeupwidth,
-% 				background=color,
-% 				backgroundcolor=gray,				
-% 				framecolor=gray,
-% 				rulethickness=1pt				
-% 				 ]
-
-%\startlongcode%
 \startlongcodetyping
 <Interview>
 	<Interview>
@@ -238,27 +212,17 @@ The code to create this long screen is below. This is a lot more code than you'v
 	</Interview>
 </Interview>		
 \stoplongcodetyping
-%\stoplongcode
-
 
 First, the easy stuff. You should already be able to guess what the first element, {\tt <Interview>}, is: a tab group. Since there's another opening tag also called {\tt <Interview>}, you've probably also guessed that the tab group {\tt <Interview>} has a tab labelled {\tt <Interview>}. So let's skip straight to the GUI elements located within this tab.
 
 The first element is {\tt <Title>} (\in{Codeblock}[codeTitle]).
 
 \placecode[here][codeTitle]{Breaking down {\tt <Title>}.}{
-\startframedtext[align={hanging, hz},
-				 width=\makeupwidth,
-				background=color,
-				backgroundcolor=gray,				
-				framecolor=gray,
-				rulethickness=1pt				
-				 ]
-\starttyping[option=xml, tab=4, style={\tfx\tt}] 
+\startXML
 <Title f="id notnull">
 	<desc>This title should be a sensible title, unique to each item, briefly summarising the contents of the item, for example "Ilocano songs recorded in Burgos, Ilocos Sur, Philippines, 17 April 1993"</desc>
 </Title>		
-\stoptyping
-\stopframedtext
+\stopXML
 }
 
 For the {\tt <Title>} element, there is no UI "type" (represented by t=) specified. So it becomes the default "type;" a text input field. (See \goto{{\em Type Guessing for GUI Elements in FAIMS-Tools}}[type-guessing-for-gui-elements-in-faims-tools] for an explanation of how this was determined.) The flag "f=notnull" designates that this is a required field; the record cannot be saved if it is empty. If you can imagine your stress levels skyrocketing because of teammembers not remembering to enter in their (X), set the relevant element to "f=notnull" and they will have no choice but to remember. 
@@ -270,14 +234,7 @@ For the {\tt <Title>} element, there is no UI "type" (represented by t=) specifi
 That wraps up the {\tt <Title>} element. Now we have an opening tag for another GUI element, {\tt <Private>}. Private is a radio button UI object, required, has a description, and includes two options ("True" and "False"). Review the code in \in{Codeblock}[codePrivate] and see if you can understand how all of this is accomplished.
 
 \placecode[here][codePrivate]{XML for "Private".}{
-\startframedtext[align={hanging, hz},
-				 width=\makeupwidth,
-				background=color,
-				backgroundcolor=gray,				
-				framecolor=gray,
-				rulethickness=1pt				
-				 ]
-\starttyping[option=xml, tab=4, style={\tfx\tt}] 
+\startXML
 <Private t="radio" f="notnull">
 	<desc>Choose either "false", meaning that the metadata for the item should be publicly available, or "true", meaning that the metadata for the item should be hidden (perhaps because you plan to check it and edit it later).</desc>
 	<opts>
@@ -285,24 +242,15 @@ That wraps up the {\tt <Title>} element. Now we have an opening tag for another 
 		<opt>False</opt>
 	</opts>
 </Private>
-\stoptyping
-\stopframedtext
+\stopXML
 }
 
 This next element (\in{Codeblock}[codeAgentRole]), {\tt <Add_Agent_Role>}, designates a button element ('t="button"') that links to the tab group "Agent_Role." This will allow users to register new Agent Roles.
 
 \placecode[here][codeAgentRole]{XML for "Add Agent Role".}{
-\startframedtext[align={hanging, hz},
-				 width=\makeupwidth,
-				background=color,
-				backgroundcolor=gray,				
-				framecolor=gray,
-				rulethickness=1pt				
-				 ]
-\starttyping[option=xml, tab=4, style={\tfx\tt}] 
+\startXML
 <Add_Agent_Role t="button" lc="Agent_Role"/>
-\stoptyping
-\stopframedtext
+\stopXML
 }
 
 Note that this time, instead of using an "l" to redirect elsewhere, "lc" was used. The difference is that using "lc" instead of "l" establishes a parent-child relationship, with the entity linking becoming a parent and the entity being linked to becoming a child. This is useful for organizing your module's data in a neat, hierarchical way. 
@@ -310,35 +258,19 @@ Note that this time, instead of using an "l" to redirect elsewhere, "lc" was use
 \in{Codeblock}[codeAgentRoleDD] designates a dropdown menu, {\tt <List_of_Agent_Roles>}, which is populated with a list of Agent_Role records. Specifically, they will be the Agent_Role records which were saved using the button element above. The FAIMS-Tools knows these are the right records to display because the button and dropdown menu appear in the same tab group.
 
 \placecode[here][codeAgentRoleDD]{XML for "List of Agent Roles".}{
-\startframedtext[align={hanging, hz},
-				 width=\makeupwidth,
-				background=color,
-				backgroundcolor=gray,				
-				framecolor=gray,
-				rulethickness=1pt				
-				 ]
-\starttyping[option=xml, tab=4, style={\tfx\tt}] 
+\startXML
 <List_of_Agent_Roles t="dropdown" ec="Agent_Role"/>
-\stoptyping
-\stopframedtext
+\stopXML
 }
 
 The final two element types used in this tab are the 't="audio"'' and 't="video"' types (\in{Codeblock}[codeAttachAV]). These two element types allow you to record audio and video files and attach them to your records.
 
 \placecode[here][codeAttachAV]{XML for attaching audio and video.}{
-\startframedtext[align={hanging, hz},
-				 width=\makeupwidth,
-				background=color,
-				backgroundcolor=gray,				
-				framecolor=gray,
-				rulethickness=1pt				
-				 ]
-\starttyping[option=xml, tab=4, style={\tfx\tt}] 
+\startXML
 <Attached_Audio t="audio"/>
 
 <Attached_Video t="video"/>
-\stoptyping
-\stopframedtext
+\stopXML
 }
 
 \placefigure[force][audio-UI]{With the audio UI element, you'll get a popup window that allows you to start and stop your audio recording.}{\externalfigure[image58.png][width=.5\textwidth]}
@@ -348,14 +280,7 @@ The final elements are on the Agent Role tab group, and include a few element ty
 \placefigure[force][agent-role]{"Agent Role" tab group appears when adding agent roles.}{\externalfigure[image54.png][width=.5\textwidth]}
 
 \placecode[here][codeAddAgentRoleTabGroup]{XML for "Agent Role" tab group.}{
-\startframedtext[align={hanging, hz},
-				 width=\makeupwidth,
-				background=color,
-				backgroundcolor=gray,				
-				framecolor=gray,
-				rulethickness=1pt				
-				 ]
-\starttyping[option=xml, tab=4, style={\tfx\tt}] 
+\startXML
 <Agent_Role>
 	<desc>Enter participant name in the format Lastname, Firstname. Choose the participant role from the closed vocabulary provided. Use the description field to provide additional information on role or agents. Enter participant name in the format Lastname, Firstname. Choose the participant role from the closed vocabulary provided. Add more participants by clicking the "+" button to the right. If you need to provide extra information on the agent or the role, use the item's "Description" field to provide additional information on role or agents.</desc>
 	<Agent_Role>
@@ -386,8 +311,7 @@ The final elements are on the Agent Role tab group, and include a few element ty
 		</Role>
 	</Agent_Role>
 </Agent_Role>		
-\stoptyping
-\stopframedtext
+\stopXML
 }
 
 Now that we've explained each part, go back and review the whole one more time. You can go a long way creating modules for your team only by using the techniques we've explicitly covered above. It's very possible that you've already learned everything you need to know to make an effective module for your team.

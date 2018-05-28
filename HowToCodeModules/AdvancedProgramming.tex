@@ -133,21 +133,13 @@ SEMANTICS OF {\tt <cols>} TAGS\crlf
 Direct children of {\tt <cols>} tags are interpreted as columns. For example:
 
 \placecode[here][codeColumns]{Each field forms a new column.}{
-\startframedtext[align={hanging, hz},
-				 width=\makeupwidth,
-				background=color,
-				backgroundcolor=gray,				
-				framecolor=gray,
-				rulethickness=1pt				
-				 ]
-\starttyping[option=xml, tab=4, style={\tfx\tt}] 
+\startXML
 	<cols>
 		<Field_1 t="input"/>
 		<Field_2 t="input"/>
 		<Field_3 t="input"/>
 	</cols>
-\stoptyping
-\stopframedtext
+\stopXML
 }
 
 has three columns, each containing an input. The left-most column is Field_1, whereas the right-most is Field_3.\crlf
@@ -155,14 +147,7 @@ has three columns, each containing an input. The left-most column is Field_1, wh
 When a {\tt <col>} tag is a direct child, its contents are interpreted as being part of a distinct column. Therefore,
 
 \placecode[here][codeComColumns]{Fields between {\tt <col>} and {\tt </col>} are in the same columns.}{
-\startframedtext[align={hanging, hz},
-				 width=\makeupwidth,
-				background=color,
-				backgroundcolor=gray,				
-				framecolor=gray,
-				rulethickness=1pt				
-				 ]
-\starttyping[option=xml, tab=4, style={\tfx\tt}] 
+\startXML
 	<cols>
 		<Field_1 t="input"/>
 		<col>
@@ -170,8 +155,7 @@ When a {\tt <col>} tag is a direct child, its contents are interpreted as being 
 			<Field_3 t="input"/>
 		</col>
 	</cols>
-\stoptyping
-\stopframedtext
+\stopXML
 }
 
 results in two columns. The left column contains Field_1, while the right contains Field_2 and Field_3.\crlf
@@ -188,14 +172,7 @@ enabled and be saved as a child of the tab group that the button appeared in.\cr
 For example, consider the following module.xml:
 
 \placecode[here][codeSavingChildren]{XML to save entities as children.}{
-\startframedtext[align={hanging, hz},
-				 width=\makeupwidth,
-				background=color,
-				backgroundcolor=gray,				
-				framecolor=gray,
-				rulethickness=1pt				
-				 ]
-\starttyping[option=xml, tab=4, style={\tfx\tt}] 
+\startXML
 	<module>
 		<Tab_Group>
 			<Tab>
@@ -203,8 +180,7 @@ For example, consider the following module.xml:
 			</Tab>
 		</Tab_Group>
 	</module>
-\stoptyping
-\stopframedtext
+\stopXML
 }
 
 Clicking the Add_Child button will cause the user to be taken to a new\crlf
@@ -244,20 +220,12 @@ LABELS\crlf
 An element's text is taken as its label. For instance, the following input
 
 \placecode[here][codeInputLabeless]{Labeless input.}{
-\startframedtext[align={hanging, hz},
-				 width=\makeupwidth,
-				background=color,
-				backgroundcolor=gray,				
-				framecolor=gray,
-				rulethickness=1pt				
-				 ]
-\starttyping[option=xml, tab=4, style={\tfx\tt}] 
+\startXML
 	<My_Input t="input">
 		Droopy Soup
 		<desc>Similar to drippy soup, but not quite...</desc>
 	</My_Input>
-\stoptyping
-\stopframedtext
+\stopXML
 }
 
 has the label "Droopy Soup". Note that following and preceding whitespace is\crlf
@@ -268,19 +236,11 @@ specifically, underscores in the element's name are replaced with spaces,\crlf
 which becomes the element's label. Therefore, the element
 
 \placecode[here][codeOverlappingLabel]{Different input, same label.}{
-\startframedtext[align={hanging, hz},
-				 width=\makeupwidth,
-				background=color,
-				backgroundcolor=gray,				
-				framecolor=gray,
-				rulethickness=1pt				
-				 ]
-\starttyping[option=xml, tab=4, style={\tfx\tt}] 
+\startXML
 	<Droopy_Soup t="input">
 		<desc>Similar to drippy soup, but not quite...</desc>
 	</Droopy_Soup>
-\stoptyping
-\stopframedtext
+\stopXML
 }
 
 has the same label as in the above example. Thus, the user will see exactly\crlf
