@@ -19,5 +19,15 @@ rm -f *.tuc
 context --batchmode --silent $compile > run.log
 grep -A 15 	"tex error" run.log 
 
+platform='unknown'
+unamestr=`uname`
 
-open ${base}.pdf
+if [[ "$unamestr" == 'Linux' ]]; then
+   platform='linux'
+fi
+
+if [[ $platform == 'linux' ]]; then
+	xdg-open ${base}.pdf
+else
+	open ${base}.pdf
+fi
