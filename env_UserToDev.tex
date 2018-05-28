@@ -35,6 +35,14 @@ marking=on]
 \setupheads[aligntitle=float, page=no]
 \setupwhitespace[big]
 
+\definetextbackground[longcode][
+        width=.9\makeupwidth,
+        background=color,backgroundcolor=gray,
+        topoffset=.5\bodyfontsize,bottomoffset=.5\bodyfontsize,
+        frame=off,
+        align={hanging, hz}]
+
+
 \definefloat[quiz][quizzes]
 \setupfloat[quiz][label={Test Your Knowledge}]
 \setupcaption[testk][location=bottom,headstyle=boldslanted]
@@ -79,7 +87,7 @@ marking=on]
 
 \definefloat[code]
 
-%\setupcaption[code][location=below, width=.8\textwidth]
+\setupcaption[code][location=below, width=.8\textwidth]
 %TODO Figure out how to make smaller and indented.
 
 \define[2]\code{%
@@ -97,6 +105,9 @@ marking=on]
 \stopframedtext
 }}
 
+
+
+
 \define[2]\prompt{%
 \placecode[here]{#1}{
 \startframedtext[align={hanging, hz},
@@ -112,6 +123,9 @@ marking=on]
 
 \stopframedtext
 }}
+
+
+
 
 
 \define[3]\promptref{%

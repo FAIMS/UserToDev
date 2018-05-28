@@ -119,16 +119,18 @@ Going back to the finished module, let's tap the "Main" tab and then click the "
 \stopcombination
 }
 
-The code to create this long screen is in \in{Codeblock}[codeInterviewTab]. This is a lot more code than you've seen before in one go, but it serves as a very useful example of a lot of different techniques, so resist the urge to skim it. Take your time, and when you don't recognize what a tag is or what an element is for, see if you can guess what it does just from context. 
+The code to create this long screen is below. This is a lot more code than you've seen before in one go, but it serves as a very useful example of a lot of different techniques, so resist the urge to skim it. Take your time, and when you don't recognize what a tag is or what an element is for, see if you can guess what it does just from context. 
 
-\placecode[here][codeInterviewTab]{XML for the "Interview" tab.}{
-\startframedtext[align={hanging, hz},
-				 width=\makeupwidth,
-				background=color,
-				backgroundcolor=gray,				
-				framecolor=gray,
-				rulethickness=1pt				
-				 ]
+% \placecode[here][codeInterviewTab]{XML for the "Interview" tab.}{
+% \startframedtext[align={hanging, hz},
+% 				 width=\makeupwidth,
+% 				background=color,
+% 				backgroundcolor=gray,				
+% 				framecolor=gray,
+% 				rulethickness=1pt				
+% 				 ]
+
+\startlongcode
 \starttyping[option=xml, tab=4, style={\tfx\tt}] 
 <Interview>
 	<Interview>
@@ -236,8 +238,8 @@ The code to create this long screen is in \in{Codeblock}[codeInterviewTab]. This
 	</Interview>
 </Interview>		
 \stoptyping
-\stopframedtext
-}
+\stoplongcode
+
 
 First, the easy stuff. You should already be able to guess what the first element, {\tt <Interview>}, is: a tab group. Since there's another opening tag also called {\tt <Interview>}, you've probably also guessed that the tab group {\tt <Interview>} has a tab labelled {\tt <Interview>}. So let's skip straight to the GUI elements located within this tab.
 
