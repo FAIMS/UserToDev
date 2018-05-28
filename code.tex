@@ -21,34 +21,68 @@
 
 \definefloat[code]
 
-\setupcaption[code][location=below, width=.8\textwidth]
+%\setupcaption[code][location=below, width=.8\textwidth]
 %TODO Figure out how to make smaller and indented.
 
-\define[3]\wibblecode{%
-\placecode[here][#1]{#2}{
-\startframedtext[align={hanging, hz},
-				width=\makeupwidth,
-				background=color,
-				backgroundcolor=gray,				
-				framecolor=gray,
-				rulethickness=1pt				
-				 ]
+% \define[3]\wibblecode{%
+% \placecode[here][#1]{#2}{
+% \startframedtext[align={hanging, hz},
+% 				width=\makeupwidth,
+% 				background=color,
+% 				backgroundcolor=gray,				
+% 				framecolor=gray,
+% 				rulethickness=1pt				
+% 				 ]
 				 
-\starttyping[option=xml, tab=4, style={\tfx\tt}] 
-#3
-\stoptyping
+% \starttyping[option=xml, tab=4, style={\tfx\tt}] 
+% #3
+% \stoptyping
 
-\stopframedtext
-}}
+% \stopframedtext
+% }
+% }
+
+
+\definetextbackground[longcode][
+        background=color,backgroundcolor=gray,
+        backgroundoffset=0.2cm,
+        location=paragraph,
+        offset=3cm,
+        margin=1cm,
+ 		before={\startnarrower},
+        after={\stopnarrower},        
+        frame=off]
+
+\definetyping[XML]
+\setuptyping[XML][option=xml, tab=4, style={\tfx\tt},
+lines=yes,bodyfont=10.0pt,
+before={\starttextbackground[longcode]},
+after={\stoptextbackground}]
+
 
 
 \starttext
 
-\wibblecode{codeTitle}{Breaking down {\tt <Title>}.}{
+
+
+\placecode[here][asdf]{Breaking down {\tt <Title>}. asasdfasdfasdfsdf}{
+\startXML
+
 <Title f="id notnull">
 	<desc>This title should be a sensible title, unique to each item, briefly summarising the contents of the item, for example "Ilocano songs recorded in Burgos, Ilocos Sur, Philippines, 17 April 1993"</desc>
-</Title>		
+</Title>	
+
+\stopXML
 }
+
+
+% \wibblecode{codeTitle}{Breaking down {\tt <Title>}. asasdfasdfasdfsdf}{
+% \startXML
+% <Title f="id notnull">
+% 	<desc>This title should be a sensible title, unique to each item, briefly summarising the contents of the item, for example "Ilocano songs recorded in Burgos, Ilocos Sur, Philippines, 17 April 1993"</desc>
+% </Title>
+% \stopXML		
+% }
 
 \stoptext
 
