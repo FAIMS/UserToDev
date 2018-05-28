@@ -130,8 +130,8 @@ The code to create this long screen is below. This is a lot more code than you'v
 % 				rulethickness=1pt				
 % 				 ]
 
-\startlongcode%
-\starttyping[option=xml, tab=4, style={\tfx\tt}]%
+%\startlongcode%
+\startlongcodetyping
 <Interview>
 	<Interview>
 		<Title f="id notnull">
@@ -237,8 +237,8 @@ The code to create this long screen is below. This is a lot more code than you'v
 		<Attached_Video t="video"/>
 	</Interview>
 </Interview>		
-\stoptyping
-\stoplongcode
+\stoplongcodetyping
+%\stoplongcode
 
 
 First, the easy stuff. You should already be able to guess what the first element, {\tt <Interview>}, is: a tab group. Since there's another opening tag also called {\tt <Interview>}, you've probably also guessed that the tab group {\tt <Interview>} has a tab labelled {\tt <Interview>}. So let's skip straight to the GUI elements located within this tab.

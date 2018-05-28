@@ -17,7 +17,13 @@ rm -f *.pdf
 rm -f *.tuc
 
 context --batchmode --silent $compile > run.log
-grep -A 15 	"tex error" run.log 
+retVal=$?
+if [ $retVal -ne 0 ]; then
+	grep -A 15 	"tex error" run.log 
+	subl run.log
+	exit 1
+fi
+
 
 platform='unknown'
 unamestr=`uname`
