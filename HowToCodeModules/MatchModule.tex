@@ -23,7 +23,7 @@ The first screen of the Oral History Demo (\in{Figure}[user-list]) looks similar
 
 \placefigure[force][user-list]{Match your model to "Oral History Demo" by adding a User List.}{\externalfigure[image31.png][width=.5\textwidth]}
 
-In the same module.xml file we used for our version of Oral History update the code in \in{Codeblock}[codeOutdatedUserList] to match \in{Codeblock}[codeUpdatedUserList] (new code in {\bf bold}).
+In the same {\tt module.xml} file we used for our version of Oral History update the code in \in{Codeblock}[codeOutdatedUserList] to match \in{Codeblock}[codeUpdatedUserList] (new code in {\bf bold}).
 
 \placecode[here][codeOutdatedUserList]{Current code.}{
 \startXML
@@ -58,7 +58,7 @@ In the same module.xml file we used for our version of Oral History update the c
 
 This replicates the "User List" tab illustrated in the above screenshot. 
 
-Save your modified module.xml, run "{\em ./generate.sh}" in your Ubuntu terminal again, edit your current module and upload the new necessary files in place of the old ones. Now download this updated module to your FAIMS app. 
+Save your modified {\tt module.xml}, run "{\em ./generate.sh}" in your Ubuntu terminal again, edit your current module and upload the new necessary files in place of the old ones. Now download this updated module to your FAIMS app. 
 
 Importantly, to download the updated version of the module, you must touch and hold the "Simple Sample Module" in the list of modules until the dialogue in \in{Figure}[SSM-popup] is displayed.
 
@@ -110,7 +110,7 @@ On the screen in \in{Figure}[OHD-control], we need to condense a few elements fr
 
 \in{Codeblock}[codeUpdatedCondenseTabs] replaces the "Main" and "Record" tab groups with a single one labelled "Control". (In a moment, we will define the "Form" and "Diary" tab groups linked to by the above buttons. We will also have to populate the "Sample Types" dropdown and "List of Samples" list by writing some additional code.)
 
-Save module.xml and run the generate.sh script again. Now use them to update your module again. You should see something similar to \in{Figure}[SSM-control] after selecting a user in the uploaded module.
+Save {\tt module.xml} and run the generate.sh script again. Now use them to update your module again. You should see something similar to \in{Figure}[SSM-control] after selecting a user in the uploaded module.
 
 \placefigure[force][SSM-control]{"Control" tab in your updated module.}{\externalfigure[image8.png][width=.5\textwidth]}
 
@@ -251,7 +251,7 @@ The "Timestamp" and "Created By" values are not actually fields that we'll allow
 \stopXML
 }
 
-There's actually not a lot more we can do until we've generated our necessary files. Then, we'll take ui_logic.bsh and make a few alterations that make use of these tags.
+There's actually not a lot more we can do until we've generated our necessary files. Then, we'll take {\tt ui_logic.bsh} and make a few alterations that make use of these tags.
 
 \placefigure[force][autofill]{"Timestamp" and "Created by" are automatically filled in by FAIMS.}{
 \startcombination[2*1]

@@ -1,0 +1,9 @@
+\\quotation{([^}]*)}
+{\\tt \1}
+
+(\w*\.xml)
+{\\tt \1}
+
+(\w*?\.?\w*\.properties) ## For more than one .
+
+Repeat the above for .bsh, .properties

@@ -28,7 +28,7 @@ Now that we've got our {\tt <User>} tab group, it's time to make our actual {\tt
 
 The {\tt <Select_User>} and {\tt <Login>} elements represent GUI elements, or the actual things users will interact with when they're viewing a tab. Notice the "t" attribute, which is where we can define part of what this element looks like or does. You'll find a list of these in the FAIMS cookbook. For {\tt <Select_User>} we're using t="dropdown", which means this GUI element is a drop-down menu. 
 
-So how do we determine what's in that drop down menu? In this case, by creating an attribute, f="users", which in this context FAIMS understands to mean "get the list of usernames from the server and put them here."\footnote{{\bf Note from FAIMS programmer Christian Nassif-Haynes:} If you use t=dropdown, then it is possible for the user to avoid logging in (in error or intentionally) by selecting the null option and clicking the login button. If you want to prevent logging with the null user option (de facto avoiding the login), then you need to manually modify the ui_logic.bsh file after it's been generated or use t=list, following the guidelines below. Lists, unlike dropdowns, do not allow null elements so using a t="list" for login, as in the code below, prevents the problem of logging in with null user.
+So how do we determine what's in that drop down menu? In this case, by creating an attribute, f="users", which in this context FAIMS understands to mean "get the list of usernames from the server and put them here."\footnote{{\bf Note from FAIMS programmer Christian Nassif-Haynes:} If you use t=dropdown, then it is possible for the user to avoid logging in (in error or intentionally) by selecting the null option and clicking the login button. If you want to prevent logging with the null user option (de facto avoiding the login), then you need to manually modify the {\tt ui_logic.bsh} file after it's been generated or use t=list, following the guidelines below. Lists, unlike dropdowns, do not allow null elements so using a t="list" for login, as in the code below, prevents the problem of logging in with null user.
 
 
 <User f="nodata"> 
@@ -39,7 +39,7 @@ So how do we determine what's in that drop down menu? In this case, by creating 
 
 }
  
- Setting t="button", as in the case of {\tt <Login>}, creates a button you can tap. The purpose of the button is described by the text that comes after it; otherwise, it's just a button, which probably isn't going to be very useful for your module. Here we've included the code l="Control" within the tag, which causes FAIMS to link to the "Control" tab group when it is tapped. In fact, the "l" attribute works not only for buttons, but many other GUI elements as well. Note carefully that the "Control" tab group linked to by the "l" attribute's value is defined further down in the module.xml file; this code only functions because the destination is valid. If we had 1="Control" and then didn't actually have a "Control" to link to, it's safe to say this wouldn't work. Also note that references are case-sensitive, so writing "control" with a lower-case "c" would fail.
+ Setting t="button", as in the case of {\tt <Login>}, creates a button you can tap. The purpose of the button is described by the text that comes after it; otherwise, it's just a button, which probably isn't going to be very useful for your module. Here we've included the code l="Control" within the tag, which causes FAIMS to link to the "Control" tab group when it is tapped. In fact, the "l" attribute works not only for buttons, but many other GUI elements as well. Note carefully that the "Control" tab group linked to by the "l" attribute's value is defined further down in the {\tt module.xml} file; this code only functions because the destination is valid. If we had 1="Control" and then didn't actually have a "Control" to link to, it's safe to say this wouldn't work. Also note that references are case-sensitive, so writing "control" with a lower-case "c" would fail.
  
  So let's say we're using our module, we've just clicked the dropdown menu and chosen our user, then we've hit the button that says "Login." If you're using the finished sample module, you'll find yourself looking at the screen in \in{Figure}[main-tab].
  
@@ -61,9 +61,9 @@ Let's take a look at the code for this tab group here. As you review \in{Codeblo
 \stopXML
 }
 
-\placefigure[force][XML-GUI]{How XML in module.xml describes different FAIMS Elements.}{\externalfigure[image43.png][width=1\textwidth]}
+\placefigure[force][XML-GUI]{How XML in {\tt module.xml} describes different FAIMS Elements.}{\externalfigure[image43.png][width=1\textwidth]}
 
-The XML in module.xml describes the different FAIMS elements and how they should appear in the module.
+The XML in {\tt module.xml} describes the different FAIMS elements and how they should appear in the module.
 
 This "Control" tab group encompasses two other elements, "Main" and "Search." Let's look at each individually.
 
@@ -316,7 +316,7 @@ The final elements are on the Agent Role tab group, and include a few element ty
 
 Now that we've explained each part, go back and review the whole one more time. You can go a long way creating modules for your team only by using the techniques we've explicitly covered above. It's very possible that you've already learned everything you need to know to make an effective module for your team.
 
-As an exercise, follow these instructions and produce your own copy of the module's code in module.xml. Then save that to the server and run the generate.sh script to produce necessary files. Go to "create module" and upload the necessary files to the server as the "Simple Sample Module." 
+As an exercise, follow these instructions and produce your own copy of the module's code in {\tt module.xml}. Then save that to the server and run the generate.sh script to produce necessary files. Go to "create module" and upload the necessary files to the server as the "Simple Sample Module." 
 
 Congratulations; you've just a simple module. 
 

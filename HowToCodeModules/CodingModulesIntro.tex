@@ -3,25 +3,25 @@
 
 For this tutorial, we'll work together and create a simple FAIMS module. For illustrative purposes, we're going to recreate a simple module available from the FAIMS demo server--the "Oral History" module.
 
-We're going to start by showing you how to make a basic but fully functional version of the module that can be made only by constructing a relevant module.xml. Then, after you've run that through the FAIMS-tools and produced a fully functioning but simple version, we'll teach you some ways to add complexity and functionality by modifying the necessary files directly.
+We're going to start by showing you how to make a basic but fully functional version of the module that can be made only by constructing a relevant {\tt module.xml}. Then, after you've run that through the FAIMS-tools and produced a fully functioning but simple version, we'll teach you some ways to add complexity and functionality by modifying the necessary files directly.
 
-\section{Introduction to Module.xml}
+\section{Introduction to {\tt Module.xml}}
 
 Earlier sections introduced the basic necessary files of a module. You should already have some idea what these were:
 
 \startitemize[n]
-\item a Data Definition Schema (data_schema.xml).
-\item a User Interface Schema (ui_schema.xml)
-\item a User Interface Logic file (ui_logic.bsh)
-\item a Translation (Arch16n) file (faims.properties)
-\item A server-side validation file (validation.xml)
-\item CSS Files for styling the modules (ui_??)
+\item a Data Definition Schema ({\tt data_schema.xml}).
+\item a User Interface Schema ({\tt ui_schema.xml})
+\item a User Interface Logic file ({\tt ui_logic.bsh})
+\item a Translation (Arch16n) file ({\tt faims.properties})
+\item A server-side validation file ({\tt validation.xml})
+\item CSS Files for styling the modules ({\tt ui_??})
 \stopitemize
 
-You've already learned that you don't have to design and code all of these files from scratch. Instead, you'll create one file that serves as a set of instructions for the FAIMS Tools to create the necessary files for you. That one file is called module.xml.
+You've already learned that you don't have to design and code all of these files from scratch. Instead, you'll create one file that serves as a set of instructions for the FAIMS Tools to create the necessary files for you. That one file is called {\tt module.xml}.
 
-\quiz{Test your knowledge: a gentle descent into module.xml}{
-  \item What are some programs you can use when modifying module.xml? Which programs should you avoid? If you don't remember, review the previous section, "Setting Up Your Development Environment."
+\quiz{Test your knowledge: a gentle descent into {\tt module.xml}}{
+  \item What are some programs you can use when modifying {\tt module.xml}? Which programs should you avoid? If you don't remember, review the previous section, "Setting Up Your Development Environment."
 }
 
 \stoptext
