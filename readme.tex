@@ -1,0 +1,27 @@
+\definepapersize[sheet][width=170mm,height=241mm]
+\setuppapersize[sheet][sheet]
+
+\setuplayout[location=middle,
+backspace=.1\pagewidth,  
+height=.9\pageheight, 
+width=.8\pagewidth, 
+topspace=.025\pageheight, 
+header=.05\pageheight, 
+footer=.05\pageheight, 
+bottomspace=.025\pageheight, 
+marking=on]
+
+\setuppagenumbering [state=stop]
+
+\definetyping[readme]
+\setuptyping[readme][option=xml, tab=4, style={\tfx\tt},
+lines=yes, bodyfont=10.0pt]
+
+
+\starttext
+
+\startnarrow
+\typefile[readme]{readme.md}
+\stopnarrow
+
+\stoptext

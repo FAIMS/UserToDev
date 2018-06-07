@@ -13,7 +13,7 @@ fi
 
 base=$(basename -s ".tex" $compile)
 rm -f *.log
-rm -f *.pdf
+rm -f UserToDev.pdf
 rm -f *.tuc
 
 context --batchmode --silent $compile > run.log

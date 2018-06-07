@@ -1,33 +1,9 @@
 \starttext
 
-\setupblackrules[width=\textwidth, height=0.4pt]
+\definetyping[readme]
+\setuptyping[readme][option=xml, tab=4, style={\tfx\tt},
+lines=yes, bodyfont=10.0pt]
 
-\defineparagraphs[Col][n=2]
-\setupparagraphs[Col][1][width=.15\textwidth, style={\tfx\tt}]
-\setupparagraphs[Col][2][style={\tfx\tt}]
-
-
-\definetextbackground[sheet][
-	location=paragraph,
-	backgroundoffset=.1\textwidth,
-	frame=off
-]
-
-\define[3]\sheet{
-\tfx\tt{#1}
-\startnarrower
-\startpacked
-#2
-\stoppacked
-\stopnarrower
-\blackrule
-}
-
-
-\sheet{ATTRIBUTES}{
-\startCol b \nextCol Binding (See 'Bindings') \stopCol
-\startCol c \nextCol Alias for faims_style_class \stopCol
-\startCol t \nextCol Type of GUI element (See 'Types'). If this attribute is omitted from a view, t="input" is assumed.\stopCol}
-
+\typefile[readme]{readme.md}
 
 \stoptext
