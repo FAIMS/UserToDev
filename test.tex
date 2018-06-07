@@ -6,11 +6,19 @@
 
 \setupblackrules[width=\textwidth, height=0.4pt]
 
+\definetextbackground[sheet][
+	location=paragraph,
+	backgroundoffset=.1\textwidth,
+	frame=off
+]
+
+\tfx\tt{ATTRIBUTES}
+\startnarrower
 \startCol b \nextCol Binding (See 'Bindings') \stopCol
 \startCol c \nextCol Alias for faims_style_class \stopCol
 \startCol t \nextCol Type of GUI element (See 'Types'). If this attribute is omitted from a view, t="input" is assumed.\stopCol
 
 \blackrule
-
+\stopnarrower
 
 \stoptext
