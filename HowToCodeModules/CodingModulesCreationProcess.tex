@@ -12,9 +12,9 @@ The Terminal is Ubuntu's command line tool that we'll use to navigate the file s
 
 \placefigure[force][terminal]{How to open the terminal using Ubuntu.}{\externalfigure[image5.png][width=.5\textwidth]}
 
-Start your chosen text editor and open the \quotation{module.xml} file. If you're using the text editor we recommended for the virtual machine, you can simply get it from the directory where you installed the FAIMS-Tools (usually FAIMS-Tools/generators/christian/module.xml). If you're using a text editor on your main machine, you'll need to export module.xml outside the virtual machine and work from there.
+Start your chosen text editor and open the {\tt module.xml} file. If you're using the text editor we recommended for the virtual machine, you can simply get it from the directory where you installed the FAIMS-Tools (usually FAIMS-Tools/generators/christian/module.xml). If you're using a text editor on your main machine, you'll need to export module.xml outside the virtual machine and work from there.
 
-Before you make any edits, it's a very good idea to save an extra copy of module.xml file as \quotation{moduleTemplate.xml.} The version you're going to develop your module in and run through FAIMS-Tools needs to be named \quotation{module.xml,} but if you want to do any other module development in the future you're going to want to have a blank lying around to work with. Once you've made your backup copy, you don't have to worry about messing around in module.xml.
+Before you make any edits, it's a very good idea to save an extra copy of module.xml file as {\tt moduleTemplate.xml}. The version you're going to develop your module in and run through FAIMS-Tools needs to be named {\tt module.xml}, but if you want to do any other module development in the future you're going to want to have a blank lying around to work with. Once you've made your backup copy, you don't have to worry about messing around in {\tt module.xml}.
 
 Once you've finished coding, editing, and troubleshooting module.xml (and don't worry; we'll explain how to do all of that in the coming section), the instructions are complete and you're ready to generate your module. From the same directory you originally found module.xml in, run the commands in \in{Codeblock}[run-generator] from the command line terminal. You won't have to type the rest of a command: just hit tab and the terminal will try to guess\footnote{The first command could be typed with fewer characters {\tt cd \lettertilde{}/F<tab>g<tab>c<tab>m<tab>)}}. 
 
@@ -27,7 +27,7 @@ Once you've finished coding, editing, and troubleshooting module.xml (and don't 
 
 
 
-The \quotation{./generate.sh} command will look through \quotation{module.xml} and create the necessary files that the FAIMS server needs to create a module.
+The {\tt ./generate.sh} command will look through {\tt module.xml} and create the necessary files that the FAIMS server needs to create a module.
 
 Navigate to the newly created \quotation{module} folder and you'll see that the script created 6 new files. That wasn't so hard, was it?
 
