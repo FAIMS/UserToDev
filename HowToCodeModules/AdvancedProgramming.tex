@@ -9,7 +9,8 @@ For more information about the different XML attributes, flags, and relationship
 
 We'll repeat some of the information here for your reference. Be sure to open the README for the most up to date information: to learn how to include more advanced controls and scripting in your modules, look at the \useURL[url25][https://faimsproject.atlassian.net/wiki/display/FAIMS/FAIMS+Data\%2C+UI+and+Logic+Cook-Book][][{\em FAIMS Development Cookbook}]\from[url25], which includes code snippets for all of the things FAIMS can do.
 
-ATTRIBUTES\crlf
+
+ATTRIBUTES
 \crlf
 b Binding (See 'Bindings')\crlf
 c Alias for faims_style_class\crlf
@@ -26,7 +27,9 @@ suppressWarnings Prevents warnings from being shown when equal to "true" and\crl
 present in the {\tt <module>} tag. Does not suppress errors.\crlf
 t Type of GUI element (See 'Types'). If this attribute is\crlf
 omitted from a view, t="input" is assumed.\crlf
+
 ________________________________________________________________________________\crlf
+
 \crlf
 BINDINGS\crlf
 \crlf
@@ -36,7 +39,9 @@ BINDINGS\crlf
 - time\crlf
 Other bindings are possible (e.g. by writing b = "my-binding") but generate a\crlf
 warning.\crlf
-________________________________________________________________________________\crlf
+
+
+
 \crlf
 FLAGS\crlf
 \crlf
@@ -192,17 +197,9 @@ A list of child entities can be displayed to the user by using the "ec"\crlf
 attribute:\crlf
 
 \placecode[here][codeListOfChildren]{XML to display a list of child entities.}{
-\startframedtext[align={hanging, hz},
-				 width=\makeupwidth,
-				background=color,
-				backgroundcolor=gray,				
-				framecolor=gray,
-				rulethickness=1pt				
-				 ]
-\starttyping[option=xml, tab=4, style={\tfx\tt}] 
+\startXML
 	<List_Of_Related_Entities t="list" ec="Type_Of_Childen" />\crlf
-\stoptyping
-\stopframedtext
+\stopXML
 }
 
 The list will be populated with entities which are children of the tab group\crlf
