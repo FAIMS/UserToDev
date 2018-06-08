@@ -2,73 +2,71 @@
 \starttext
 
 
-\section[iterating-to-match-the-oral-history-module]{Iterating to Match the Oral History Module}
+% \section[iterating-to-match-the-oral-history-module]{Iterating to Match the Oral History Module}
 
-Now that we've created a very straightforward version of the Oral History module, let's layer in some additional features. By the end of this section, we will have discussed all the steps that went into making the version of the Oral History Module you can download from the FAIMS Demo Server.
+% Now that we've created a very straightforward version of the Oral History module, let's layer in some additional features. By the end of this section, we will have discussed all the steps that went into making the version of the Oral History Module you can download from the FAIMS Demo Server.
 
-Select "Demo Server" from the dropdown menu in the FAIMS setting menu, then download the "finished" version of the Oral History module. Our goal in this section will be to update the version you produced to match this more complex iteration.
+% Select \quotation{Demo Server} from the dropdown menu in the FAIMS setting menu, then download the \quotation{finished} version of the Oral History module. Our goal in this section will be to update the version you produced to match this more complex iteration.
 
-\placefigure[force][OHD]{Tap "Oral History Demo" to download.}{\externalfigure[image48.png][width=.5\textwidth]}
+% \placefigure[force][OHD]{Tap \quotation{Oral History Demo} to download.}{\externalfigure[image48.png][width=.5\textwidth]}
 
-The Oral History module has a bit more metadata information included than the version we've already discussed. You can update this information in the "Module" tab on your FAIMS server installation.
+% The Oral History module has a bit more metadata information included than the version we've already discussed. You can update this information in the \quotation{Module} tab on your FAIMS server installation.
 
-\placefigure[force][OHD-metadata]{More detailed metadata.}{
-\startcombination[2*1]
-{\externalfigure[image33.png][width=.5\textwidth]}{}
-{\externalfigure[image59.png][width=.5\textwidth]}{}
-\stopcombination
-}
+% \placefigure[force][OHD-metadata]{More detailed metadata.}{
+% \startcombination[2*1]
+% {\externalfigure[image33.png][width=.5\textwidth]}{}
+% {\externalfigure[image59.png][width=.5\textwidth]}{}
+% \stopcombination
+% }
 
-The first screen of the Oral History Demo (\in{Figure}[user-list]) looks similar to our module.
+% The first screen of the Oral History Demo (\in{Figure}[user-list]) looks similar to our module.
 
-\placefigure[force][user-list]{Match your model to "Oral History Demo" by adding a User List.}{\externalfigure[image31.png][width=.5\textwidth]}
+% \placefigure[force][user-list]{Match your model to \quotation{Oral History Demo} by adding a User List.}{\externalfigure[image31.png][width=.5\textwidth]}
 
-In the same {\tt module.xml} file we used for our version of Oral History update the code in \in{Codeblock}[codeOutdatedUserList] to match \in{Codeblock}[codeUpdatedUserList] (new code in {\bf bold}).
+% In the same {\tt module.xml} file we used for our version of Oral History update the code in \in{Codeblock}[codeOutdatedUserList] to match \in{Codeblock}[codeUpdatedUserList] (new code in {\bf bold}).
 
-\placecode[here][codeOutdatedUserList]{Current code.}{
+% \placecode[here][codeOutdatedUserList]{Current code.}{
+% \startXML
+% <User f="nodata">
+% 	<User>
+% 		<Select_User t="dropdown" f="user"/>
+% 		<Login t="button" l="Control"/>
+% 	</User>
+% </User>		
+% \stopXML
+% }
+
+
+
+\placecode[here][codeUpdatedUserList]{This code replicates \quotation{Oral History Demo}.}{
 \startXML
 <User f="nodata">
-	<User>
-		<Select_User t="dropdown" f="user"/>
-		<Login t="button" l="Control"/>
-	</User>
+\stopXML
+\startChange
+	<User_List>
+		<Users t="list" f="user" l="Control">
+			Users:
+		</Users>
+	</User_List>
+\stopChange
+\startXML
 </User>		
 \stopXML
 }
 
-\placecode[here][codeUpdatedUserList]{This code replicates "Oral History Demo".}{
-\startframedtext[align={hanging, hz},
-				 width=\makeupwidth,
-				background=color,
-				backgroundcolor=gray,				
-				framecolor=gray,
-				rulethickness=1pt				
-				 ]
-\starttyping[option=xml, tab=4, style={\tfx\tt}] 
-<User f="nodata">
-	{\bf <User_List>}
-		{\bf <Users t="list" f="user" l="Control">}
-			{\bf Users:}
-		{\bf </Users>}
-	{\bf </User_List>}
-</User>		
-\stoptyping
-\stopframedtext
-}
+This replicates the \quotation{User List} tab illustrated in the above screenshot. 
 
-This replicates the "User List" tab illustrated in the above screenshot. 
+Save your modified {\tt module.xml}, run {\tt ./generate.sh} in your Ubuntu terminal again, edit your current module and upload the new necessary files in place of the old ones. Now download this updated module to your FAIMS app. 
 
-Save your modified {\tt module.xml}, run "{\em ./generate.sh}" in your Ubuntu terminal again, edit your current module and upload the new necessary files in place of the old ones. Now download this updated module to your FAIMS app. 
+Importantly, to download the updated version of the module, you must touch and hold the \quotation{Simple Sample Module} in the list of modules until the dialogue in \in{Figure}[SSM-popup] is displayed.
 
-Importantly, to download the updated version of the module, you must touch and hold the "Simple Sample Module" in the list of modules until the dialogue in \in{Figure}[SSM-popup] is displayed.
+\placefigure[force][SSM-popup]{Tap and hold \quotation{Simple Sample Module} to open this pop-up.}{\externalfigure[image14.png][width=.5\textwidth]}
 
-\placefigure[force][SSM-popup]{Tap and hold "Simple Sample Module" to open this pop-up.}{\externalfigure[image14.png][width=.5\textwidth]}
-
-Tap "Update", then "Update Settings", wait for the update to occur, and finally load the module as usual.
+Tap \quotation{Update}, then \quotation{Update Settings}, wait for the update to occur, and finally load the module as usual.
 
 \alert{\bf Note: While we can update Simple Sample Module to have an interface that mimics the Oral History module, we're going to make some changes that will make the module not completely functional. This is because, as you may recall, you can't change the Data Schema of a module once it's already been uploaded to the server. So the interface elements will look right, because the necessary files that govern those can be changed out freely, but the parts actually responsible for managing the data you collect to the server won't have gotten the memo that the module's been altered. If this weren't an exercise, and we wanted an absolutely functional module, we'd just create a new one from the updated necessary files and tell our team members to switch to it.} 
 
-\placefigure[force][OHD-control]{"Oral History Demo" combines "Main" and "Record" into "Control".}{\externalfigure[image24.png][width=.5\textwidth]}
+\placefigure[force][OHD-control]{"Oral History Demo" combines \quotation{Main} and \quotation{Record} into \quotation{Control}.}{\externalfigure[image24.png][width=.5\textwidth]}
 
 On the screen in \in{Figure}[OHD-control], we need to condense a few elements from our original module. Change the code in \in{Codeblock}[codeOutdatedCondenseTabs] to match the code in \in{Codeblock}[codeUpdatedCondenseTabs].
 
@@ -86,15 +84,8 @@ On the screen in \in{Figure}[OHD-control], we need to condense a few elements fr
 \stopXML
 }
 
-\placecode[here][codeUpdatedCondenseTabs]{Condense "Main" and "Record" into "Control".}{
-\startframedtext[align={hanging, hz},
-				 width=\makeupwidth,
-				background=color,
-				backgroundcolor=gray,				
-				framecolor=gray,
-				rulethickness=1pt				
-				 ]
-\starttyping[option=xml, tab=4, style={\tfx\tt}] 
+\placecode[here][codeUpdatedCondenseTabs]{Condense \quotation{Main} and \quotation{Record} into \quotation{Control}.}{
+\startXML
 <Control f="nodata">
 	{\bf <Control>}
 		{\bf <New_Oral_History_Form t="button" l="Form"/>}
@@ -104,19 +95,18 @@ On the screen in \in{Figure}[OHD-control], we need to condense a few elements fr
 		{\bf <List_of_Samples t="list" />}
 	{\bf </Control>}
 </Control>		
-\stoptyping
-\stopframedtext
+\stopXML
 }
 
-\in{Codeblock}[codeUpdatedCondenseTabs] replaces the "Main" and "Record" tab groups with a single one labelled "Control". (In a moment, we will define the "Form" and "Diary" tab groups linked to by the above buttons. We will also have to populate the "Sample Types" dropdown and "List of Samples" list by writing some additional code.)
+\in{Codeblock}[codeUpdatedCondenseTabs] replaces the \quotation{Main} and \quotation{Record} tab groups with a single one labelled \quotation{Control}. (In a moment, we will define the \quotation{Form} and \quotation{Diary} tab groups linked to by the above buttons. We will also have to populate the \quotation{Sample Types} dropdown and \quotation{List of Samples} list by writing some additional code.)
 
 Save {\tt module.xml} and run the generate.sh script again. Now use them to update your module again. You should see something similar to \in{Figure}[SSM-control] after selecting a user in the uploaded module.
 
 \placefigure[force][SSM-control]{"Control" tab in your updated module.}{\externalfigure[image8.png][width=.5\textwidth]}
 
-For the next step, we'll add new UI tab groups for each of our buttons: "Form" and "Diary" that we linked to in \in{Codeblock}[codeFormDiary].
+For the next step, we'll add new UI tab groups for each of our buttons: \quotation{Form} and \quotation{Diary} that we linked to in \in{Codeblock}[codeFormDiary].
 
-\placecode[here][codeFormDiary]{Add "Form" and "Diary" tab groups.}{
+\placecode[here][codeFormDiary]{Add \quotation{Form} and \quotation{Diary} tab groups.}{
 \startXML
 <Form>
 	<Recording_Form>
@@ -135,13 +125,13 @@ For the next step, we'll add new UI tab groups for each of our buttons: "Form" a
 
 Make sure that the {\tt <Form>} and {\tt <Diary>} elements are written directly within {\tt <module>} so that the FAIMS-Tools correctly interprets them as tab groups. It may help, when drafting new elements, to write both the opening and closing tags and then fill in the middle.
 
-Now, under each of these new tab groups, we'll create individual tabs. The "Form" group has three tabs: "Recording Form", "Interview Details", and "Main Subjects". Note that if these tab titles contain multiple words, you must use underscores between each word. When FAIMS creates the title for each tab, underscores will be replaced with spaces.
+Now, under each of these new tab groups, we'll create individual tabs. The \quotation{Form} group has three tabs: \quotation{Recording Form}, \quotation{Interview Details}, and \quotation{Main Subjects}. Note that if these tab titles contain multiple words, you must use underscores between each word. When FAIMS creates the title for each tab, underscores will be replaced with spaces.
 
 \placefigure[force][empty-tab]{Three newly created empty tabs.}{\externalfigure[image53.png][width=.5\textwidth]}
 
-Now we have the individual tabs for each section, but those tabs don't have any content just yet. For simple text fields, like "Birth Place" and "Parents' Birth Place" you can simply add a self-closing tag with the field's title as in \in{Codeblock}[codeBirthPlace].
+Now we have the individual tabs for each section, but those tabs don't have any content just yet. For simple text fields, like \quotation{Birth Place} and \quotation{Parents' Birth Place} you can simply add a self-closing tag with the field's title as in \in{Codeblock}[codeBirthPlace].
 
-\placecode[here][codeBirthPlace]{A self-closing "Birth Place" tag.}{
+\placecode[here][codeBirthPlace]{A self-closing \quotation{Birth Place} tag.}{
 \startXML
 <BIRTH_PLACE />
 \stopXML
@@ -173,9 +163,9 @@ Then, to make FAIMS-Tools display the apostrophe and colon in the GUI, write the
 \stopXML
 }
 
-This is similar to what we did with the "search" feature in the last section.
+This is similar to what we did with the \quotation{search} feature in the last section.
 
-Now, note that every tab group which you intend to save requires at least one {\em identifier}. In the original Oral History module, the identifiers were "PERSON" and "LANGUAGE_GROUP". We can use the "f" attribute to denote that in our new module as in \in{Codeblock}[codeDenoteID].
+Now, note that every tab group which you intend to save requires at least one {\em identifier}. In the original Oral History module, the identifiers were {\tt PERSON} and {\tt LANGUAGE_GROUP}. We can use the {\tt f} attribute to denote that in our new module as in \in{Codeblock}[codeDenoteID].
 
 \placecode[here][codeDenoteID]{Denoting an {\em identifier}.}{
 \startframedtext[align={hanging, hz},
@@ -192,7 +182,7 @@ Now, note that every tab group which you intend to save requires at least one {\
 \stopframedtext
 }
 
-For the GPS fields and their corresponding "Take From GPS" button, refer to \in{Codeblock}[codeGPS]. {\tt <gps>} is a special, self-contained shortcut tag that FAIMS will replace with several fields for the latitude, longitude, Easting, and Northing, as well as a button for inserting this data from GPS.
+For the GPS fields and their corresponding \quotation{Take From GPS} button, refer to \in{Codeblock}[codeGPS]. {\tt <gps>} is a special, self-contained shortcut tag that FAIMS will replace with several fields for the latitude, longitude, Easting, and Northing, as well as a button for inserting this data from GPS.
 
 \placecode[here][codeGPS]{XML for GPS fields and button.}{
 \startXML
@@ -200,7 +190,7 @@ For the GPS fields and their corresponding "Take From GPS" button, refer to \in{
 \stopXML
 }
 
-To add fields for attached files, you can use the "Audio" and "Video" tags, as in \in{Codeblock}[codeAVtag]. Simply set the type "t" to video or audio as required.
+To add fields for attached files, you can use the {\tt Audio} and {\tt Video} tags, as in \in{Codeblock}[codeAVtag]. Simply set the type {\tt t} to video or audio as required.
 
 \placecode[here][codeAVtag]{XML for attaching audio and visual files.}{
 \startXML
@@ -235,16 +225,16 @@ To add the radio buttons, use the code in \in{Codeblock}[codeRadioButtons].
 
 Note that to have the radio buttons' contents appear would require that the entire module is re-created and uploaded to the FAIMS server. Updating the existing module on the server, would cause the menu to appear but lack its options.
 
-\placefigure[force][radio-buttons]{Radio buttons in "Interview Details" and a simple text field in "Main Subjects".}{
+\placefigure[force][radio-buttons]{Radio buttons in \quotation{Interview Details} and a simple text field in \quotation{Main Subjects}.}{
 \startcombination[2*1]
 {\externalfigure[image42.png][width=.5\textwidth]}{}
 {\externalfigure[image49.png][width=.5\textwidth]}{}
 \stopcombination
 }
 
-The "Timestamp" and "Created By" values are not actually fields that we'll allow users to enter in manually, so we won't put in a data entry field. Instead, we'll make FAIMS set and update these fields when the record is created. Since there's no simple shortcut for that, for now we'll put in the code in \in{Codeblock}[codeTimeCreated].
+The \quotation{Timestamp} and \quotation{Created By} values are not actually fields that we'll allow users to enter in manually, so we won't put in a data entry field. Instead, we'll make FAIMS set and update these fields when the record is created. Since there's no simple shortcut for that, for now we'll put in the code in \in{Codeblock}[codeTimeCreated].
 
-\placecode[here][codeTimeCreated]{XML for "Timestamp" and "Created by".}{
+\placecode[here][codeTimeCreated]{XML for \quotation{Timestamp} and \quotation{Created by}.}{
 \startXML
 <Timestamp/>
 <Created_by/>
@@ -253,7 +243,7 @@ The "Timestamp" and "Created By" values are not actually fields that we'll allow
 
 There's actually not a lot more we can do until we've generated our necessary files. Then, we'll take {\tt ui_logic.bsh} and make a few alterations that make use of these tags.
 
-\placefigure[force][autofill]{"Timestamp" and "Created by" are automatically filled in by FAIMS.}{
+\placefigure[force][autofill]{"Timestamp" and \quotation{Created by} are automatically filled in by FAIMS.}{
 \startcombination[2*1]
 {\externalfigure[image37.png][width=.5\textwidth]}{}
 {\externalfigure[image1.png][width=.5\textwidth]}{}

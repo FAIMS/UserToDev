@@ -7,9 +7,9 @@ So that's how XML is structured. How does that structure relate to FAIMS modules
 
 FAIMS modules have the same kind of hierarchical structure as other XML documents: all {\bf GUI elements} (ie, the user interface) such as buttons, text fields, and dropdown menus appear inside of {\bf tabs}.
 
-Consider for a moment the module in \in{Figure}[GUI-tabs] (left image). There are {\bf GUI elements} (or, "useful parts you can interact with") which all belong to the "Recording Form" tab. If the user were to tap on a different tab, for instance the "Interview Details" tab, they would see a different set of GUI elements belonging to that different tab. 
+Consider for a moment the module in \in{Figure}[GUI-tabs] (left image). There are {\bf GUI elements} (or, \quotation{useful parts you can interact with}) which all belong to the \quotation{Recording Form} tab. If the user were to tap on a different tab, for instance the \quotation{Interview Details} tab, they would see a different set of GUI elements belonging to that different tab. 
 
-The right image in \in{Figure}[GUI-tabs] shows all the {\bf tabs} which belong to a presently displayed {\bf tab group} called "Form". Entering a different tab group would cause a different set of tabs to be displayed. 
+The right image in \in{Figure}[GUI-tabs] shows all the {\bf tabs} which belong to a presently displayed {\bf tab group} called \quotation{Form}. Entering a different tab group would cause a different set of tabs to be displayed. 
 
 \placefigure[force][GUI-tabs]{GUI elements in a tab and tabs in a tab group.}{
 \startcombination[2*1]
@@ -18,9 +18,9 @@ The right image in \in{Figure}[GUI-tabs] shows all the {\bf tabs} which belong t
 \stopcombination
 }
 
-\in{Figure}[tab-groups] shows two different tab groups---"Control" and "Form"---each containing their own sets of tabs.
+\in{Figure}[tab-groups] shows two different tab groups---\quotation{Control} and \quotation{Form}---each containing their own sets of tabs.
 
-\placefigure[force][tab-groups]{"Control" and "Form" have different tabs and GUI elements.}{\externalfigure[image47.png][width=.5\textwidth]}
+\placefigure[force][tab-groups]{\quotation{Control} and \quotation{Form} have different tabs and GUI elements.}{\externalfigure[image47.png][width=.5\textwidth]}
 
 So the hierarchy flows: your module has tab groups have tabs which have GUI elements. When you structure the elements of {\tt module.xml}, it'll be contained exactly the same way. Your module element will contain tab group elements will contain tab elements which will contain GUI elements, many of which may be empty elements as they'll stand on their own without needing to contain anything else. Make sense so far? See what it looks like in practice in \in{Figure}[codeModuleTabHierarchy].
 
@@ -81,7 +81,7 @@ Remember that you're creating a version of {\tt module.xml} that XML-Tools can r
 
 \item Review the structure in \in{Codeblock}[codeTYK]. 
 
-\item Without knowing what's really inside the tags, can you figure out which elements are the tab groups, which are the tabs, and which are UI elements? If you have difficulty guessing that the "A" elements are tab groups, the "B" elements are tabs, and the "C" elements are the GUI, you may need to review the previous section. 
+\item Without knowing what's really inside the tags, can you figure out which elements are the tab groups, which are the tabs, and which are UI elements? If you have difficulty guessing that the \quotation{A} elements are tab groups, the \quotation{B} elements are tabs, and the \quotation{C} elements are the GUI, you may need to review the previous section. 
 }
 
 \stoptext

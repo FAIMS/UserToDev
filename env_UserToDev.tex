@@ -10,7 +10,7 @@
 \definecolor[faimsorange][ c=.5, m=.91, y=.91, k=.02]
 \setupinteraction[state=start, color=blue, contrastcolor=blue, style={\tf}]
 
-
+%%%%TODO: Make sure the chosen font has a good bold appearance
 %TODO lookup faims orange
 
 \definefontfeature
@@ -35,7 +35,7 @@ marking=on]
 \setupheads[aligntitle=float, page=no]
 \setupwhitespace[big]
 
-\definetextbackground[longcode][
+\definetextbackground[gray][
         background=color,backgroundcolor=gray,
         backgroundoffset=0.2cm,
         location=paragraph,
@@ -44,19 +44,29 @@ marking=on]
         after={\stopnarrower},        
         frame=off]
 
-\definetyping[longcodetyping]
-\setuptyping[longcodetyping][option=xml, tab=4, style={\tfx\tt},
-lines=yes,bodyfont=10.0pt,
-before={\starttextbackground[longcode]},
-after={\stoptextbackground}]
+\definetextbackground[middlegray][
+        background=color,backgroundcolor=middlegray,
+        backgroundoffset=0.2cm,
+        location=paragraph,
+        offset=3cm,
+ 		before={\startnarrower},
+        after={\stopnarrower},        
+        frame=off]
 
 \definefloat[code]
 
 \definetyping[XML]
 \setuptyping[XML][option=xml, tab=4, style={\tfx\tt},
 lines=yes, bodyfont=10.0pt,
-before={\starttextbackground[longcode]},
+before={\starttextbackground[gray]},
 after={\stoptextbackground}]
+
+\definetyping[Change]
+\setuptyping[Change][option=xml, tab=4, style={\tfx\tt},
+lines=yes, bodyfont=10.0pt,
+before={\starttextbackground[middlegray]},
+after={\stoptextbackground}]
+
 
 \definefloat[quiz][quizzes]
 \setupfloat[quiz][label={Test Your Knowledge}]
