@@ -31,7 +31,7 @@ For various reasons, the FAIMS server is designed to run on a machine running an
 
 \subsection[enable-vm-extensions-in-your-computer-bios-for-better-virtualbox-performance-vt-hypervisor]{Enable VM extensions in your computer BIOS for better VirtualBox Performance (VT Hypervisor)}
 
-You'll have a much easier time running your virtual machine, as well as Android emulators you'll need later, if you first enable a feature specifically designed for this purpose called "VT Hypervisor".
+You'll have a much easier time running your virtual machine, as well as Android emulators you'll need later, if you first enable a feature specifically designed for this purpose called \quotation{VT Hypervisor}.
 
 To enable VT Hypervisor, enter your computer's BIOS or UEFI menu while booting your computer. This process differs a lot from computer to computer, but you should be able to find instructions here: \useURL[url2][http://www.howtogeek.com/213795/how-to-enable-intel-vt-x-in-your-computers-bios-or-uefi-firmware/][][{\tt\tfx\hyphenatedurl{http://www.howtogeek.com/213795/how-to-enable-intel-vt-x-in-your-computers-bios-or-uefi-firmware/}}]\from[url2]
 
@@ -53,7 +53,7 @@ During installation, you may receive a couple Windows Security questions about O
 
 Once VirtualBox is installed, you can start the program. The default screen should look similar to \in{Figure}[virtualBoxStart].
 
-\placefigure[force][virtualBoxStart]{VirtualBox without any virtual... boxes. A box inside your computer which can hold boxes\footnote{We call a computer a box because the old fashioned tower that older or powerful computers come with is usually referred to as the Box by tech types}, but not cats.}{\externalfigure[image57.png][width=.5\textwidth]}{}
+\placefigure[force][virtualBoxStart]{VirtualBox without any virtual...boxes. A box inside your computer which can hold boxes\footnote{We call a computer a box because the old fashioned tower that older or powerful computers come with is usually referred to as the Box by tech types}, but not cats.}{\externalfigure[image57.png][width=.5\textwidth]}{}
 
 If you need to take a break, this is a good stopping point\footnote{Time for coffee! It's {\em always} time for coffee.}!
 
@@ -61,7 +61,7 @@ If you need to take a break, this is a good stopping point\footnote{Time for cof
 
 If you're ready to move on, download the FAIMS Server image (2.5GB) from: \useURL[url4][FIXME][][{\tt\tfx\hyphenatedurl{FIXME}}]\from[url4]
 
-The server image is packaged as an ".ova" file, which is a type of file that can be opened by VirtualBox. This file is the complete package: it represents an Ubuntu Linux 16.04 computer system that has the FAIMS server set to automatically configure and run. If you would like a server prepared for you, contact {\tt support@fedarch.org}.
+The server image is packaged as an {\tt .ova} file, which is a type of file that can be opened by VirtualBox. This file is the complete package: it represents an Ubuntu Linux 16.04 computer system that has the FAIMS server set to automatically configure and run. If you would like a server prepared for you, contact {\tt support@fedarch.org}.
 
 Before using the image, you'll need to unzip the compressed zip file using your favorite archival program (e.g. \useURL[url6][http://sourceforge.net/projects/sevenzip/][][{\em 7-ZIP}]\from[url6], \useURL[url7][http://www.iceows.com/HomePageUS.html][][{\em ICEOWs}]\from[url7]).
 
@@ -69,13 +69,13 @@ Before using the image, you'll need to unzip the compressed zip file using your 
 
 To set up the emulated machine, we'll use the preconfigured machine image we downloaded in the last step.
 
-In VirtualBox, select the "File->Import Appliance" option.
+In VirtualBox, select the {\tt File->Import Appliance} option.
 
-\placefigure[force][import-appliance]{Or use the "ctrl-I" keyboard shortcut.}{\externalfigure[image67.png][width=.5\textwidth]}
+\placefigure[force][import-appliance]{Or use the \quotation{ctrl-I} keyboard shortcut.}{\externalfigure[image67.png][width=.5\textwidth]}
 
 Using the file browser that appears, navigate to the directory where you downloaded the FAIMS server image and select to open it.
 
-\placefigure[force][open-server]{Opening "FAIMS2 Web - Demo Server".}{\externalfigure[image21.png][width=.5\textwidth]}
+\placefigure[force][open-server]{Opening \quotation{FAIMS2 Web - Demo Server}.}{\externalfigure[image21.png][width=.5\textwidth]}
 
 The pre-configured settings will appear. Select the \quotation{Import} option.
 
@@ -85,7 +85,7 @@ VirtualBox will now set to work importing the image and setting everything up. D
 
 \placefigure[force][wait]{Waiting time!}{\externalfigure[image16.png][width=.5\textwidth]}
 
-Once the setup is complete, "FAIMS2 Web - Demo Server" will appear in the menu on the left in VirtualBox.
+Once the setup is complete, \quotation{FAIMS2 Web - Demo Server} will appear in the menu on the left in VirtualBox.
 
 \placefigure[force][start]{Click the green arrow to start.}{\externalfigure[image46.png][width=.5\textwidth]}
 
