@@ -2,41 +2,39 @@
 \starttext
 
 
-% \section[iterating-to-match-the-oral-history-module]{Iterating to Match the Oral History Module}
+\section[iterating-to-match-the-oral-history-module]{Iterating to Match the Oral History Module}
 
-% Now that we've created a very straightforward version of the Oral History module, let's layer in some additional features. By the end of this section, we will have discussed all the steps that went into making the version of the Oral History Module you can download from the FAIMS Demo Server.
+Now that we've created a very straightforward version of the Oral History module, let's layer in some additional features. By the end of this section, we will have discussed all the steps that went into making the version of the Oral History Module you can download from the FAIMS Demo Server.
 
-% Select \quotation{Demo Server} from the dropdown menu in the FAIMS setting menu, then download the \quotation{finished} version of the Oral History module. Our goal in this section will be to update the version you produced to match this more complex iteration.
+Select \quotation{Demo Server} from the dropdown menu in the FAIMS setting menu, then download the \quotation{finished} version of the Oral History module. Our goal in this section will be to update the version you produced to match this more complex iteration.
 
-% \placefigure[force][OHD]{Tap \quotation{Oral History Demo} to download.}{\externalfigure[image48.png][width=.5\textwidth]}
+\placefigure[force][OHD]{Tap \quotation{Oral History Demo} to download.}{\externalfigure[image48.png][width=.5\textwidth]}
 
-% The Oral History module has a bit more metadata information included than the version we've already discussed. You can update this information in the \quotation{Module} tab on your FAIMS server installation.
+The Oral History module has a bit more metadata information included than the version we've already discussed. You can update this information in the \quotation{Module} tab on your FAIMS server installation.
 
-% \placefigure[force][OHD-metadata]{More detailed metadata.}{
-% \startcombination[2*1]
-% {\externalfigure[image33.png][width=.5\textwidth]}{}
-% {\externalfigure[image59.png][width=.5\textwidth]}{}
-% \stopcombination
-% }
+\placefigure[force][OHD-metadata]{More detailed metadata.}{
+\startcombination[2*1]
+{\externalfigure[image33.png][width=.5\textwidth]}{}
+{\externalfigure[image59.png][width=.5\textwidth]}{}
+\stopcombination
+}
 
-% The first screen of the Oral History Demo (\in{Figure}[user-list]) looks similar to our module.
+The first screen of the Oral History Demo (\in{Figure}[user-list]) looks similar to our module.
 
-% \placefigure[force][user-list]{Match your model to \quotation{Oral History Demo} by adding a User List.}{\externalfigure[image31.png][width=.5\textwidth]}
+\placefigure[force][user-list]{Match your model to \quotation{Oral History Demo} by adding a User List.}{\externalfigure[image31.png][width=.5\textwidth]}
 
-% In the same {\tt module.xml} file we used for our version of Oral History update the code in \in{Codeblock}[codeOutdatedUserList] to match \in{Codeblock}[codeUpdatedUserList] (new code in {\bf bold}).
+In the same {\tt module.xml} file we used for our version of Oral History update the code in \in{Codeblock}[codeOutdatedUserList] to match \in{Codeblock}[codeUpdatedUserList] (new code in {\bf bold}).
 
-% \placecode[here][codeOutdatedUserList]{Current code.}{
-% \startXML
-% <User f="nodata">
-% 	<User>
-% 		<Select_User t="dropdown" f="user"/>
-% 		<Login t="button" l="Control"/>
-% 	</User>
-% </User>		
-% \stopXML
-% }
-
-
+\placecode[here][codeOutdatedUserList]{Current code.}{
+\startXML
+<User f="nodata">
+	<User>
+		<Select_User t="dropdown" f="user"/>
+		<Login t="button" l="Control"/>
+	</User>
+</User>		
+\stopXML
+}
 
 \placecode[here][codeUpdatedUserList]{This code replicates \quotation{Oral History Demo}.}{
 \startXML
@@ -87,13 +85,17 @@ On the screen in \in{Figure}[OHD-control], we need to condense a few elements fr
 \placecode[here][codeUpdatedCondenseTabs]{Condense \quotation{Main} and \quotation{Record} into \quotation{Control}.}{
 \startXML
 <Control f="nodata">
-	{\bf <Control>}
-		{\bf <New_Oral_History_Form t="button" l="Form"/>}
-		{\bf <New_Diary t="button" l="Diary"/>}
-		{\bf <GPS_Diagnostics t="gpsdiag"/>}
-		{\bf <Sample_Types t="dropdown" />}
-		{\bf <List_of_Samples t="list" />}
-	{\bf </Control>}
+\stopXML
+\startChange
+	<Control>
+		<New_Oral_History_Form t="button" l="Form"/>
+		<New_Diary t="button" l="Diary"/>
+		<GPS_Diagnostics t="gpsdiag"/>
+		<Sample_Types t="dropdown" />
+		<List_of_Samples t="list" />
+	</Control>
+\stopChange
+\startXML
 </Control>		
 \stopXML
 }
@@ -133,7 +135,7 @@ Now we have the individual tabs for each section, but those tabs don't have any 
 
 \placecode[here][codeBirthPlace]{A self-closing \quotation{Birth Place} tag.}{
 \startXML
-<BIRTH_PLACE />
+<BIRTH_PLACE/>
 \stopXML
 }
 
@@ -168,18 +170,10 @@ This is similar to what we did with the \quotation{search} feature in the last s
 Now, note that every tab group which you intend to save requires at least one {\em identifier}. In the original Oral History module, the identifiers were {\tt PERSON} and {\tt LANGUAGE_GROUP}. We can use the {\tt f} attribute to denote that in our new module as in \in{Codeblock}[codeDenoteID].
 
 \placecode[here][codeDenoteID]{Denoting an {\em identifier}.}{
-\startframedtext[align={hanging, hz},
-				 width=\makeupwidth,
-				background=color,
-				backgroundcolor=gray,				
-				framecolor=gray,
-				rulethickness=1pt				
-				 ]
-\starttyping[option=xml, tab=4, style={\tfx\tt}] 
-<PERSON f="id"/>\crlf
+\startXML
+<PERSON f="id"/>
 <LANGUAGE_GROUP f="id"/>
-\stoptyping
-\stopframedtext
+\stopXML
 }
 
 For the GPS fields and their corresponding \quotation{Take From GPS} button, refer to \in{Codeblock}[codeGPS]. {\tt <gps>} is a special, self-contained shortcut tag that FAIMS will replace with several fields for the latitude, longitude, Easting, and Northing, as well as a button for inserting this data from GPS.
@@ -194,8 +188,8 @@ To add fields for attached files, you can use the {\tt Audio} and {\tt Video} ta
 
 \placecode[here][codeAVtag]{XML for attaching audio and visual files.}{
 \startXML
-<Attached_Audio_Files t="audio" />
-<Attached_Videos t="video" />
+<Attached_Audio_Files t="audio"/>
+<Attached_Videos t="video"/>
 \stopXML
 }
 
