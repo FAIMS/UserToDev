@@ -47,11 +47,11 @@ Let's take that basic understanding and look at this section of actual code from
 
 The first thing to understand is the purpose of the angle brackets, {\tt <>}. By enclosing text that has utility in XML, the angle brackets create something called a {\em tag}. The tag is the basic, functional unit of XML documents. 
 
-Tags contain information, and the information they contain is referred to as an {\em element}\footnote{Remember when we talked about archaeological and relationship elements? Now may be a good time to review.}. In our first example, the tags {\tt <Richard>} and {\tt </Richard>} defined the boundaries of the element Richard, and everything between them was contained within that element.
+Tags contain information, and the information they contain is referred to as an {\em element}\footnote{Remember when we talked about archaeological and relationship elements? Now may be a good time to review.}. In our first example, the tags \inlXML{<Richard>} and \inlXML{</Richard>} defined the boundaries of the element Richard, and everything between them was contained within that element.
 
-Usually, elements are defined by two tags: the {\em opening tag}, and the {\em closing tag.} Opening tags signify that a new element is beginning. Creating an opening tag instructs that computer that everything that follows until the closing tag (which will be the same as the opening tag, but begin with a {\tt /} ) is part of that element. For example, the tag {\tt <User>} states that everything until the closing tag, {\tt </User>}, is part of the element \quotation{User} being outlined.
+Usually, elements are defined by two tags: the {\em opening tag}, and the {\em closing tag.} Opening tags signify that a new element is beginning. Creating an opening tag instructs that computer that everything that follows until the closing tag (which will be the same as the opening tag, but begin with a \inlXML{/} ) is part of that element. For example, the tag \inlXML{<User>} states that everything until the closing tag, \inlXML{</User>}, is part of the element \quotation{User} being outlined.
 
-You may notice that there's two {\tt </User>} tags above. You can probably guess from the way \in{Codeblock}[codeOralHistoryModuleXML] is indented that the very last {\tt </User>} closing tag corresponds to the very first tag, {\tt <User f="nodata">} (we'll explain later why this isn't closed by the tag, {\tt </User f="nodata">}). However, it's worth mentioning that formatting doesn't really matter to FAIMS-Tools when it interprets how your code works; indenting when you start a new element is just a good practice for helping you keep track of your code. So in instance, and others like it: how does FAIMS-Tools decide which {\tt </User>} closing tag belongs to which {\tt <User>} opening tag?
+You may notice that there's two \inlXML{</User>} tags above. You can probably guess from the way \in{Codeblock}[codeOralHistoryModuleXML] is indented that the very last \inlXML{</User>} closing tag corresponds to the very first tag, \inlXML{<User f="nodata">} (we'll explain later why this isn't closed by the tag, \inlXML{</User f="nodata">}). However, it's worth mentioning that formatting doesn't really matter to FAIMS-Tools when it interprets how your code works; indenting when you start a new element is just a good practice for helping you keep track of your code. So in instance, and others like it: how does FAIMS-Tools decide which \inlXML{</User>} closing tag belongs to which \inlXML{<User>} opening tag?
 
 Remember that opening and closing tags are used to show that elements are contained within one another. That's the key word to keep in mind: {\em contained}. It may help to think of opening and closing tags as functioning like parentheses or quotation marks. If we consider the following sentence:
 
@@ -86,7 +86,7 @@ There's no point in having an opening AND closing tag if there's nothing you're 
 \quiz{Test your knowledge}{
   \item What's the connection between "tags" and "elements"?
   \item If you've got two of the same opening tag and neither has been closed yet, which will the first closing tag you write belong to?
-  \item Where do you put the slash (/) to denote an empty element tag?
+  \item Where do you put the slash (\inlXML{/}) to denote an empty element tag?
 }
 
 

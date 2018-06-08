@@ -68,12 +68,14 @@ before={\starttextbackground[middlegray]},
 after={\stoptextbackground}]
 
 
+\definetype[inlXML][option=XML]
+
+
 \definefloat[quiz][quizzes]
 \setupfloat[quiz][label={Test Your Knowledge}]
 \setupcaption[testk][location=bottom,headstyle=boldslanted]
 
 \define[2]\quiz{%
-
 
 \setupcaption[quiz][location=top]
 \blank[line]
