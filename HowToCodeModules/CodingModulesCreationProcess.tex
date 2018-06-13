@@ -12,7 +12,17 @@ The Terminal is Ubuntu's command line tool that we'll use to navigate the file s
 
 \placefigure[force][terminal]{How to open the terminal using Ubuntu.}{\externalfigure[image5.png][width=.5\textwidth]}
 
-Start your chosen text editor and open the {\tt module.xml} file. If you're using the text editor we recommended for the virtual machine, you can simply get it from the directory where you installed the FAIMS-Tools (usually {\tt FAIMS-Tools/generators/christian/module.xml}). If you're using a text editor on your main machine, you'll need to export {\tt module.xml} outside the virtual machine and work from there.
+% TODO: Should these update steps be in a different section?
+Seeing as this will be your first time running FAIMS-Tools, you should make sure that you have the very latest version before doing anything else. From within the terminal, navigate to the same directory as the {\tt module.xml} file then run the dependency installation script. This is shown in \in{Codeblock}[update-generator].
+
+\promptref{update-generator}{BASH shell commands to update the generator.}{%
+\bashprompt{cd ~/FAIMS-Tools/generators/christian}
+\bashprompt{git pull}
+\bashprompt{sudo ./install-dependencies.sh}
+
+}
+
+Once you have the latest version of FAIMS-Tools, you can begin creating a module. Start your chosen text editor and open the {\tt module.xml} file. If you're using the text editor we recommended for the virtual machine, you can simply get it from the directory where you installed the FAIMS-Tools (usually {\tt FAIMS-Tools/generators/christian/module.xml}). If you're using a text editor on your main machine, you'll need to export {\tt module.xml} outside the virtual machine and work from there.
 
 Before you make any edits, it's a very good idea to save an extra copy of {\tt module.xml} file as {\tt moduleTemplate.xml}. The version you're going to develop your module in and run through FAIMS-Tools needs to be named {\tt module.xml}, but if you want to do any other module development in the future you're going to want to have a blank lying around to work with. Once you've made your backup copy, you don't have to worry about messing around in {\tt module.xml}.
 
