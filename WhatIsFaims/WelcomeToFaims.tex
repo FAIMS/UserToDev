@@ -81,17 +81,16 @@ If you just want to quickly review your data, and not export it to a format such
 
 \section[sharedata]{Exporters: how to share data with others.}
 
-To get the data in a viewable, usable fashion, you'll need to find and download a type of program called an exporter. What form you want the data to be in decides which exporter you'll want to use. You can find exporters for formats like shapefile and json by visiting {\tt github.com/FAIMS/} and searching for the correct program. Look for something called \quotation{(x)Exporter} or \quotation{(x)Export,} where (x) is the desired end format (e.g. \quotation{jsonExporter} or \quotation{shapefileExport}).
+To get the data in a viewable, usable fashion, you'll need to find and download a type of program called an exporter. What form you want the data to be in decides which exporter you'll want to use. You can find exporters for formats like shapefile and json by visiting {\tt github.com/FAIMS} and searching for the correct program. Look for something called \quotation{(x)Exporter} or \quotation{(x)Export,} where (x) is the desired end format (e.g. \quotation{jsonExporter} or \quotation{shapefileExport}).
 
-On a PC, you can simply download the file from github. If you're using your UNIX virtual machine, you can do so by entering at the command prompt in \in{Codeblock}[copy-remote-code] (denoted by \$. Don't copy the \$).
+On a PC, you can simply download the file from github. If you're using your UNIX virtual machine, you can do so by entering at the command prompt in \in{Codeblock}[copy-remote-code] (denoted by \$. Don't copy the \$) with the name of whatever exporter you want, in this example shapefileExport, in the final position.
 
 \promptref{copy-remote-code}{A command to use the program \quotation{git} to make a copy of the remote code onto your computer}{\bashprompt{git clone https://github.com/FAIMS/shapefileExport/}}
 
-...with the name of whatever exporter you want, in this example shapefileExport, in the final position.
 
 Once you've got the exporter program, you're going to put it in a usable form. To do that with a PC, create a tarball from the exporter using a program like 7zip; if you're using UNIX, enter something like \in{Codeblock}[compress].
 
-\promptref{compress}{A command to: tell the {\tt tar} command to compress, gzip, and save the folder \quotation{shapefileExport} to the file {\tt shapefileExport.tar.gz}}{tar -czf shapefileExport.tar.gz shapefileExport/}
+\promptref{compress}{A command to: tell the {\tt tar} command to compress, gzip, and save the folder \quotation{shapefileExport} to the file {\tt shapefileExport.tar.gz}}{\tt\tfx tar -czf shapefileExport.tar.gz shapefileExport/}
 
 Now, if you navigate on the server to your module, you'll see a tab at the top labeled \quotation{Plugin Management.} Click that and you'll be brought to a page with the handy feature, \quotation{Upload Exporter.} Choose the tarball you've just created and hit \quotation{upload.} You now have an exporter permanently stored to your FAIMS server and may make use of it whenever you'd like.
 

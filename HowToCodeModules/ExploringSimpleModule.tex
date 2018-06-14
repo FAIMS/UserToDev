@@ -37,6 +37,7 @@ So how do we determine what's in that drop down menu? In this case, by creating 
 ~~</User> 
 </User>
 
+
 }
  
  Setting \inlXML{t="button"}, as in the case of \inlXML{<Login>}, creates a button you can tap. The purpose of the button is described by the text that comes after it; otherwise, it's just a button, which probably isn't going to be very useful for your module. Here we've included the code \inlXML{l="Control"} within the tag, which causes FAIMS to link to the \quotation{Control} tab group when it is tapped. In fact, the \inlXML{l} attribute works not only for buttons, but many other GUI elements as well. Note carefully that the \quotation{Control} tab group linked to by the \inlXML{l} attribute's value is defined further down in the {\tt module.xml} file; this code only functions because the destination is valid. If we had \inlXML{1="Control"} and then didn't actually have a \quotation{Control} to link to, it's safe to say this wouldn't work. Also note that references are case-sensitive, so writing \inlXML{control} with a lower-case \quotation{c} would fail.
@@ -69,7 +70,7 @@ This \quotation{Control} tab group encompasses two other elements, \quotation{Ma
 
 The \inlXML{<Main>} element creates the first tab. Inside that tab we have a GUI element, \inlXML{Record_Interview.} The \inlXML{t="button"}, which means this element is a button; \inlXML{1="Interview"}, so the button links to another tab somewhere else in the module called \quotation{Interview.} The other GUI element here is \quotation{GPS Diagnostics,} which has the element type \inlXML{gpsdiag.} This element type specifically means that in the final module, it will create text labels and display information about the Android device's GPS location. In the screenshot, we see the \inlXML{gpsdiag} element at work: it's telling us that our phone's GPS is \quotation{not initialized,} a charming way of sayingn \quotation{not turned on.} Until we do turn it on, this is the best \inlXML{gpsdiag} is going to do.
 
-Let's turn on our Android device's internal GPS antenna by tapping \useURL[url22][https://www.youtube.com/watch?v=o_eSwq1ewsU][][{\em the three vertical dots}]\from[url22] in the upper right of the screen to open the settings menu.
+Let's turn on our Android device's internal GPS antenna by tapping \useURL[url22][https://www.youtube.com/watch?v=o_eSwq1ewsU][][{the three vertical dots}]\from[url22] in the upper right of the screen to open the settings menu.
 
 \placefigure[force][on-GPS]{Turn on internal GPS by tapping the dots in the red box.}{
 \startcombination[2*1]
