@@ -245,7 +245,7 @@ That wraps up the \inlXML{<Title>} element. Now we have an opening tag for anoth
 \stopXML
 }
 
-This next element (\in{Codeblock}[codeAgentRole]), \inlXML{<Add_Agent_Role>}, designates a button element ('t="button"') that links to the tab group \inlXML{Agent_Role.} This will allow users to register new Agent Roles.
+This next element (\in{Codeblock}[codeAgentRole]), \inlXML{<Add_Agent_Role>}, designates a button element (\inlXML{t="button"}) that links to the tab group \inlXML{Agent_Role.} This will allow users to register new Agent Roles.
 
 \placecode[here][codeAgentRole]{XML for \inlXML{<Add_Agent_Role>.}}{
 \startXML
@@ -277,7 +277,7 @@ The final two element types used in this tab are the \inlXML{t="audio"} and \inl
 
 The final elements are on the Agent Role tab group, and include a few element types we've already seen: two text input fields: \inlXML{<First_Name>} and \inlXML{<Last_Name>} both with flags that designate them as \inlXML{ids} and a dropdown menu, \inlXML{<Role>} which contains a few options and is also flagged as an \inlXML{id} (\in{Codeblock}[codeAddAgentRoleTabGroup]).
 
-\placefigure[force][agent-role]{"Agent Role" tab group appears when adding agent roles.}{\externalfigure[image54.png][width=.5\textwidth]}
+\placefigure[force][agent-role]{\quotation{Agent Role} tab group appears when adding agent roles.}{\externalfigure[image54.png][width=.5\textwidth]}
 
 \placecode[here][codeAddAgentRoleTabGroup]{XML for \quotation{Agent Role} tab group.}{
 \startXML
@@ -316,7 +316,7 @@ The final elements are on the Agent Role tab group, and include a few element ty
 
 Now that we've explained each part, go back and review the whole one more time. You can go a long way creating modules for your team only by using the techniques we've explicitly covered above. It's very possible that you've already learned everything you need to know to make an effective module for your team.
 
-As an exercise, follow these instructions and produce your own copy of the module's code in {\tt module.xml}. Then save that to the server and run the generate.sh script to produce necessary files. Go to \quotation{create module} and upload the necessary files to the server as the \quotation{Simple Sample Module.} 
+As an exercise, follow these instructions and produce your own copy of the module's code in {\tt module.xml}. Then save that to the server and run the {\tt generate.sh} script to produce necessary files. Go to \quotation{create module} and upload the necessary files to the server as the \quotation{Simple Sample Module.} 
 
 Congratulations; you've just a simple module. 
 

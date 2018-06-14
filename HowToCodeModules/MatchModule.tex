@@ -23,7 +23,9 @@ The first screen of the Oral History Demo (\in{Figure}[user-list]) looks similar
 
 \placefigure[force][user-list]{Match your model to \quotation{Oral History Demo} by adding a User List.}{\externalfigure[image31.png][width=.5\textwidth]}
 
-In the same {\tt module.xml} file we used for our version of Oral History update the code in \in{Codeblock}[codeOutdatedUserList] to match \in{Codeblock}[codeUpdatedUserList] (new code in {\bf bold}).
+In the same {\tt module.xml} file we used for our version of Oral History update the code in \in{Codeblock}[codeOutdatedUserList] to match \in{Codeblock}[codeUpdatedUserList] (new code in a dark gray background).
+
+%TODO: change the above to new code in {\bf bold} once a font with a nice bold has been chosen
 
 \placecode[here][codeOutdatedUserList]{Current code.}{
 \startXML
@@ -64,7 +66,7 @@ Tap \quotation{Update}, then \quotation{Update Settings}, wait for the update to
 
 \alert{\bf Note: While we can update Simple Sample Module to have an interface that mimics the Oral History module, we're going to make some changes that will make the module not completely functional. This is because, as you may recall, you can't change the Data Schema of a module once it's already been uploaded to the server. So the interface elements will look right, because the necessary files that govern those can be changed out freely, but the parts actually responsible for managing the data you collect to the server won't have gotten the memo that the module's been altered. If this weren't an exercise, and we wanted an absolutely functional module, we'd just create a new one from the updated necessary files and tell our team members to switch to it.} 
 
-\placefigure[force][OHD-control]{"Oral History Demo" combines \quotation{Main} and \quotation{Record} into \quotation{Control}.}{\externalfigure[image24.png][width=.5\textwidth]}
+\placefigure[force][OHD-control]{\quotation{Oral History Demo} combines \quotation{Main} and \quotation{Record} into \quotation{Control}.}{\externalfigure[image24.png][width=.5\textwidth]}
 
 On the screen in \in{Figure}[OHD-control], we need to condense a few elements from our original module. Change the code in \in{Codeblock}[codeOutdatedCondenseTabs] to match the code in \in{Codeblock}[codeUpdatedCondenseTabs].
 
@@ -102,9 +104,9 @@ On the screen in \in{Figure}[OHD-control], we need to condense a few elements fr
 
 \in{Codeblock}[codeUpdatedCondenseTabs] replaces the \quotation{Main} and \quotation{Record} tab groups with a single one labelled \quotation{Control}. (In a moment, we will define the \quotation{Form} and \quotation{Diary} tab groups linked to by the above buttons. We will also have to populate the \quotation{Sample Types} dropdown and \quotation{List of Samples} list by writing some additional code.)
 
-Save {\tt module.xml} and run the generate.sh script again. Now use them to update your module again. You should see something similar to \in{Figure}[SSM-control] after selecting a user in the uploaded module.
+Save {\tt module.xml} and run the {\tt generate.sh} script again. Now use them to update your module again. You should see something similar to \in{Figure}[SSM-control] after selecting a user in the uploaded module.
 
-\placefigure[force][SSM-control]{"Control" tab in your updated module.}{\externalfigure[image8.png][width=.5\textwidth]}
+\placefigure[force][SSM-control]{\quotation{Control} tab in your updated module.}{\externalfigure[image8.png][width=.5\textwidth]}
 
 For the next step, we'll add new UI tab groups for each of our buttons: \quotation{Form} and \quotation{Diary} that we linked to in \in{Codeblock}[codeFormDiary].
 
@@ -237,7 +239,7 @@ The \quotation{Timestamp} and \quotation{Created By} values are not actually fie
 
 There's actually not a lot more we can do until we've generated our necessary files. Then, we'll take {\tt ui_logic.bsh} and make a few alterations that make use of these tags.
 
-\placefigure[force][autofill]{"Timestamp" and \quotation{Created by} are automatically filled in by FAIMS.}{
+\placefigure[force][autofill]{\quotation{Timestamp} and \quotation{Created by} are automatically filled in by FAIMS.}{
 \startcombination[2*1]
 {\externalfigure[image37.png][width=.5\textwidth]}{}
 {\externalfigure[image1.png][width=.5\textwidth]}{}

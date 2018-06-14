@@ -57,8 +57,6 @@ Once VirtualBox is installed, you can start the program. The default screen shou
 
 If you need to take a break, this is a good stopping point\footnote{Time for coffee! It's {\em always} time for coffee.}!
 
-% TODO Fixurl
-
 If you're ready to move on, download the FAIMS VM image (2.5GB) from: \useURL[url4][FAIMS' Google Drive][][{\tt\tfx\hyphenatedurl{https://drive.google.com/open?id=1AklT0trudE3wKl56w0LEWL5o1MIsQ3Xg}}]\from[url4]
 
 The server image is packaged as an {\tt .ova} file, which is a type of file that can be opened by VirtualBox. This file is the complete package: it represents an Ubuntu Linux 16.04 computer system that has the FAIMS server set to automatically configure and run. If you would like a server prepared for you, contact {\tt support@fedarch.org}.
@@ -99,13 +97,13 @@ Back on the main screen, click on the \quotation{Network} section.
 
 \placefigure[force][click-network]{Scroll on the right hand panel and click "Network".}{\externalfigure[image30.png][width=.5\textwidth]}
 
-In the popup window that appears, check the \quotation{Enable Network Adapter} box on the \quotation{Adapter 1} tab, and select \quotation{Bridged Adapter} from the "Attached to:" menu.
+In the popup window that appears, check the \quotation{Enable Network Adapter} box on the \quotation{Adapter 1} tab, and select \quotation{Bridged Adapter} from the \quotation{Attached to:} menu.
 
 \placefigure[force][network-config]{You may choose your machine's wifi adapter but, if you run into any issues, try using your hardline connection instead.}{\externalfigure[image35.png][width=.5\textwidth]}
 
 Click the \quotation{Start} button on the VirtualBox program. VirtualBox will pop up a new window in which your emulated machine will run. Give VirtualBox a few minutes to start your new emulated Ubuntu machine, and a few minutes longer for Ubuntu to start the FAIMS server. When they've finished, you will see the following message about the server having been set up (\in{Figure}[VM-screen]).
 
-\placefigure[force][VM-screen]{Click "start" and wait for this screen.}{\externalfigure[image4.png][width=.5\textwidth]}
+\placefigure[force][VM-screen]{Click \quotation{start} and wait for this screen.}{\externalfigure[image4.png][width=.5\textwidth]}
 
 If you like, you can skip ahead a little and, back on your real machine, you can open the FAIMS server by navigating to 192.168.1.121, or whatever address is listed by your FAIMS status page in your web browser (check your messages for the specific IP address on your machine). {\bf Note:} The default FAIMS account is {\tt faimsadmin@intersect.org.au}, password {\tt Pass.123}.
 
